@@ -1,16 +1,17 @@
 h1 {
   font-size: 30;
-  color: #5a5b62;
+  color: #44535e;
 }
 p {
   font-size: 18px;
-  color: #101118;
+  color: #000000;
 }
 body {
-  background-color: #ebecf0;
+  background-color: #FFFFF0;
 }
 nav {
+  font-size: 25;
   display: inline;
-  color: #787fa0;
+  color: #44535e;
   border: #787fa0;
 }
