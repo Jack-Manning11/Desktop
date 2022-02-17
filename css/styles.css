@@ -16,8 +16,8 @@ body {
 }
 nav {
   font-size: 25;
-
+  font-family: Cabin;
   display: inline;
-  color: #44535e;
-  border: #787fa0;
+  color: #4682B4;
+  border: solid #44535E;
 }
