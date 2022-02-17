@@ -2,11 +2,15 @@ h1 {
   font-size: 30;
   color: #5a5b62;
 }
-
 p {
   font-size: 18px;
   color: #101118;
 }
 body {
   background-color: #ebecf0;
+}
+nav {
+  display: inline;
+  color: #787fa0;
+  border: #787fa0;
 }
