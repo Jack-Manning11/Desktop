@@ -1,16 +1,22 @@
 h1 {
-  font-size: 30;
+  font-size: 50;
   color: #44535e;
+  font-family: Montserrat;
 }
 p {
   font-size: 18px;
   color: #000000;
+  font-family: Cabin;
+}
+img {
+  display: inline;
 }
 body {
   background-color: #FFFFF0;
 }
 nav {
   font-size: 25;
+
   display: inline;
   color: #44535e;
   border: #787fa0;
