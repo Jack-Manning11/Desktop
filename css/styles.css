@@ -1,8 +1,12 @@
-h1{
-  color: red;
+h1 {
+  font-size: 30;
+  color: #5a5b62;
 }
 
-p{
-  font-size: 80px;
-  color: red;
+p {
+  font-size: 18px;
+  color: #101118;
+}
+body {
+  background-color: #ebecf0;
 }
