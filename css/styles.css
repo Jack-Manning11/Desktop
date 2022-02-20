@@ -12,12 +12,17 @@ img {
   display: inline;
 }
 body {
+  margin: 0;
   background-color: #FFFFF0;
 }
 
 .container {
   width: 80%;
   margin: 0 auto;
+}
+
+h1 {
+  float: left;
 }
 
 header {
@@ -31,5 +36,5 @@ header::after {
 }
 
 nav {
-  float:right;
+  float: right;
 }
