@@ -38,15 +38,18 @@ a{
   font-family: Cabin;
 }
 a:hover{
-  color: #CC5500;
+  color: #D9EBE9;
   transition: 0.5s;
+}
+a:visited{
+  color: #CC5500;
 }
 body {
   background-color: #FFFFF0;
 }
 img {
   float: right;
-  width: 50px;
+  width: auto;
 }
 .paragraph {
   float: left;
