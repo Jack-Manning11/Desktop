@@ -15,11 +15,20 @@ body {
   background-color: #FFFFF0;
 }
 
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
 header {
   background: #4682b4;
 }
 
-
+header::after {
+  content: '';
+  display: table;
+  clear:both;
+}
 
 nav {
   float:right;
