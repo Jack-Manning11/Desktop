@@ -18,7 +18,7 @@ h1 {
   margin-left: 2%;
   margin-top: 10px;
   font-family: Montserrat;
-  color: #44535E;
+  color: #000000;
 }
 ul {
   width: auto;
@@ -32,6 +32,7 @@ li {
 }
 a{
   text-align: center;
+  background-color: #D9EBE9;
   color: #ffffff;
   text-decoration: none;
   font-family: Cabin;
@@ -39,4 +40,7 @@ a{
 a:hover{
   color: #CC5500;
   transition: 0.5s;
+}
+body {
+  background-color: #FFFFF0;
 }
