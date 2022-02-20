@@ -29,6 +29,7 @@ ul {
 li {
   display: inline-block;
   padding: 15px 30px;
+  font-size: 20pt;
 }
 a{
   text-align: center;
@@ -47,6 +48,8 @@ img {
   float: right;
   width: 50px;
 }
-.paragraph1 {
+.paragraph {
   float: left;
+  text-align: left;
+  font-size: 18pt;
 }
