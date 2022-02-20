@@ -57,3 +57,7 @@ img {
   text-align: left;
   font-size: 18pt;
 }
+hr {
+  border: 2px;
+  border-color: #CC5500;
+}
