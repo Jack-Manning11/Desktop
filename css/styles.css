@@ -32,8 +32,7 @@ li {
 }
 a{
   text-align: center;
-  background-color: #D9EBE9;
-  color: #ffffff;
+  color: #000000;
   text-decoration: none;
   font-family: Cabin;
 }
@@ -43,4 +42,8 @@ a:hover{
 }
 body {
   background-color: #FFFFF0;
+}
+img {
+  float: right;
+  width: 200;
 }
