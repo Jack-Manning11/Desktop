@@ -45,5 +45,8 @@ body {
 }
 img {
   float: right;
-  width: 200px;
+  width: 50px;
+}
+.paragraph1 {
+  float: left;
 }
