@@ -1,3 +1,9 @@
+h1 {
+  font-size: 50;
+  color: #44535e;
+  font-family: Montserrat;
+}
+
 body {
   margin: 0;
   background-color: #FFFFF0;
