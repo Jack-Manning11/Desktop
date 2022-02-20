@@ -19,7 +19,7 @@ h1 {
   margin-top: 10px;
   font-family: Montserrat;
   color: #000000;
-  font-size: 50pt;
+  font-size: 30pt;
 }
 ul {
   width: auto;
@@ -50,7 +50,7 @@ body {
 }
 img {
   float: right;
-  width: 100px;
+  width: 200px;
 }
 .paragraph {
   float: left;
@@ -58,6 +58,7 @@ img {
   font-size: 18pt;
 }
 hr {
-  border: 2px;
+  border-width: thin;
   border-color: #CC5500;
+  border-style: solid;
 }
