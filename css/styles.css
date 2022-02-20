@@ -49,7 +49,7 @@ body {
 }
 img {
   float: right;
-  width: auto;
+  width: 100px;
 }
 .paragraph {
   float: left;
