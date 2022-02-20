@@ -32,7 +32,7 @@ header {
 header::after {
   content: '';
   display: table;
-  clear:both;
+  clear: both;
 }
 
 nav {
