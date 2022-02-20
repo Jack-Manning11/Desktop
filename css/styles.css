@@ -14,17 +14,13 @@ img {
 body {
   background-color: #FFFFF0;
 }
+
+header {
+  background: #4682b4;
+}
+
+
+
 nav {
-  font-size: 25;
-  font-family: Cabin;
-  display: inline;
-  color: #4682B4;
-  border: solid #44535E;
-  background-color: 
-}
-nav:visited {
-  color: #D9EBE9;
-}
-nav:hover {
-  color: #FFFFF0;
+  float:right;
 }
