@@ -49,11 +49,12 @@ body {
   background-color: #FFFFF0;
 }
 img {
-  float: right;
+  display: inline-block;
+  vertical-align: top;
   width: 200px;
 }
 .paragraph {
-  float: left;
+  display: inline-block;
   text-align: left;
   font-size: 18pt;
   padding: 5px;
