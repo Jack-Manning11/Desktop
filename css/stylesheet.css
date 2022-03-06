@@ -1,0 +1,16 @@
+body, html
+{
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+.wrapper
+{
+  display: grid;
+}
+body
+{
+  background-image: url("../img/beach_photo.JPG");
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
