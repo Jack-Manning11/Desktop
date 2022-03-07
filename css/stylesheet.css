@@ -100,30 +100,16 @@ hr {
   border-width: medium;
   border-style: solid;
 }
-.row-2 .col-1 {
-  flex-basis: 50%;
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-.row-2 .col-2 {
-  flex-basis: 50%;
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-.col-1 .couple-pic {
-  width: 50%;
-}
 @media only screen and (max-width:700px)
 {
   nav ul {
     width: 100%;
     position: absolute;
     background-color: #90B7CF;
-    top: 85px;
+    top: 83px;
     right: 0;
     z-index: 2;
+    padding: 10px;
   }
   nav ul li {
     display: block;
@@ -143,5 +129,31 @@ hr {
     display: block;
     overflow: visible;
   }
-
+  #menuList {
+    overflow: hidden;
+    transition: 0.5s;
+  }
+  .row-1 {
+    flex-direction: column;
+    margin: 50px 0;
+  }
+  .col-1 {
+    flex-basis: 100%;
+    margin-bottom: 50px;
+  }
+  .col-1 h2 {
+    font-size: 50px;
+  }
+  .col-1 h3 {
+    font-size: 35px;
+  }
+  .col-1 p {
+    font-size: 20px;
+  }
+  .col-2 {
+    flex-basis: 100%;
+  }
+  .col-2 .personal-pic {
+    width: 100%;
+  }
 }
