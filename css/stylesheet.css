@@ -6,23 +6,142 @@
 .container {
   width: 100%;
   min-height: 100vh;
-  padding-left: 8%;
-  padding-right: 8%;
   box-sizing: border-box;
   overflow: hidden;
+  background-color: #FFFFF0;
 }
 .navbar {
   width: 100%;
   display: flex;
   align-items: center;
+  background-color: #90B7CF;
 }
 .logo {
-  font-family: Montserrat;
-  font-size: 45px;
+  width: 250px;
+  padding-left: 5%;
   cursor: pointer;
   margin: 30px 0;
+}
+.logo2 {
+  width: 100px;
+  padding-left: 5%;
+  cursor: pointer;
+  margin: 30px 0;
+  display: none;
 }
 .menu-icon {
   width: 30px;
   cursor: pointer;
+  padding-right: 5%;
+  display: none;
+}
+nav {
+  flex: 1;
+  text-align: right;
+  background-color: #90B7CF;
+}
+nav ul li {
+  list-style: none;
+  display: inline-block;
+  margin-right: 30px;
+}
+nav ul li a{
+  text-decoration: none;
+  color: #44535E;
+  font-size: 20px;
+}
+nav ul li a:hover {
+  color: #FFFFF0;
+}
+.row-1 {
+  padding-left: 5%;
+  padding-right: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 100px 0;
+}
+.row-2 {
+  padding-left: 5%;
+  padding-right: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 100px 0;
+}
+.row-1 .col-1 {
+  flex-basis: 40%;
+  position: relative;
+  margin-left: 50px;
+}
+.col-1 h2 {
+  font-size: 65px;
+}
+.col-1 h3 {
+  font-size: 45px;
+  font-weight: 100;
+  margin: 20px;
+}
+.col-1 p {
+  font-size: 25px;
+  font-weight: 100;
+}
+.row-1 .col-2 {
+  flex-basis: 60%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.col-2 .personal-pic {
+  width: 75%;
+}
+hr {
+  border-color: #CC5500;
+  border-width: medium;
+  border-style: solid;
+}
+.row-2 .col-1 {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.row-2 .col-2 {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.col-1 .couple-pic {
+  width: 50%;
+}
+@media only screen and (max-width:700px)
+{
+  nav ul {
+    width: 100%;
+    position: absolute;
+    background-color: #90B7CF;
+    top: 85px;
+    right: 0;
+    z-index: 2;
+  }
+  nav ul li {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  nav ul li a {
+    color: #44535E;
+  }
+  .menu-icon {
+    display: block;
+  }
+  .logo {
+    display: none;
+  }
+  .logo2 {
+    display: block;
+    overflow: visible;
+  }
+
 }
