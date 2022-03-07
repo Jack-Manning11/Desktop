@@ -1,16 +1,28 @@
-body, html
-{
-  padding: 0;
+* {
   margin: 0;
-  height: 100%;
+  padding: 0;
+  font-family: sans-serif;
 }
-.wrapper
-{
-  display: grid;
+.container {
+  width: 100%;
+  min-height: 100vh;
+  padding-left: 8%;
+  padding-right: 8%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
-body
-{
-  background-image: url("../img/beach_photo.JPG");
-  background-size: auto 100%;
-  background-repeat: no-repeat;
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.logo {
+  font-family: Montserrat;
+  font-size: 45px;
+  cursor: pointer;
+  margin: 30px 0;
+}
+.menu-icon {
+  width: 30px;
+  cursor: pointer;
 }
