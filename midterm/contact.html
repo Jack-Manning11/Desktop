@@ -33,22 +33,6 @@
         </form>
       </div>
     </div>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script>
-      function sendEmail(){
-        Email.send({
-          Host : "smtp.gmail.com",
-          Username : "jackmanuelmanning@gmail.com",
-          Password : "Monkeybro11!",
-          To : 'jama0209@colorado.edu',
-          From : document.getElementById("email").value,
-          Subject : "New contact form",
-          Body : "And this is the body"
-        }).then(
-          message => alert(message)
-        );
-      }
-    </script>
     <script>
       var menuList = document.getElementById("menuList");
       menuList.style.maxHeight = "0px";
