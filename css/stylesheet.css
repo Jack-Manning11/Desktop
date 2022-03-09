@@ -286,6 +286,7 @@ form button {
     overflow: visible;
   }
   #menuList {
+    margin: 0;
     overflow: hidden;
     transition: 0.5s;
   }
