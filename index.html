@@ -3,27 +3,51 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jack Manning</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/stylesheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Lato:wght@300&family=Montserrat&display=swap" rel="stylesheet">
+    <title>Home Page</title>
   </head>
-  <body class="container">
-    <header>
-      <h1>Jack Manning</h1>
-      <nav class="navigation">
-        <ul class="list">
-          <li class="navigation"><a href="https://jack-manning11.github.io/index">Home</a></li>
-          <li class="navigation"><a href="https://jack-manning11.github.io/assignments/assignment-1">Assignment 1</a></li>
-          <li class="navigation"><a href="https://jack-manning11.github.io/assignments/assignment3">Assignment 3</a></li>
-          <li class="navigation"><a href="https://jack-manning11.github.io/assignments/assignment4">Assignment 4</a></li>
-          <li class="navigation"><a href="https://jack-manning11.github.io/assignments/assignment5">Assignment 5</a></li>
-        </ul>
-      </nav>
-    </header>
-    <p class="paragraph col-5">My name is Jack Manning and I am a third year Creative Technology and Design major at CU Boulder! I'm originally from the east coast but loving living out here, surrounded by the beautiful mountains. My background is mostly in coding, but I'm excited to branch out into the design space and make this website a work of art!</p>
-    <img class="pic col-4" src= "img/Personal_Photo.jpg" alt = "Personal photo of Jack Manning">
-    <br>
-    <hr class="col-12">
-    <p class="paragraph">There isn't much content yet but check back soon! I'll be adding in other projects and related content as I learn the skills to implement them.</p>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <img src="img/logo-full.png" class="logo">
+        <img src="img/logo-short.png" class="logo2">
+        <nav>
+          <ul id="menuList">
+            <li><a href="https://jack-manning11.github.io/midterm/home">Home</a></li>
+            <li><a href="https://jack-manning11.github.io/midterm/about">About</a></li>
+            <li><a href="https://jack-manning11.github.io/midterm/projects">Projects</a></li>
+            <li><a href="https://jack-manning11.github.io/midterm/contact">Contact</a></li>
+          </ul>
+        </nav>
+        <img src="img/menu-icon.PNG" class="menu-icon" onclick="togglemenu()">
+      </div>
+      <div class="row">
+        <div class="col-1">
+          <h2>hello, world</h2>
+          <h3>i'm jack</h3>
+          <p>Designer &#8226; Coder &#8226; Student</p>
+        </div>
+        <div class="col-2">
+          <img src="img/Personal_Photo.jpg" alt="Photo of Jack Manning on a local mountain" class="personal-pic">
+        </div>
+
+      </div>
+
+    </div>
+    <script>
+      var menuList = document.getElementById("menuList");
+      menuList.style.maxHeight = "0px";
+      function togglemenu(){
+        if(menuList.style.maxHeight == "0px")
+        {
+          menuList.style.maxHeight = "130px";
+        }
+        else
+        {
+          menuList.style.maxHeight = "0px";
+        }
+      }
+    </script>
   </body>
 </html>
