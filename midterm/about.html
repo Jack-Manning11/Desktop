@@ -13,15 +13,58 @@
         <img src="../img/logo-full.png" class="logo">
         <img src="../img/logo-short.png" class="logo2">
         <nav>
-          <ul>
+          <ul id="menuList">
             <li><a href="https://jack-manning11.github.io/midterm/home">Home</a></li>
             <li><a href="https://jack-manning11.github.io/midterm/about">About</a></li>
             <li><a href="https://jack-manning11.github.io/midterm/projects">Projects</a></li>
             <li><a href="https://jack-manning11.github.io/midterm/contact">Contact</a></li>
           </ul>
         </nav>
-        <img src="../img/menu-icon.PNG" class="menu-icon">
+        <img src="../img/menu-icon.png" class="menu-icon" onclick="togglemenu()">
+      </div>
+      <div class="row-1">
+        <div class="col-1">
+          <h2 id="mobileTitle">Who are you?</h2>
+          <p id="mobileParagraph">Good question! I am a Creative Technology and Design student in his 3rd year of school at CU Boulder. I am working towards improving my front-end development in the hopes of being something close to a full stack developer.</p>
+        </div>
+        <div class="col-2">
+          <img src="../img/tree-photo.jpg" alt="silly pic in a tree" class="about-pic">
+        </div>
+      </div>
+      <hr>
+      <div class="row-1">
+        <div class="col-2">
+          <img src="../img/family-pic.jpg" alt="picture of the fam" class="about-pic">
+        </div>
+        <div class="col-1">
+          <h2 id="mobileTitle" class="r">Where are you from?</h2>
+          <p id="mobileParagraph" class="r">Great follow up! I'm originally from the east coast, right outside of the Boston area. I've been out in Colorado for a couple of years now and loving it, at the moment planning on staying in the Boulder area post-grad.</p>
+        </div>
+      </div>
+      <hr>
+      <div class="row-1">
+        <div class="col-1">
+          <h2 id="mobileTitle">Anything else?</h2>
+          <p id="mobileParagraph">Yeah! I'm a huge nerd and love all things Star Wars, Marvel, and Magic the Gathering. I like to play videogames as well as the ukulele, and I have two dogs, a black lab rescue named Chicka and a golden retriever, Bourbon.</p>
+        </div>
+        <div class="col-2">
+          <img src="../img/doggies.jpg" alt="pic of the pooches" class="about-pic">
+        </div>
       </div>
     </div>
+    <script>
+      var menuList = document.getElementById("menuList");
+      menuList.style.maxHeight = "0px";
+      function togglemenu(){
+        if(menuList.style.maxHeight == "0px")
+        {
+          menuList.style.maxHeight = "130px";
+        }
+        else
+        {
+          menuList.style.maxHeight = "0px";
+        }
+      }
+    </script>
   </body>
 </html>

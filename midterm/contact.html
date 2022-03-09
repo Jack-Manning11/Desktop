@@ -10,17 +10,58 @@
   <body>
     <div class="container">
       <div class="navbar">
-        <h1 class="logo">Jack Manning</h1>
+        <img src="../img/logo-full.png" class="logo">
+        <img src="../img/logo-short.png" class="logo2">
         <nav>
-          <ul>
+          <ul id="menuList">
             <li><a href="https://jack-manning11.github.io/midterm/home">Home</a></li>
             <li><a href="https://jack-manning11.github.io/midterm/about">About</a></li>
             <li><a href="https://jack-manning11.github.io/midterm/projects">Projects</a></li>
             <li><a href="https://jack-manning11.github.io/midterm/contact">Contact</a></li>
           </ul>
         </nav>
-        <img src="../img/menu-icon.PNG" class="menu-icon">
-      </div>c
+        <img src="../img/menu-icon.PNG" class="menu-icon" onclick="togglemenu()">
+      </div>
+      <div class="wrapper">
+        <form onsubmit="sendEmail(); reset(); return false;">
+          <h2>Get in touch!</h2>
+          <input type="text" id="name" placeholder="Your Name" required>
+          <input type="email" id="email" placeholder="Email" required>
+          <input type="text" id="phone" placeholder="Phone Number" required>
+          <textarea id="message" rows="5" placeholder="What's up?"></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+      function sendEmail(){
+        Email.send({
+          Host : "smtp.gmail.com",
+          Username : "jackmanuelmanning@gmail.com",
+          Password : "Monkeybro11!",
+          To : 'jama0209@colorado.edu',
+          From : document.getElementById("email").value,
+          Subject : "New contact form",
+          Body : "And this is the body"
+        }).then(
+          message => alert(message)
+        );
+      }
+    </script>
+    <script>
+      var menuList = document.getElementById("menuList");
+      menuList.style.maxHeight = "0px";
+      function togglemenu(){
+        if(menuList.style.maxHeight == "0px")
+        {
+          menuList.style.maxHeight = "130px";
+        }
+        else
+        {
+          menuList.style.maxHeight = "0px";
+        }
+      }
+    </script>
   </body>
 </html>
