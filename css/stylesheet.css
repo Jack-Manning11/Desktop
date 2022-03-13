@@ -327,10 +327,10 @@ form button {
     grid-template-columns: 25px auto 25px;
   }
   .title h2 {
-    font-size: 50px;
+    font-size: 40px;
   }
   .title p {
-    font-size: 16px;
+    font-size: 15px;
   }
   .galleryPic {
     width: 100%;
