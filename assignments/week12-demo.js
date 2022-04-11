@@ -1,6 +1,6 @@
 const quoteButton = document.getElementById('js-new-quote');
 quoteButton.addEventListener('click', getQuote);
-const endPoint = 'http://quotes.stormconsultancy.co.uk/random.json';
+const endPoint = 'https://www.boredapi.com/api/activity';
 
 async function getQuote(){
   try{
@@ -10,8 +10,8 @@ async function getQuote(){
     }
     const json = await response.json();
     console.log(json);
-    displayQuote(json.quote);
-    displayAuthor(json.author);
+    displayQuote(json.activity);
+    displayAuthor(json.type);
   }catch(err) {
     console.log(err);
     alert('failed');
