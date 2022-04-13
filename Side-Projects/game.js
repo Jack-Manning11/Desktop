@@ -5,6 +5,7 @@ var ghost = false;
 var canvas = document.createElement("canvas");
 var context = canvas.getContext("2d");
 var keyClick = {};
+
 document.addEventListener("keydown", function (event) {
   keyClick[event.keyCode]=true;
   move(keyClick);
@@ -13,8 +14,8 @@ document.addEventListener("keyup", function (event) {
   delete keyClick[event.keyCode];
 }, false);
 
-canvas.height = 400;
-canvas.width = 600;
+canvas.height = 500;
+canvas.width = 500;
 document.body.appendChild(canvas);
 
 characterImage = new Image();
@@ -28,7 +29,7 @@ var player = {
   form: 320,
   dir: 0,
   size: 32,
-  speed: 5
+  speed: 10
 }
 
 var enemy = {
@@ -43,7 +44,9 @@ var enemy = {
 var powerUp = {
   x: 10,
   y: 10,
-  powered: false
+  powered: false,
+  pCountDown: 0,
+  ghostNum:0
 }
 
 function checkReady() {
@@ -162,8 +165,23 @@ function render() {
     enemy.y=canvas.height-32;
   }
 
+  //Collision detection
+  if(player.x <= powerUp.x && powerUp.x <= (player.x+32) && player.y <= powerUp.y && powerUp.y <= (player.y+32)){
+    powerUp.powered = false;
+    powerUp.pCountDown = 500;
+    powerUp.ghostNum = enemy.ghostNum;
+    enemy.ghostNum = 384;
+    powerUp.x = 0;
+    powerUp.y = 0;
+  }
+
+
   if(powerUp.powered) {
     context.fillStyle = "red";
+    context.beginPath();
+    context.arc(powerUp.x, powerUp.y, 5, 0, Math.PI * 2, true);
+    context.closePath();
+    context.fill();
   }
 
   context.font = "20px Verdana";

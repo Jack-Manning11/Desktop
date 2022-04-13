@@ -114,13 +114,15 @@ nav ul li a:hover {
 .col-1 h3 {
   font-size: 45px;
   font-weight: 100;
-  margin: 20px;
+  margin: 10px;
+  position: relative;
+  padding-left: 30%;
 }
 .col-1 p {
   font-family: Lato;
   font-size: 25px;
   font-weight: 100;
-  padding-right: 5%;
+  padding-left: 8%;
 }
 .col-2 p {
   font-size: 25px;
