@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #B2D9DA;
+}
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 650px;
+  background-color: #6DA0A3;
+}

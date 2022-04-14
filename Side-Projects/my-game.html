@@ -2,10 +2,24 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="my-game.css">
     <title>fighting game</title>
   </head>
   <body>
-    <canvas></canvas>
+    <div class="wrapper">
+      <div class="healthBars">
+        <div class="playerHealth">
+          <div class="playerBackgroundHealth"></div>
+          <div class="playerActiveHealth" id="playerHealth"></div>
+        </div>
+        <div class="timer"></div>
+        <div class="enemyHealth">
+          <div class="enemyBackgroundHealth"></div>
+          <div class="enemyActiveHealth" id="enemyHealth"></div>
+        </div>
+      </div>
+      <canvas></canvas>
+    </div>
     <script src="my-game.js"></script>
   </body>
 </html>

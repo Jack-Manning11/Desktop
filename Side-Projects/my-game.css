@@ -1,0 +1,44 @@
+* {
+  /* This ensures that padding will not be factored into the calculation of spacing */
+  box-sizing: border-box;
+}
+.wrapper {
+  position: relative;
+  display: inline-block;
+}
+.healthBars {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 20px;
+}
+.playerHealth {
+  background-color: yellow;
+  height: 30px;
+  width: 100%;
+}
+.timer {
+  background-color: red;
+  height: 100px;
+  width: 100px;
+  flex-shrink: 0;
+}
+.enemyHealth {
+  position: relative;
+  height: 30px;
+  width: 100%;
+}
+.enemyBackgroundHealth {
+  background-color: yellow;
+  height: 30px;
+}
+.enemyActiveHealth {
+  background-color: blue;
+  position: absolute;
+  /* ensures that the background to the health bar takes up the full size of the parent div */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
