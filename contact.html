@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/stylesheet.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Montserrat&display=swap" rel="stylesheet">
     <title>Contact | Jack Manning</title>
+    <script src="https://kit.fontawesome.com/9ec0b1b260.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="container">
@@ -22,15 +23,12 @@
         </nav>
         <img src="img/menu-icon.png" class="menu-icon" onclick="togglemenu()" alt="menu icon">
       </div>
-      <div class="wrapper">
-        <form onsubmit="sendEmail(); reset(); return false;">
-          <h2>Get in touch!</h2>
-          <input type="text" id="name" placeholder="Your Name" required>
-          <input type="email" id="email" placeholder="Email" required>
-          <input type="text" id="phone" placeholder="Phone Number" required>
-          <textarea id="message" rows="5" placeholder="What's up?"></textarea>
-          <button type="submit">Submit</button>
-        </form>
+      <div class="socials">
+        <ul>
+          <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
+        </ul>
       </div>
     </div>
     <script>

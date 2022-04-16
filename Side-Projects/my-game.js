@@ -10,66 +10,25 @@ const gravity = 0.7;
 
 c.fillRect(0,0,canvas.width,canvas.height);
 
-//OOP for sprites including player and enemy
-class Sprite {
-  //Constructing the sprite, the brackets below wrapping my arguments are there to pass them through as an object,
-  //preventing all arguments from being required, and letting me pass through only what I need
-  constructor({position, velocity,color = 'red', offset}){
-    this.position = position;
-    this.velocity = velocity;
-    this.width = 50;
-    this.height = 150;
-    this.lastKey;
-    this.health = 100;
-    this.attackBox = {
-      //needs to be made an object to handle facing different directions
-      position: {
-        x:this.position.x,
-        y:this.position.y
-      },
-      offset,
-      width: 100,
-      height: 50
-    }
-    this.color = color;
-    this.isAttacking;
-  }
-  draw(){
-    c.fillStyle = this.color;
-    c.fillRect(this.position.x,this.position.y,this.width,this.height);
+const background = new Sprite({
+  position: {
+    x:0,
+    y:0
+  },
+  imageSrc:'./assets/background.png'
+});
 
-    //attackBox draw
-    if(this.isAttacking){
-      c.fillStyle = 'green';
-      c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height);
-    }
-  }
-  update(){
-    this.draw();
-    //reupdate position in order to continue the attackBox tracking
-    this.attackBox.position.x = this.position.x + this.attackBox.offset.x;
-    this.attackBox.position.y = this.position.y;
-    this.position.x += this.velocity.x;
-    this.position.y += this.velocity.y;
-
-    if(this.position.y + this.height + this.velocity.y >= canvas.height) {
-      this.velocity.y = 0;
-    }
-    else {
-      this.velocity.y += gravity;
-    }
-  }
-
-  attack(){
-    this.isAttacking = true;
-    setTimeout(() => {
-      this.isAttacking = false;
-    },100)
-  }
-}
+const shop = new Sprite({
+  position: {
+    x:650,
+    y:160
+  },
+  imageSrc:'./assets/shop.png',
+  scale: 2.5
+});
 
 //player creation
-const player = new Sprite({
+const player = new Fighter({
   position:{
     x:0,
     y:0
@@ -85,7 +44,7 @@ const player = new Sprite({
 });
 
 //enemy creation
-const enemy = new Sprite({
+const enemy = new Fighter({
   position:{
     x:400,
     y:100
@@ -115,25 +74,19 @@ const keys = {
     pressed: false
   }
 }
-
-function rectangularCollision({rectangle1, rectangle2}) {
-  return (
-    rectangle1.attackBox.position.x + rectangle1.attackBox.width >= rectangle2.position.x &&
-    rectangle1.attackBox.position.x <= rectangle2.position.x + rectangle2.width &&
-    rectangle1.attackBox.position.y + rectangle1.attackBox.height >= rectangle2.position.y &&
-    rectangle1.attackBox.position.y <= rectangle2.position.y + rectangle2.height
-  )
-}
+decreaseTimer();
 
 function animate(){
   window.requestAnimationFrame(animate);
   c.fillStyle = 'black';
   c.fillRect(0,0,canvas.width,canvas.height);
+  background.update();
+  shop.update();
   player.update();
   enemy.update();
 
 
-//player movement
+  //player movement
   player.velocity.x = 0;
   if(keys.a.pressed && player.lastKey === 'a') {
     player.velocity.x = -5;
@@ -142,7 +95,7 @@ function animate(){
     player.velocity.x = 5;
   }
 
-//enemy movement
+  //enemy movement
   enemy.velocity.x = 0;
   if(keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
     enemy.velocity.x = -5;
@@ -165,7 +118,13 @@ function animate(){
     rectangle2: player
   })&& enemy.isAttacking){
     enemy.isAttacking = false;
-    console.log('enemy hit');
+    player.health -= 20;
+    document.querySelector('#playerHealth').style.width = player.health + '%';
+  }
+
+  //end game based on health
+  if(enemy.health <= 0 || player.health <=0){
+    determineWinner({player, enemy, timerId});
   }
 }
 
@@ -182,7 +141,10 @@ window.addEventListener('keydown',(event) => {
     player.lastKey = 'a';
     break;
     case 'w':
-    player.velocity.y = -20;
+    if(player.doubleJump < 2){
+      player.velocity.y = -20;
+      player.doubleJump++;
+    }
     break;
     case ' ':
     player.attack();
@@ -196,7 +158,10 @@ window.addEventListener('keydown',(event) => {
     enemy.lastKey = 'ArrowLeft';
     break;
     case 'ArrowUp':
-    enemy.velocity.y = -20;
+    if(enemy.doubleJump < 2){
+      enemy.velocity.y = -20;
+      enemy.doubleJump++;
+    }
     break;
     case 'ArrowDown':
     enemy.attack();

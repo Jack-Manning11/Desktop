@@ -206,41 +206,42 @@ hr {
   align-items: center;
   justify-content: center;
 }
-form {
-  background-color: #D9EBE9;
+.socials ul {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 0;
+  margin: 0;
+  transform: translate(-50%, -50%);
   display: flex;
-  flex-direction: column;
-  padding: 2vw 4vw;
-  width: 90%;
-  max-width: 600px;
-  border-radius: 10px;
+
 }
-form h2 {
-  font-size: 40px;
-  margin-bottom: 15px;
+.socials ul li {
+  list-style: none;
+  margin: 0 50px;
 }
-form input, form textarea {
-  border: 0;
-  margin: 10px 0;
-  padding: 20px;
-  outline: none;
-  background-color: #44535E;
-  resize: none;
+.socials ul li .fa-brands {
+  font-size: 30px;
+  line-height: 60px;
+  transition: .6s;
+  color: #44535E;
 }
-::placeholder {
+.socials ul li .fa-brands:hover {
   color: #FFFFF0;
 }
-form button {
-  padding: 15px;
-  background-color: #CC5500;
-  color: #FFFFF0;
-  font-size: 18px;
-  cursor: pointer;
-  border: 0;
-  outline: none;
-  width: 40%;
-  margin: 20px auto 0;
-  border-radius: 10px;
+.socials ul li a {
+  position: relative;
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 15%;
+  background-color: #90B7CF;
+  text-align: center;
+  transition: .6s;
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.5);
+}
+.socials ul li a:hover {
+  transform: translate(0, -10px);
 }
 #hovering {
   flex-basis: 65%;
@@ -259,6 +260,7 @@ form button {
 #btn:hover {
   color: #FFFFF0;
 }
+
 @media only screen and (max-width:700px)
 {
   nav ul {

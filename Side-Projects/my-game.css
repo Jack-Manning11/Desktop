@@ -14,8 +14,24 @@
   padding: 20px;
 }
 .playerHealth {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  height: 30px;
+  width: 100%;
+}
+.playerBackgroundHealth {
   background-color: yellow;
   height: 30px;
+  width: 100%;
+}
+.playerActiveHealth {
+  background-color: blue;
+  position: absolute;
+  /* ensures that the background to the health bar takes up the full size of the parent div */
+  top: 0;
+  bottom: 0;
+  right: 0;
   width: 100%;
 }
 .timer {
@@ -23,6 +39,9 @@
   height: 100px;
   width: 100px;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .enemyHealth {
   position: relative;
@@ -40,5 +59,16 @@
   top: 0;
   bottom: 0;
   left: 0;
+  right: 0;
+}
+.endingText {
+  position: absolute;
+  color: white;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  bottom: 0;
   right: 0;
 }
