@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/stylesheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Montserrat&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9ec0b1b260.js" crossorigin="anonymous"></script>
+    <title>Letter to Freshman Self | Portfolio</title>
+  </head>
+  <body>
+    <div class="container">
+    <div class="navbar">
+        <img src="../img/logo-full.png" class="logo" alt="Jack Manning">
+        <img src="../img/logo-short.png" class="logo2" alt="JM">
+        <nav>
+          <ul id="menuList">
+            <li><a href="https://jack-manning11.github.io/projects"><i class="fa-solid fa-arrow-left"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="title">
+          <h2>Letter to my Freshman Self</h2>
+          <p>This project was an image book based on framing portraits around the lyrics to a particular song. I chose the song <i>Letter to my Freshman Self </i> by Atlas because of it's very deep lyrics. Since highschool I had always felt a connection with this song and it's one that I've kept close to me as I've moved on to college. All of the photographs were taken by me and I wanted to convey the feelings of the time period I was in, one of COVID and lockdowns, so almost all of the photos are taken within my room.</p>
+      </div>
+      <hr>
+      <div class="mobileGallery">
+        <img class="galleryPic" src="../img/JackManning-Project1-ReframingPortrait (1)1024_1.jpg">
+        <img class="galleryPic" src="../img/JackManning-Project1-ReframingPortrait (1)1024_2.jpg">
+        <img class="galleryPic" src="../img/JackManning-Project1-ReframingPortrait (1)1024_3.jpg">
+        <img class="galleryPic" src="../img/JackManning-Project1-ReframingPortrait (1)1024_4.jpg">
+        <img class="galleryPic" src="../img/JackManning-Project1-ReframingPortrait (1)1024_5.jpg">
+        <img class="galleryPic" src="../img/JackManning-Project1-ReframingPortrait (1)1024_6.jpg">
+        <img class="galleryPic" src="../img/JackManning-Project1-ReframingPortrait (1)1024_7.jpg">
+        <img class="galleryPic" src="../img/JackManning-Project1-ReframingPortrait (1)1024_8.jpg">
+        <img class="galleryPic" src="../img/JackManning-Project1-ReframingPortrait (1)1024_9.jpg">
+        <img class="galleryPic" src="../img/JackManning-Project1-ReframingPortrait (1)1024_10.jpg">
+        <img class="galleryPic" src="../img/JackManning-Project1-ReframingPortrait (1)1024_11.jpg">
+        <img class="galleryPic" src="../img/JackManning-Project1-ReframingPortrait (1)1024_12.jpg">
+      </div>
+      <div class="slideshow">
+        <img class="mySlides" src="../img/page-1.jpg">
+        <img class="mySlides" src="../img/page2-3.jpg">
+        <img class="mySlides" src="../img/page4-5.jpg">
+        <img class="mySlides" src="../img/page6-7.jpg">
+        <img class="mySlides" src="../img/page8-9.jpg">
+        <img class="mySlides" src="../img/page10-11.jpg">
+        <img class="mySlides" src="../img/page12-13.jpg">
+      </div>
+      <button class="prev" onclick="plusDivs(-1)">&#10094;</button>
+      <button class="next" onclick="plusDivs(+1)">&#10095;</button>
+      <hr id="bottomLine">
+    </div>
+    <script>
+      var slideIndex = 1;
+      showDivs(slideIndex);
+
+      function plusDivs(n) {
+        showDivs(slideIndex += n);
+      }
+
+      function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length} ;
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        x[slideIndex-1].style.display = "block";
+      }
+      var menuList = document.getElementById("menuList");
+      menuList.style.maxHeight = "0px";
+      function togglemenu(){
+        if(menuList.style.maxHeight == "0px")
+        {
+          menuList.style.maxHeight = "130px";
+        }
+        else
+        {
+          menuList.style.maxHeight = "0px";
+        }
+      }
+    </script>
+  </body>
+</html>
