@@ -80,6 +80,36 @@ nav ul li a:hover {
   font-size: 18px;
   padding-left: 10px;
 }
+.title-1 {
+  margin: 25px;
+}
+.title-1 h2 {
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 65px;
+}
+.title-1 p {
+  text-align: center;
+  font-family: Lato;
+  font-size: 18px;
+  padding-top: 10px;
+}
+.rows {
+  display: flex;
+  width: 100%;
+}
+.div1 {
+  float:left;
+  width: 50%;
+  background-color: red;
+  height: 90vh;
+}
+.div2 {
+  float: right;
+  width: 50%;
+  background-color: blue;
+  height: 90vh;
+}
 .row-1 {
   padding-left: 2%;
   padding-right: 2%;
@@ -92,6 +122,15 @@ nav ul li a:hover {
   flex-basis: 60%;
   position: relative;
   margin-left: 25px;
+}
+.row-1 .cols {
+  flex-basis: 50%;
+  position: relative;
+  justify-content: center;
+}
+.row-1 .cols img {
+  width: 50%;
+  padding-left: 25%;
 }
 .row-1 .col-2 {
   flex-basis: 40%;
@@ -165,6 +204,10 @@ hr {
 #bottomLine {
   margin-bottom: 50px;
 }
+#otherBottomLine {
+  margin-top: 2%;
+  margin-bottom: 50px;
+}
 #pg1 {
   display: block;
 }
@@ -181,7 +224,7 @@ hr {
 .prev, .next {
   cursor: pointer;
   position: absolute;
-  top: 80%;
+  top: 65%;
   width: auto;
   padding: 20px;
   margin-top: 100px;
@@ -193,11 +236,15 @@ hr {
   user-select: none;
   -webkit-user-select: none;
   border-style: solid;
+  border-radius: 15%;
   border: 0;
 }
+.prev {
+  left: 20px;
+}
 .next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+  right: 20px;
+  border-radius: 15%;
 }
 .wrapper {
   width: 100%;
@@ -205,6 +252,37 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.backButton {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+.fa-arrow-left {
+  font-size: 30px;
+  line-height: 60px;
+  color: #44535E;
+  transition: .6s;
+}
+.fa-arrow-left:hover {
+  transform: translate(-10px, 0);
+  color: #CC5500;
+}
+#Isometric-City {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#Logotype {
+  width: 40%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .socials ul {
   position: absolute;
@@ -260,7 +338,23 @@ hr {
 #btn:hover {
   color: #FFFFF0;
 }
-
+.hero-section {
+  width: 100%;
+}
+.image-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 2%;
+}
+.image-holder {
+  width: 30%;
+}
+.image-holder img {
+  width: 100%;
+}
 @media only screen and (max-width:700px)
 {
   nav ul {
@@ -296,7 +390,7 @@ hr {
     transition: 0.5s;
   }
   .row-1 {
-    flex-direction: column-reverse;
+    flex-direction: column;
     margin: 50px 0;
   }
   .row-1 .col-2 {
@@ -362,5 +456,8 @@ hr {
     padding-top: 3%;
     padding-bottom: 3%;
     grid-column-start: 2;
+  }
+  #poster-front {
+    padding-bottom: 5%;
   }
 }
