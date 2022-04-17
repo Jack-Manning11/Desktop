@@ -1,41 +1,74 @@
 class Sprite {
-  constructor({position, imageSrc, scale = 1}){
+  constructor({position, imageSrc, scale = 1, frameNum = 1, offset = {x:0,y:0}}){
     this.position = position;
     this.width = 50;
     this.height = 150;
     this.image = new Image();
     this.image.src = imageSrc;
     this.scale = scale;
+    this.frameNum = frameNum;
+    this.currFrame = 0;
+    this.framesElapsed = 0;
+    //speed of the animation
+    this.framesHold = 5;
+    this.offset = offset;
   }
   draw(){
     c.drawImage(
       this.image,
+      this.currFrame * (this.image.width / this.frameNum),
       0,
-      0,
-      this.image.width / 6, //full width of the image divided by the number of frames
+      this.image.width / this.frameNum,
       this.image.height,
-      this.position.x,
-      this.position.y,
-      (this.image.width / 6) * this.scale,
+      this.position.x - this.offset.x,
+      this.position.y - this.offset.y,
+      (this.image.width / this.frameNum) * this.scale,
       this.image.height * this.scale);
   }
+
+  animateFrame() {
+    this.framesElapsed++;
+    if(this.framesElapsed % this.framesHold === 0) {
+      if(this.currFrame < this.frameNum - 1) {
+        this.currFrame++;
+      }
+      else {
+        this.currFrame = 0;
+      }
+    }
+  }
+
   update(){
     this.draw();
+    this.animateFrame();
   }
 }
 
 //OOP for sprites including player and enemy
-class Fighter {
+class Fighter extends Sprite{
   //Constructing the sprite, the brackets below wrapping my arguments are there to pass them through as an object,
   //preventing all arguments from being required, and letting me pass through only what I need
-  constructor({position, velocity,color = 'red', offset}){
-    this.position = position;
+  constructor({position, velocity,color = 'red', imageSrc, scale = 1, frameNum = 1, offset = {x:0,y:0}, sprites}){
+    //calls parent constructor (Sprite) and sets these values
+    super({
+      position,
+      imageSrc,
+      scale,
+      frameNum,
+      offset
+    });
+    this.currFrame = 0;
+    this.framesElapsed = 0;
+    this.framesHold = 5;
+
     this.velocity = velocity;
     this.width = 50;
     this.height = 150;
     this.lastKey;
     this.doubleJump = 0;
     this.health = 100;
+    this.sprites = sprites;
+
     this.attackBox = {
       //needs to be made an object to handle facing different directions
       position: {
@@ -46,21 +79,17 @@ class Fighter {
       width: 100,
       height: 50
     }
+    for(const sprite in this.sprites) {
+      sprites[sprite].image = new Image();
+      sprites[sprite].image.src = sprites[sprite].imageSrc;
+    }
     this.color = color;
     this.isAttacking;
   }
-  draw(){
-    c.fillStyle = this.color;
-    c.fillRect(this.position.x,this.position.y,this.width,this.height);
-
-    //attackBox draw
-    if(this.isAttacking){
-      c.fillStyle = 'green';
-      c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height);
-    }
-  }
+  
   update(){
     this.draw();
+    this.animateFrame();
     //reupdate position in order to continue the attackBox tracking
     this.attackBox.position.x = this.position.x + this.attackBox.offset.x;
     this.attackBox.position.y = this.position.y;

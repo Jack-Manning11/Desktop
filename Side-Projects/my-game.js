@@ -15,7 +15,7 @@ const background = new Sprite({
     x:0,
     y:0
   },
-  imageSrc:'./assets/background.png'
+  imageSrc:'./assets/forest-background.png'
 });
 
 const shop = new Sprite({
@@ -24,7 +24,8 @@ const shop = new Sprite({
     y:160
   },
   imageSrc:'./assets/shop.png',
-  scale: 2.5
+  scale: 2.5,
+  frameNum: 6
 });
 
 //player creation
@@ -40,6 +41,27 @@ const player = new Fighter({
   offset: {
     x: 0,
     y: 0
+  },
+  imageSrc:'./assets/samuraiMack/Idle.png',
+  frameNum: 8,
+  scale: 2.5,
+  offset: {
+    x: 215,
+    y: 157
+  },
+  sprites : {
+    idle: {
+      imageSrc:'./assets/samuraiMack/Idle.png',
+      frameNum: 8
+    },
+    run: {
+      imageSrc:'./assets/samuraiMack/Run.png',
+      frameNum: 8
+    },
+    runLeft: {
+      imageSrc:'./assets/samuraiMack/run-left.png',
+      frameNum: 8
+    }
   }
 });
 
@@ -83,16 +105,18 @@ function animate(){
   background.update();
   shop.update();
   player.update();
-  enemy.update();
-
+  //enemy.update();
 
   //player movement
+  player.image = player.sprites.idle.image;
   player.velocity.x = 0;
   if(keys.a.pressed && player.lastKey === 'a') {
     player.velocity.x = -5;
+    player.image = player.sprites.runLeft.image;
   }
   else if(keys.d.pressed && player.lastKey === 'd') {
     player.velocity.x = 5;
+    player.image = player.sprites.run.image;
   }
 
   //enemy movement
