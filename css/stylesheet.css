@@ -497,4 +497,10 @@ hr {
   .preview-text h2 {
     font-size: 15px;
   }
+  .fa-arrow-left {
+    z-index: 1;
+    position: absolute;
+    top: 8%;
+    right: 5%;
+  }
 }
