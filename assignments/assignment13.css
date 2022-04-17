@@ -12,3 +12,15 @@ body {
   width: 650px;
   background-color: #6DA0A3;
 }
+.nameBox {
+  padding-left: 5%;
+}
+.radios {
+  padding-left: 5%;
+}
+.btn {
+  padding-left: 5%;
+}
+.story {
+  margin: 15px;
+}
