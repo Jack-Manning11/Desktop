@@ -34,24 +34,24 @@ const player = new Fighter({
     x:0,
     y:0
   },
-  imageSrc:'assets/samuraiJack/Idle.png',
-  frameNum: 8,
+  imageSrc:'assets/knightyAssets/_Idle.png',
+  frameNum: 10,
   scale: 2.5,
   offset: {
-    x: 215,
-    y: 157
+    x: 0,
+    y: 0
   },
   sprites : {
     idle: {
-      imageSrc:'assets/samuraiJack/_Idle.png',
-      frameNum: 8
+      imageSrc:'assets/knightyAssets/_Idle.png',
+      frameNum: 10
     },
     run: {
-      imageSrc:'assets/samuraiJack/Run.png',
-      frameNum: 8
+      imageSrc:'assets/knightyAssets/_Run.png',
+      frameNum: 10
     },
-    jump: {
-      imageSrc:'assets/samuraiJack/Jump.png',
+    leap: {
+      imageSrc:'assets/knightyAssets/_Jump.png',
       frameNum: 2
     }
   }
@@ -113,8 +113,8 @@ function animate(){
     player.switchSprite('idle');
   }
 
-  if (player.velocity.y < 0) {
-    player.switchSprite('jump');
+  if(player.velocity.y < 0) {
+    player.switchSprite('leap');
   }
 
   //enemy movement

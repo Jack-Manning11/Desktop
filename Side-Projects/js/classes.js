@@ -112,6 +112,13 @@ class Fighter extends Sprite{
     },100)}
     switchSprite(sprite) {
       switch (sprite) {
+        case 'leap':
+        if(this.image !== this.sprites.leap.image){
+          this.image = this.sprites.leap.image;
+          this.framesNum = this.sprites.leap.frameNum;
+          this.currFrame = 0;
+        }
+        break;
         case 'idle':
         if(this.image !== this.sprites.idle.image){
           this.image = this.sprites.idle.image;
@@ -123,13 +130,6 @@ class Fighter extends Sprite{
         if(this.image !== this.sprites.run.image){
           this.image = this.sprites.run.image;
           this.framesNum = this.sprites.run.frameNum;
-          this.currFrame = 0;
-        }
-        break;
-        case 'jump':
-        if(this.image !== this.sprites.jump.image){
-          this.image = this.sprites.jump.image;
-          this.framesNum = this.sprites.jump.frameNum;
           this.currFrame = 0;
         }
         break;
