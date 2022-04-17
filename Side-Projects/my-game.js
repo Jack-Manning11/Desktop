@@ -18,15 +18,7 @@ const background = new Sprite({
   imageSrc:'./assets/forest-background.png'
 });
 
-const shop = new Sprite({
-  position: {
-    x:650,
-    y:160
-  },
-  imageSrc:'./assets/shop.png',
-  scale: 2.5,
-  frameNum: 6
-});
+
 
 //player creation
 const player = new Fighter({
@@ -39,10 +31,10 @@ const player = new Fighter({
     y:0
   },
   offset: {
-    x: 0,
-    y: 0
+    x:0,
+    y:0
   },
-  imageSrc:'./assets/samuraiMack/Idle.png',
+  imageSrc:'assets/samuraiJack/Idle.png',
   frameNum: 8,
   scale: 2.5,
   offset: {
@@ -51,16 +43,16 @@ const player = new Fighter({
   },
   sprites : {
     idle: {
-      imageSrc:'./assets/samuraiMack/Idle.png',
+      imageSrc:'assets/samuraiJack/_Idle.png',
       frameNum: 8
     },
     run: {
-      imageSrc:'./assets/samuraiMack/Run.png',
+      imageSrc:'assets/samuraiJack/Run.png',
       frameNum: 8
     },
-    runLeft: {
-      imageSrc:'./assets/samuraiMack/run-left.png',
-      frameNum: 8
+    jump: {
+      imageSrc:'assets/samuraiJack/Jump.png',
+      frameNum: 2
     }
   }
 });
@@ -103,20 +95,26 @@ function animate(){
   c.fillStyle = 'black';
   c.fillRect(0,0,canvas.width,canvas.height);
   background.update();
-  shop.update();
+
   player.update();
   //enemy.update();
 
   //player movement
-  player.image = player.sprites.idle.image;
   player.velocity.x = 0;
   if(keys.a.pressed && player.lastKey === 'a') {
     player.velocity.x = -5;
-    player.image = player.sprites.runLeft.image;
+    player.switchSprite('run');
   }
   else if(keys.d.pressed && player.lastKey === 'd') {
     player.velocity.x = 5;
-    player.image = player.sprites.run.image;
+    player.switchSprite('run');
+  }
+  else {
+    player.switchSprite('idle');
+  }
+
+  if (player.velocity.y < 0) {
+    player.switchSprite('jump');
   }
 
   //enemy movement

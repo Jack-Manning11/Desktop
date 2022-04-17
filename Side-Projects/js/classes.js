@@ -86,7 +86,7 @@ class Fighter extends Sprite{
     this.color = color;
     this.isAttacking;
   }
-  
+
   update(){
     this.draw();
     this.animateFrame();
@@ -109,6 +109,30 @@ class Fighter extends Sprite{
     this.isAttacking = true;
     setTimeout(() => {
       this.isAttacking = false;
-    },100)
-  }
+    },100)}
+    switchSprite(sprite) {
+      switch (sprite) {
+        case 'idle':
+        if(this.image !== this.sprites.idle.image){
+          this.image = this.sprites.idle.image;
+          this.framesNum = this.sprites.idle.frameNum;
+          this.currFrame = 0;
+        }
+        break;
+        case 'run':
+        if(this.image !== this.sprites.run.image){
+          this.image = this.sprites.run.image;
+          this.framesNum = this.sprites.run.frameNum;
+          this.currFrame = 0;
+        }
+        break;
+        case 'jump':
+        if(this.image !== this.sprites.jump.image){
+          this.image = this.sprites.jump.image;
+          this.framesNum = this.sprites.jump.frameNum;
+          this.currFrame = 0;
+        }
+        break;
+      }
+    }
 }
