@@ -18,8 +18,6 @@ const background = new Sprite({
   imageSrc:'./assets/forest-background.png'
 });
 
-
-
 //player creation
 const player = new Fighter({
   position:{
@@ -34,26 +32,46 @@ const player = new Fighter({
     x:0,
     y:0
   },
-  imageSrc:'assets/knightyAssets/_Idle.png',
-  frameNum: 10,
+  imageSrc:'assets/samuraiMack/Idle.png',
+  frameNum: 8,
   scale: 2.5,
   offset: {
-    x: 0,
-    y: 0
+    x: 215,
+    y: 108
   },
   sprites : {
     idle: {
-      imageSrc:'assets/knightyAssets/_Idle.png',
-      frameNum: 10
+      imageSrc:'assets/samuraiMack/Idle.png',
+      frameNum: 8
     },
     run: {
-      imageSrc:'assets/knightyAssets/_Run.png',
-      frameNum: 10
+      imageSrc:'assets/samuraiMack/Run.png',
+      frameNum: 8
     },
-    leap: {
-      imageSrc:'assets/knightyAssets/_Jump.png',
+    jump: {
+      imageSrc:'assets/samuraiMack/Jump.png',
       frameNum: 2
+    },
+    fall: {
+      imageSrc:'assets/samuraiMack/Fall.png',
+      frameNum: 2
+    },
+    attack1: {
+      imageSrc:'assets/samuraiMack/Attack1.png',
+      frameNum: 6
+    },
+    takeHit: {
+      imageSrc:'assets/samuraiMack/Take Hit.png',
+      frameNum: 4
     }
+  },
+  attackBox: {
+    offset: {
+      x:100,
+      y:50
+    },
+    width: 140,
+    height: 50
   }
 });
 
@@ -71,7 +89,48 @@ const enemy = new Fighter({
     x: -50,
     y: 0
   },
-  color:'blue'
+  color:'blue',
+  imageSrc:'assets/kenji/Idle.png',
+  frameNum: 4,
+  scale: 2.5,
+  offset: {
+    x: 215,
+    y: 120
+  },
+  sprites : {
+    idle: {
+      imageSrc:'assets/kenji/Idle.png',
+      frameNum: 4
+    },
+    run: {
+      imageSrc:'assets/kenji/Run.png',
+      frameNum: 8
+    },
+    jump: {
+      imageSrc:'assets/kenji/Jump.png',
+      frameNum: 2
+    },
+    fall: {
+      imageSrc:'assets/kenji/Fall.png',
+      frameNum: 2
+    },
+    attack1: {
+      imageSrc:'assets/kenji/Attack1.png',
+      frameNum: 4
+    },
+    takeHit: {
+      imageSrc:'assets/kenji/Take hit.png',
+      frameNum: 3
+    }
+  },
+  attackBox: {
+    offset: {
+      x:-165,
+      y:50
+    },
+    width: 150,
+    height: 50
+  }
 });
 
 const keys = {
@@ -87,7 +146,7 @@ const keys = {
   ArrowLeft: {
     pressed: false
   }
-}
+};
 decreaseTimer();
 
 function animate(){
@@ -97,7 +156,7 @@ function animate(){
   background.update();
 
   player.update();
-  //enemy.update();
+  enemy.update();
 
   //player movement
   player.velocity.x = 0;
@@ -114,34 +173,56 @@ function animate(){
   }
 
   if(player.velocity.y < 0) {
-    player.switchSprite('leap');
+    player.switchSprite('jump');
+  }
+  else if (player.velocity.y > 0){
+    player.switchSprite('fall');
   }
 
   //enemy movement
   enemy.velocity.x = 0;
   if(keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
     enemy.velocity.x = -5;
+    enemy.switchSprite('run');
   }
   else if(keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight') {
     enemy.velocity.x = 5;
+    enemy.switchSprite('run');
+  }
+  else {
+    enemy.switchSprite('idle');
+  }
+
+  if(enemy.velocity.y < 0) {
+    enemy.switchSprite('jump');
+  }
+  else if (enemy.velocity.y > 0){
+    enemy.switchSprite('fall');
   }
 
   //collision detection, refactored to use rectangularCollision as a way to store the long if statement
   if(rectangularCollision({
     rectangle1: player,
     rectangle2: enemy
-  })&& player.isAttacking){
+  }) && player.isAttacking && player.currFrame === 4){
+    enemy.takeHit()
     player.isAttacking = false;
-    enemy.health -= 20;
     document.querySelector('#enemyHealth').style.width = enemy.health + '%';
   }
+  if(player.isAttacking && player.currFrame === 4){
+    player.isAttacking = false;
+  }
+
   if(rectangularCollision({
     rectangle1: enemy,
     rectangle2: player
-  })&& enemy.isAttacking){
+  })&& enemy.isAttacking && enemy.currFrame === 2){
     enemy.isAttacking = false;
     player.health -= 20;
     document.querySelector('#playerHealth').style.width = player.health + '%';
+  }
+  if(enemy.isAttacking && enemy.currFrame === 2){
+    enemy.isAttacking = false;
   }
 
   //end game based on health
@@ -189,7 +270,7 @@ window.addEventListener('keydown',(event) => {
     enemy.attack();
     break;
   }
-})
+});
 
 window.addEventListener('keyup',(event) => {
   switch(event.key){
@@ -209,4 +290,4 @@ window.addEventListener('keyup',(event) => {
     keys.ArrowLeft.pressed = false;
     break;
   }
-})
+});

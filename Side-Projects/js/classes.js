@@ -48,7 +48,7 @@ class Sprite {
 class Fighter extends Sprite{
   //Constructing the sprite, the brackets below wrapping my arguments are there to pass them through as an object,
   //preventing all arguments from being required, and letting me pass through only what I need
-  constructor({position, velocity,color = 'red', imageSrc, scale = 1, frameNum = 1, offset = {x:0,y:0}, sprites}){
+  constructor({position, velocity,color = 'red', imageSrc, scale = 1, frameNum = 1, offset = {x:0,y:0}, sprites, attackBox = {offset: {}, width: undefined, height: undefined}}){
     //calls parent constructor (Sprite) and sets these values
     super({
       position,
@@ -70,15 +70,14 @@ class Fighter extends Sprite{
     this.sprites = sprites;
 
     this.attackBox = {
-      //needs to be made an object to handle facing different directions
       position: {
         x:this.position.x,
         y:this.position.y
       },
-      offset,
-      width: 100,
-      height: 50
-    }
+      offset: attackBox.offset,
+      width: attackBox.width,
+      height: attackBox.height
+    };
     for(const sprite in this.sprites) {
       sprites[sprite].image = new Image();
       sprites[sprite].image.src = sprites[sprite].imageSrc;
@@ -92,12 +91,14 @@ class Fighter extends Sprite{
     this.animateFrame();
     //reupdate position in order to continue the attackBox tracking
     this.attackBox.position.x = this.position.x + this.attackBox.offset.x;
-    this.attackBox.position.y = this.position.y;
+    this.attackBox.position.y = this.position.y + this.attackBox.offset.y;
+
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
 
     if(this.position.y + this.height + this.velocity.y >= canvas.height - 96) {
       this.velocity.y = 0;
+      this.position.y = 330;
       this.doubleJump = 0;
     }
     else {
@@ -106,33 +107,66 @@ class Fighter extends Sprite{
   }
 
   attack(){
+    this.switchSprite('attack1');
     this.isAttacking = true;
-    setTimeout(() => {
-      this.isAttacking = false;
-    },100)}
-    switchSprite(sprite) {
-      switch (sprite) {
-        case 'leap':
-        if(this.image !== this.sprites.leap.image){
-          this.image = this.sprites.leap.image;
-          this.framesNum = this.sprites.leap.frameNum;
-          this.currFrame = 0;
-        }
-        break;
-        case 'idle':
-        if(this.image !== this.sprites.idle.image){
-          this.image = this.sprites.idle.image;
-          this.framesNum = this.sprites.idle.frameNum;
-          this.currFrame = 0;
-        }
-        break;
-        case 'run':
-        if(this.image !== this.sprites.run.image){
-          this.image = this.sprites.run.image;
-          this.framesNum = this.sprites.run.frameNum;
-          this.currFrame = 0;
-        }
-        break;
-      }
+  }
+  takeHit(){
+    this.health -= 20;
+    this.switchSprite('takeHit');
+  }
+  switchSprite(sprite) {
+    //overriding animations with attack
+    if(this.image === this.sprites.attack1.image && this.currFrame < this.sprites.attack1.frameNum - 1){
+      return;
     }
+
+    //override when takeHit
+    if(this.image === this.sprites.takeHit.image && this.currFrame < this.sprites.takeHit.frameNum - 1){
+      return;
+    }
+    switch (sprite) {
+      case 'idle':
+        if (this.image !== this.sprites.idle.image) {
+          this.image = this.sprites.idle.image;
+          this.frameNum = this.sprites.idle.frameNum;
+          this.currFrame = 0;
+        }
+        break;
+      case 'run':
+        if (this.image !== this.sprites.run.image) {
+          this.image = this.sprites.run.image;
+          this.frameNum = this.sprites.run.frameNum;
+          this.currFrame = 0;
+        }
+        break;
+      case 'jump':
+        if (this.image !== this.sprites.jump.image) {
+          this.image = this.sprites.jump.image;
+          this.frameNum = this.sprites.jump.frameNum;
+          this.currFrame = 0;
+        }
+        break;
+      case 'fall':
+        if (this.image !== this.sprites.fall.image) {
+          this.image = this.sprites.fall.image;
+          this.frameNum = this.sprites.fall.frameNum;
+          this.currFrame = 0;
+        }
+        break;
+      case 'attack1':
+        if (this.image !== this.sprites.attack1.image) {
+          this.image = this.sprites.attack1.image;
+          this.frameNum = this.sprites.attack1.frameNum;
+          this.currFrame = 0;
+        }
+        break;
+      case 'takeHit':
+        if (this.image !== this.sprites.takeHit.image) {
+          this.image = this.sprites.takeHit.image;
+          this.frameNum = this.sprites.takeHit.frameNum;
+          this.currFrame = 0;
+        }
+        break;
+    }
+  }
 }
