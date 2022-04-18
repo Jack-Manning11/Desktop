@@ -21,7 +21,7 @@ const background = new Sprite({
 //player creation
 const player = new Fighter({
   position:{
-    x:0,
+    x:200,
     y:0
   },
   velocity: {
@@ -32,45 +32,49 @@ const player = new Fighter({
     x:0,
     y:0
   },
-  imageSrc:'assets/samuraiMack/Idle.png',
-  frameNum: 8,
-  scale: 2.5,
+  imageSrc:'assets/knight/_Idle.png',
+  frameNum: 10,
+  scale: 3,
   offset: {
-    x: 215,
-    y: 108
+    x: 150,
+    y: 40
   },
   sprites : {
     idle: {
-      imageSrc:'assets/samuraiMack/Idle.png',
-      frameNum: 8
+      imageSrc:'assets/knight/_Idle.png',
+      frameNum: 10
     },
     run: {
-      imageSrc:'assets/samuraiMack/Run.png',
-      frameNum: 8
+      imageSrc:'assets/knight/_Run.png',
+      frameNum: 10
+    },
+    runLeft: {
+      imageSrc:'assets/knight/_RunLeft.png',
+      frameNum: 10
     },
     jump: {
-      imageSrc:'assets/samuraiMack/Jump.png',
-      frameNum: 2
+      imageSrc:'assets/knight/_Jump.png',
+      frameNum: 3
     },
     fall: {
-      imageSrc:'assets/samuraiMack/Fall.png',
-      frameNum: 2
+      imageSrc:'assets/knight/_Fall.png',
+      frameNum: 3
     },
     attack1: {
-      imageSrc:'assets/samuraiMack/Attack1.png',
-      frameNum: 6
+      imageSrc:'assets/knight/_Attack.png',
+      frameNum: 4
     },
     takeHit: {
-      imageSrc:'assets/samuraiMack/Take Hit.png',
-      frameNum: 4
+      imageSrc:'assets/knight/_Hit.png',
+      frameNum: 1
     }
   },
   attackBox: {
     offset: {
-      x:100,
-      y:50
+      x:15,
+      y:100
     },
-    width: 140,
+    width: 160,
     height: 50
   }
 });
@@ -78,7 +82,7 @@ const player = new Fighter({
 //enemy creation
 const enemy = new Fighter({
   position:{
-    x:400,
+    x:800,
     y:100
   },
   velocity: {
@@ -90,43 +94,43 @@ const enemy = new Fighter({
     y: 0
   },
   color:'blue',
-  imageSrc:'assets/kenji/Idle.png',
-  frameNum: 4,
-  scale: 2.5,
+  imageSrc:'assets/Huntress/Sprites/Idle.png',
+  frameNum: 8,
+  scale: 3,
   offset: {
     x: 215,
-    y: 120
+    y: 100
   },
   sprites : {
     idle: {
-      imageSrc:'assets/kenji/Idle.png',
-      frameNum: 4
+      imageSrc:'assets/Huntress/Sprites/Idle.png',
+      frameNum: 8
     },
     run: {
-      imageSrc:'assets/kenji/Run.png',
+      imageSrc:'assets/Huntress/Sprites/Run.png',
       frameNum: 8
     },
     jump: {
-      imageSrc:'assets/kenji/Jump.png',
+      imageSrc:'assets/Huntress/Sprites/Jump.png',
       frameNum: 2
     },
     fall: {
-      imageSrc:'assets/kenji/Fall.png',
+      imageSrc:'assets/Huntress/Sprites/Fall.png',
       frameNum: 2
     },
     attack1: {
-      imageSrc:'assets/kenji/Attack1.png',
-      frameNum: 4
+      imageSrc:'assets/Huntress/Sprites/Attack2.png',
+      frameNum: 5
     },
     takeHit: {
-      imageSrc:'assets/kenji/Take hit.png',
+      imageSrc:'assets/Huntress/Sprites/Take hit.png',
       frameNum: 3
     }
   },
   attackBox: {
     offset: {
-      x:-165,
-      y:50
+      x:-150,
+      y:100
     },
     width: 150,
     height: 50
@@ -162,21 +166,36 @@ function animate(){
   player.velocity.x = 0;
   if(keys.a.pressed && player.lastKey === 'a') {
     player.velocity.x = -5;
-    player.switchSprite('run');
+    player.switchSprite('runLeft');
   }
   else if(keys.d.pressed && player.lastKey === 'd') {
     player.velocity.x = 5;
     player.switchSprite('run');
   }
-  else {
+  else if(player.lastKey === 'a' && player.velocity.y === 0){
     player.switchSprite('idle');
+    console.log('left idle');
+  }
+  else if(player.velocity.y === 0){
+    player.switchSprite('idle');
+    console.log('right idle');
   }
 
-  if(player.velocity.y < 0) {
+  if(player.velocity.y < 0 && player.lastKey === 'a') {
+    console.log('left jump');
     player.switchSprite('jump');
   }
-  else if (player.velocity.y > 0){
+  else if(player.velocity.y < 0 && player.lastKey === 'd') {
+    console.log('right jump')
+    player.switchSprite('jump');
+  }
+  else if (player.velocity.y > 0 && player.lastKey === 'a'){
     player.switchSprite('fall');
+    console.log('left fall');
+  }
+  else if (player.velocity.y > 0 && player.lastKey === 'd'){
+    player.switchSprite('fall');
+    console.log('right fall');
   }
 
   //enemy movement
@@ -204,24 +223,24 @@ function animate(){
   if(rectangularCollision({
     rectangle1: player,
     rectangle2: enemy
-  }) && player.isAttacking && player.currFrame === 4){
+  }) && player.isAttacking && player.currFrame === 2){
     enemy.takeHit()
     player.isAttacking = false;
     document.querySelector('#enemyHealth').style.width = enemy.health + '%';
   }
-  if(player.isAttacking && player.currFrame === 4){
+  if(player.isAttacking && player.currFrame === 2){
     player.isAttacking = false;
   }
 
   if(rectangularCollision({
     rectangle1: enemy,
     rectangle2: player
-  })&& enemy.isAttacking && enemy.currFrame === 2){
+  })&& enemy.isAttacking && enemy.currFrame === 3){
     enemy.isAttacking = false;
     player.health -= 20;
     document.querySelector('#playerHealth').style.width = player.health + '%';
   }
-  if(enemy.isAttacking && enemy.currFrame === 2){
+  if(enemy.isAttacking && enemy.currFrame === 3){
     enemy.isAttacking = false;
   }
 

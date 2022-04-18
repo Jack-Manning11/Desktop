@@ -93,6 +93,8 @@ class Fighter extends Sprite{
     this.attackBox.position.x = this.position.x + this.attackBox.offset.x;
     this.attackBox.position.y = this.position.y + this.attackBox.offset.y;
 
+    //c.fillRect(this.attackBox.position.x,this.attackBox.position.y,this.attackBox.width, this.attackBox.height);
+
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
 
@@ -136,6 +138,13 @@ class Fighter extends Sprite{
         if (this.image !== this.sprites.run.image) {
           this.image = this.sprites.run.image;
           this.frameNum = this.sprites.run.frameNum;
+          this.currFrame = 0;
+        }
+        break;
+      case 'runLeft':
+        if (this.image !== this.sprites.runLeft.image) {
+          this.image = this.sprites.runLeft.image;
+          this.frameNum = this.sprites.runLeft.frameNum;
           this.currFrame = 0;
         }
         break;
