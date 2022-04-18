@@ -146,6 +146,7 @@ nav ul li a:hover {
 .col-1 h2 {
   font-family: Montserrat;
   font-size: 65px;
+  text-align: center;
 }
 .col-2 h2 {
   font-size: 65px;
@@ -153,15 +154,15 @@ nav ul li a:hover {
 .col-1 h3 {
   font-size: 45px;
   font-weight: 100;
-  margin: 10px;
+  text-align: center;
   position: relative;
-  padding-left: 30%;
 }
 .col-1 p {
   font-family: Lato;
   font-size: 25px;
   font-weight: 100;
-  padding-left: 8%;
+  padding-top: 1%;
+  text-align: center;
 }
 .col-2 p {
   font-size: 25px;
@@ -175,6 +176,7 @@ nav ul li a:hover {
 }
 .col-2 .personal-pic {
   width: 75%;
+  padding-left: 15%;
 }
 hr {
   border-color: #CC5500;
@@ -443,6 +445,7 @@ hr {
   .col-1 {
     flex-basis: 100%;
     margin-bottom: 50px;
+    padding-right: 12%;
   }
   .col-1 h2 {
     font-size: 50px;
@@ -458,6 +461,7 @@ hr {
   }
   .col-2 .personal-pic {
     width: 100%;
+    padding-left: 0;
   }
   .slideshow {
     display: none;
