@@ -90,10 +90,22 @@ class Fighter extends Sprite{
     this.draw();
     this.animateFrame();
     //reupdate position in order to continue the attackBox tracking
-    this.attackBox.position.x = this.position.x + this.attackBox.offset.x;
-    this.attackBox.position.y = this.position.y + this.attackBox.offset.y;
+    //this.attackBox.position.x = this.position.x + this.attackBox.offset.x;
+    this.attackBox.position.y = this.position.y - this.attackBox.offset.y;
+    if(this.lastKey === 'a'){
+      this.attackBox.position.x = this.position.x + this.attackBox.offset.x;
+    }
+    else if(this.lastKey === 'd'){
+      this.attackBox.position.x = this.position.x - this.attackBox.offset.x - 130;
+    }
+    if(this.lastKey === 'ArrowLeft'){
+      this.attackBox.position.x = this.position.x + this.attackBox.offset.x;
+    }
+    else if(this.lastKey === 'ArrowRight'){
+      this.attackBox.position.x = this.position.x - this.attackBox.offset.x - 120;
+    }
 
-    //c.fillRect(this.attackBox.position.x,this.attackBox.position.y,this.attackBox.width, this.attackBox.height);
+    c.fillRect(this.attackBox.position.x,this.attackBox.position.y,this.attackBox.width, this.attackBox.height);
 
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
