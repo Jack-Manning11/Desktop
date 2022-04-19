@@ -32,7 +32,7 @@ const player = new Fighter({
     x:0,
     y:0
   },
-  imageSrc:'assets/knight/_Idle.png',
+  imageSrc:'assets/knightFix/_Idle.png',
   frameNum: 10,
   scale: 3,
   offset: {
@@ -41,43 +41,43 @@ const player = new Fighter({
   },
   sprites : {
     idle: {
-      imageSrc:'assets/knight/_Idle.png',
+      imageSrc:'assets/knightFix/_Idle.png',
       frameNum: 10
     },
     idleLeft: {
-      imageSrc:'assets/knight/_NewIdleLeft.png',
+      imageSrc:'assets/knightFix/_NewIdleLeft.png',
       frameNum: 10
     },
     run: {
-      imageSrc:'assets/knight/_Run.png',
+      imageSrc:'assets/knightFix/_Run.png',
       frameNum: 10
     },
     runLeft: {
-      imageSrc:'assets/knight/_RunLeft.png',
+      imageSrc:'assets/knightFix/_RunLeft.png',
       frameNum: 10
     },
     jump: {
-      imageSrc:'assets/knight/_Jump.png',
+      imageSrc:'assets/knightFix/_Jump.png',
       frameNum: 3
     },
     jumpLeft: {
-      imageSrc:'assets/knight/_JumpLeft.png',
+      imageSrc:'assets/knightFix/_JumpLeft.png',
       frameNum: 3
     },
     fall: {
-      imageSrc:'assets/knight/_Fall.png',
+      imageSrc:'assets/knightFix/_Fall.png',
       frameNum: 3
     },
     fallLeft: {
-      imageSrc:'assets/knight/_FallLeft.png',
+      imageSrc:'assets/knightFix/_FallLeft.png',
       frameNum: 3
     },
     attack1: {
-      imageSrc:'assets/knight/_Attack.png',
+      imageSrc:'assets/knightFix/_Attack.png',
       frameNum: 4
     },
     takeHit: {
-      imageSrc:'assets/knight/_NewHit.png',
+      imageSrc:'assets/knightFix/_NewHit.png',
       frameNum: 3
     }
   },
