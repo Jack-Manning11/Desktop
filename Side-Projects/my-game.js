@@ -147,7 +147,7 @@ const enemy = new Fighter({
       frameNum: 2
     },
     attack1: {
-      imageSrc:'assets/Huntress/Sprites/Attack2.png',
+      imageSrc:'assets/Huntress/Sprites/AttackLeft2.png',
       frameNum: 5
     },
     takeHit: {
