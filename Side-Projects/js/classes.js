@@ -104,9 +104,6 @@ class Fighter extends Sprite{
     else if(this.lastKey === 'ArrowRight'){
       this.attackBox.position.x = this.position.x - this.attackBox.offset.x - 120;
     }
-
-    //c.fillRect(this.attackBox.position.x,this.attackBox.position.y,this.attackBox.width, this.attackBox.height);
-
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
 
