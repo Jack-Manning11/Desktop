@@ -121,6 +121,19 @@ class Fighter extends Sprite{
   }
 
   attack(){
+    if(this.lastKey === 'd'){
+      console.log('knight right attack');
+    }
+    else if(this.lastKey === 'a'){
+      console.log('kight left attack');
+    }
+
+    if(this.lastKey === 'ArrowLeft'){
+      console.log('huntress left attack');
+    }
+    else if(this.lastKey === 'ArrowRight'){
+      console.log('huntress right attack');
+    }
     this.switchSprite('attack1');
     this.isAttacking = true;
   }
