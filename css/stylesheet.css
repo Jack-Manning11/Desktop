@@ -124,13 +124,13 @@ nav ul li a:hover {
   margin-left: 25px;
 }
 .row-1 .cols {
-  flex-basis: 50%;
+  flex-basis: 45%;
   position: relative;
   justify-content: center;
+  align-items: center;
 }
 .row-1 .cols img {
-  width: 50%;
-  padding-left: 25%;
+  width: 100%;
 }
 .row-1 .col-2 {
   flex-basis: 40%;
