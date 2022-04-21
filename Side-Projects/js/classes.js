@@ -119,19 +119,18 @@ class Fighter extends Sprite{
 
   attack(){
     if(this.lastKey === 'd'){
-      console.log('knight right attack');
+      this.switchSprite('attack1');
     }
     else if(this.lastKey === 'a'){
-      console.log('kight left attack');
+      this.switchSprite('attack1Left');
     }
 
     if(this.lastKey === 'ArrowLeft'){
-      console.log('huntress left attack');
+      this.switchSprite('attack1Left');
     }
     else if(this.lastKey === 'ArrowRight'){
-      console.log('huntress right attack');
+      this.switchSprite('attack1');
     }
-    this.switchSprite('attack1');
     this.isAttacking = true;
   }
   takeHit(){
@@ -140,7 +139,7 @@ class Fighter extends Sprite{
   }
   switchSprite(sprite) {
     //overriding animations with attack
-    if(this.image === this.sprites.attack1.image && this.currFrame < this.sprites.attack1.frameNum - 1){
+    if(this.image === this.sprites.attack1.image && this.currFrame < this.sprites.attack1.frameNum - 1 || this.image === this.sprites.attack1Left.image && this.currFrame < this.sprites.attack1Left.frameNum - 1){
       return;
     }
 
@@ -212,6 +211,13 @@ class Fighter extends Sprite{
           this.currFrame = 0;
         }
         break;
+      case 'attack1Left':
+        if (this.image !== this.sprites.attack1Left.image) {
+          this.image = this.sprites.attack1Left.image;
+          this.frameNum = this.sprites.attack1Left.frameNum;
+          this.currFrame = 0;
+        }
+          break;
       case 'takeHit':
         if (this.image !== this.sprites.takeHit.image) {
           this.image = this.sprites.takeHit.image;

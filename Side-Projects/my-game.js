@@ -76,8 +76,12 @@ const player = new Fighter({
       imageSrc:'./assets/knight/Attack.png',
       frameNum: 4
     },
+    attack1Left: {
+      imageSrc:'./assets/knight/AttackLeft.png',
+      frameNum: 4
+    },
     takeHit: {
-      imageSrc:'./assets/knight/NewHit.png',
+      imageSrc:'./assets/knight/RealHit.png',
       frameNum: 3
     }
   },
@@ -147,6 +151,10 @@ const enemy = new Fighter({
       frameNum: 2
     },
     attack1: {
+      imageSrc:'assets/Huntress/Sprites/Attack2.png',
+      frameNum: 5
+    },
+    attack1Left: {
       imageSrc:'assets/Huntress/Sprites/AttackLeft2.png',
       frameNum: 5
     },

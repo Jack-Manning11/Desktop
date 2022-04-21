@@ -144,22 +144,24 @@ nav ul li a:hover {
   margin-left: 50px;
 }
 .col-1 h2 {
-  font-family: Montserrat;
-  font-size: 65px;
+  font-family: Bilo;
+  font-weight: 500;
+  font-size: 75px;
 }
 .col-2 h2 {
   font-size: 65px;
 }
 .col-1 h3 {
-  font-size: 45px;
-  font-weight: 100;
+  font-family: Bilo;
+  font-weight: 300;
+  font-size: 50px;
   position: relative;
 }
 .col-1 p {
-  font-family: Lato;
+  font-family: Bicyclette;
+  font-weight: 300;
   font-size: 25px;
-  font-weight: 100;
-  padding-top: 1%;
+  padding-top: 3%;
 }
 #frontPage {
   text-align: center;
