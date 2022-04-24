@@ -2,9 +2,16 @@
   /* This ensures that padding will not be factored into the calculation of spacing */
   box-sizing: border-box;
 }
+body {
+  background-color: #606D5D;
+  font-family: 'Press Start 2P', cursive;
+}
 .wrapper {
   position: relative;
   display: inline-block;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%,5%);
 }
 .healthBars {
   position: absolute;
@@ -17,16 +24,18 @@
   position: relative;
   display: flex;
   justify-content: flex-end;
-  height: 30px;
   width: 100%;
+  border-top: 4px solid #F1F1F1;
+  border-left: 4px solid #F1F1F1;
+  border-bottom: 4px solid #F1F1F1;
 }
 .playerBackgroundHealth {
-  background-color: yellow;
+  background-color: #8C001A;
   height: 30px;
   width: 100%;
 }
 .playerActiveHealth {
-  background-color: blue;
+  background-color: #63836E;
   position: absolute;
   /* ensures that the background to the health bar takes up the full size of the parent div */
   top: 0;
@@ -35,25 +44,29 @@
   width: 100%;
 }
 .timer {
-  background-color: red;
-  height: 100px;
+  background-color: #232523;
+  color: #F1F1F1;
+  height: 60px;
   width: 100px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 4px solid #F1F1F1;
 }
 .enemyHealth {
   position: relative;
-  height: 30px;
   width: 100%;
+  border-top: 4px solid #F1F1F1;
+  border-right: 4px solid #F1F1F1;
+  border-bottom: 4px solid #F1F1F1;
 }
 .enemyBackgroundHealth {
-  background-color: yellow;
+  background-color: #8C001A;
   height: 30px;
 }
 .enemyActiveHealth {
-  background-color: blue;
+  background-color: #63836E;
   position: absolute;
   /* ensures that the background to the health bar takes up the full size of the parent div */
   top: 0;

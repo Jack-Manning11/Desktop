@@ -68,6 +68,7 @@ class Fighter extends Sprite{
     this.doubleJump = 0;
     this.health = 100;
     this.sprites = sprites;
+    this.dead = false;
 
     this.attackBox = {
       position: {
@@ -88,7 +89,9 @@ class Fighter extends Sprite{
 
   update(){
     this.draw();
-    this.animateFrame();
+    if(!this.dead){
+      this.animateFrame();
+    }
     //reupdate position in order to continue the attackBox tracking
     //this.attackBox.position.x = this.position.x + this.attackBox.offset.x;
     this.attackBox.position.y = this.position.y - this.attackBox.offset.y;
@@ -135,9 +138,23 @@ class Fighter extends Sprite{
   }
   takeHit(){
     this.health -= 20;
-    this.switchSprite('takeHit');
+
+    if(this.health <= 0){
+      this.switchSprite('death');
+    }
+    else {
+      this.switchSprite('takeHit');
+    }
   }
   switchSprite(sprite) {
+
+    if(this.image === this.sprites.death.image) {
+      if(this.currFrame === this.sprites.death.frameNum - 1){
+        this.dead = true;
+      }
+      return;
+    }
+
     //overriding animations with attack
     if(this.image === this.sprites.attack1.image && this.currFrame < this.sprites.attack1.frameNum - 1 || this.image === this.sprites.attack1Left.image && this.currFrame < this.sprites.attack1Left.frameNum - 1){
       return;
@@ -222,6 +239,12 @@ class Fighter extends Sprite{
         if (this.image !== this.sprites.takeHit.image) {
           this.image = this.sprites.takeHit.image;
           this.frameNum = this.sprites.takeHit.frameNum;
+          this.currFrame = 0;
+        }
+      break;case 'death':
+        if (this.image !== this.sprites.death.image) {
+          this.image = this.sprites.death.image;
+          this.frameNum = this.sprites.death.frameNum;
           this.currFrame = 0;
         }
         break;

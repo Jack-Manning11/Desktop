@@ -83,6 +83,10 @@ const player = new Fighter({
     takeHit: {
       imageSrc:'./assets/knight/RealHit.png',
       frameNum: 3
+    },
+    death: {
+      imageSrc:'./assets/knight/Death.png',
+      frameNum: 10
     }
   },
   attackBox: {
@@ -161,6 +165,10 @@ const enemy = new Fighter({
     takeHit: {
       imageSrc:'assets/Huntress/Sprites/Take hit.png',
       frameNum: 3
+    },
+    death: {
+      imageSrc:'./assets/Huntress/Sprites/Death.png',
+      frameNum: 8
     }
   },
   attackBox: {
@@ -295,41 +303,48 @@ function animate(){
 animate();
 
 window.addEventListener('keydown',(event) => {
-  switch(event.key){
-    case 'd':
-    keys.d.pressed = true;
-    player.lastKey = 'd';
-    break;
-    case 'a':
-    keys.a.pressed = true;
-    player.lastKey = 'a';
-    break;
-    case 'w':
-    if(player.doubleJump < 2){
-      player.velocity.y = -20;
-      player.doubleJump++;
+  if (!player.dead){
+    switch(event.key){
+      case 'd':
+      keys.d.pressed = true;
+      player.lastKey = 'd';
+      break;
+      case 'a':
+      keys.a.pressed = true;
+      player.lastKey = 'a';
+      break;
+      case 'w':
+      if(player.doubleJump < 2){
+        player.velocity.y = -20;
+        player.doubleJump++;
+      }
+      break;
+      case ' ':
+      player.attack();
+      break;
     }
-    break;
-    case ' ':
-    player.attack();
-    break;
-    case 'ArrowRight':
-    keys.ArrowRight.pressed = true;
-    enemy.lastKey = 'ArrowRight';
-    break;
-    case 'ArrowLeft':
-    keys.ArrowLeft.pressed = true;
-    enemy.lastKey = 'ArrowLeft';
-    break;
-    case 'ArrowUp':
-    if(enemy.doubleJump < 2){
-      enemy.velocity.y = -20;
-      enemy.doubleJump++;
+  }
+
+  if(!enemy.dead){
+    switch(event.key) {
+      case 'ArrowRight':
+      keys.ArrowRight.pressed = true;
+      enemy.lastKey = 'ArrowRight';
+      break;
+      case 'ArrowLeft':
+      keys.ArrowLeft.pressed = true;
+      enemy.lastKey = 'ArrowLeft';
+      break;
+      case 'ArrowUp':
+      if(enemy.doubleJump < 2){
+        enemy.velocity.y = -20;
+        enemy.doubleJump++;
+      }
+      break;
+      case 'ArrowDown':
+      enemy.attack();
+      break;
     }
-    break;
-    case 'ArrowDown':
-    enemy.attack();
-    break;
   }
 });
 
