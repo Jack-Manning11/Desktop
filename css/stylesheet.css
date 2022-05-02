@@ -277,6 +277,13 @@ hr {
   justify-content: center;
   align-items: center;
 }
+#GameScreen {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 #Logotype {
   width: 40%;
   position: relative;
