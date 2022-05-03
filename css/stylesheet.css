@@ -314,7 +314,6 @@ hr {
   margin: 0;
   transform: translate(-50%, -50%);
   display: flex;
-
 }
 .socials ul li {
   list-style: none;
@@ -536,5 +535,8 @@ hr {
     position:absolute;
     right: 45%;
     transform:translate(0,10px);
+  }
+  .socials ul li {
+    transform:translate(0,100px);
   }
 }
