@@ -13,6 +13,19 @@ body {
   left: 50%;
   transform: translate(-50%,5%);
 }
+.fa-arrow-left {
+  position: absolute;
+  top: 3.5%;
+  right: 2%;
+  font-size: 30px;
+  line-height: 60px;
+  color: #FFFFF0;
+  transition: .6s;
+}
+.fa-arrow-left:hover {
+  transform: translate(-10px, 0);
+  color: #CC5500;
+}
 .healthBars {
   position: absolute;
   display: flex;
