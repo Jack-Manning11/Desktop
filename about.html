@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/stylesheet.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Montserrat&display=swap" rel="stylesheet">
-    <script defer src="js/index.js"></script>
     <title>About | Jack Manning</title>
   </head>
   <body>
@@ -52,6 +51,25 @@
           <img src="img/doggies.jpg" alt="pic of the pooches" class="about-pic">
         </div>
       </div>
+      <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     </div>
+    <script>
+      let menuList = document.getElementById("menuList");
+      menuList.style.maxHeight = "0px";
+      function togglemenu(){
+        if(menuList.style.maxHeight == "0px")
+        {
+          menuList.style.maxHeight = "130px";
+        }
+        else
+        {
+          menuList.style.maxHeight = "0px";
+        }
+      }
+      function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      }
+  </script>
   </body>
 </html>

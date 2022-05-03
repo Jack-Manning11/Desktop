@@ -534,7 +534,7 @@ hr {
     display:flex;
     position:absolute;
     right: 45%;
-    transform:translate(0,10px);
+    transform:translate(0,-55px);
   }
   .socials ul li {
     transform:translate(0,150px);

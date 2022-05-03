@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/stylesheet.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Montserrat&display=swap" rel="stylesheet">
-    <script defer src="js/index.js"></script>
     <title>Portfolio | Jack Manning</title>
   </head>
   <body>
@@ -60,5 +59,19 @@
       </div>
       <hr id="otherBottomLine">
     </div>
+    <script>
+      let menuList = document.getElementById("menuList");
+      menuList.style.maxHeight = "0px";
+      function togglemenu(){
+        if(menuList.style.maxHeight == "0px")
+        {
+          menuList.style.maxHeight = "130px";
+        }
+        else
+        {
+          menuList.style.maxHeight = "0px";
+        }
+      }
+  </script>
   </body>
 </html>
