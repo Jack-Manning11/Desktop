@@ -76,8 +76,9 @@ nav ul li a:hover {
   font-size: 65px;
 }
 .title p {
-  font-family: Bilo;
-  font-size: 18px;
+  font-family: Lato;
+  font-weight: 300;
+  font-size: 22px;
   padding-left: 10px;
 }
 .title-1 {
@@ -90,7 +91,7 @@ nav ul li a:hover {
 }
 .title-1 p {
   text-align: center;
-  font-family: Bilo;
+  font-family: Lato;
   font-size: 18px;
   padding-top: 10px;
 }
@@ -144,23 +145,23 @@ nav ul li a:hover {
   margin-left: 50px;
 }
 .col-1 h2 {
-  font-family: Bilo;
+  font-family: Montserrat;
   font-weight: 500;
-  font-size: 75px;
+  font-size: 70px;
 }
 .col-2 h2 {
   font-size: 65px;
 }
 .col-1 h3 {
-  font-family: Bilo;
+  font-family: Lato;
   font-weight: 300;
   font-size: 50px;
   position: relative;
 }
 .col-1 p {
-  font-family: Bilo;
+  font-family: Lato;
   font-weight: 300;
-  font-size: 25px;
+  font-size: 22px;
   padding-top: 3%;
 }
 #frontPage {
