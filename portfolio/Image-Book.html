@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../css/stylesheet.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Montserrat&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/9ec0b1b260.js" crossorigin="anonymous"></script>
+    <script defer src="../js/index.js"></script>
     <title>Letter to Freshman Self | Portfolio</title>
   </head>
   <body>
@@ -48,39 +49,5 @@
       <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
       <hr id="bottomLine">
     </div>
-    <script>
-      var slideIndex = 1;
-      showDivs(slideIndex);
-
-      function plusDivs(n) {
-        showDivs(slideIndex += n);
-      }
-      function topFunction() {
-        document.body.scrollTop = 0; // For Safari
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-      }
-      function showDivs(n) {
-        var i;
-        var x = document.getElementsByClassName("mySlides");
-        if (n > x.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = x.length} ;
-        for (i = 0; i < x.length; i++) {
-          x[i].style.display = "none";
-        }
-        x[slideIndex-1].style.display = "block";
-      }
-      var menuList = document.getElementById("menuList");
-      menuList.style.maxHeight = "0px";
-      function togglemenu(){
-        if(menuList.style.maxHeight == "0px")
-        {
-          menuList.style.maxHeight = "130px";
-        }
-        else
-        {
-          menuList.style.maxHeight = "0px";
-        }
-      }
-    </script>
   </body>
 </html>
