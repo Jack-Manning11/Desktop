@@ -533,7 +533,7 @@ hr {
   #myBtn {
     display:flex;
     position:absolute;
-    right: 45%;
+    right: 25px;
     transform:translate(0,-55px);
   }
   .socials ul li {
