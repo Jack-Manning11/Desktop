@@ -286,12 +286,6 @@ hr {
   transform: translate(-10px, 0);
   color: #CC5500;
 }
-#Isometric-City {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 #GameScreen {
   position: relative;
   display: flex;
@@ -299,8 +293,13 @@ hr {
   align-items: center;
   width: 100%;
 }
+#Isometric-City {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 #Logotype {
-  width: 40%;
   position: relative;
   display: flex;
   justify-content: center;
