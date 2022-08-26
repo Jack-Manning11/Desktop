@@ -81,6 +81,36 @@ nav ul li a:hover {
   align-items: center;
   margin: 100px 0;
 }
+.blogTitle {
+  margin: 50px;
+}
+.blogTitle h2 {
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 75px;
+}
+.blogTitle p {
+  padding-top: 10px;
+  text-align: center;
+  font-family: Lato;
+  font-weight: 300;
+  font-size: 22px;
+  padding-left: 10px;
+}
+.blogTitle-1 {
+  margin: 25px;
+}
+.blogTitle-1 h2 {
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 65px;
+}
+.blogTitle-1 p {
+  text-align: center;
+  font-family: Lato;
+  font-size: 18px;
+  padding-top: 10px;
+}
 .title {
   margin: 50px;
 }
