@@ -16,6 +16,10 @@
 }
 #myBtn:hover {
   background-color: #4986AB;
+  text-decoration: underline;
+}
+#myBtn:visited {
+  background-color: red;
 }
 .container {
   width: 100%;
@@ -24,6 +28,7 @@
   overflow: hidden;
   background-color: #FFFFF0;
 }
+
 .navbar {
   width: 100%;
   display: flex;
