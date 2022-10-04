@@ -62,5 +62,7 @@ class Poll {
 
 const p = new Poll(
     document.querySelector('.poll'),
-    "Which do you prefer?"
+    "Do you like Ice Cream?" 
+
+    // Change this to be pulling from an array of questions
 );

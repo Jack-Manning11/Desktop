@@ -1,5 +1,22 @@
 {
-  "name": "Newbie Corp",
-  "order_count": 0,
-  "address": "PO Box City"
+  "Question 1": {
+    "Yes": 0,
+    "No": 0
+  },
+  "Question 2": {
+    "Yes": 0,
+    "No": 0
+  },
+  "Question 3": {
+    "Yes": 0,
+    "No": 0
+  },
+  "Question 4": {
+    "Yes": 0,
+    "No": 0
+  },
+  "Question 5": {
+    "Yes": 0,
+    "No": 0
+  }
 }

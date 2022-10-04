@@ -45,5 +45,6 @@ app.post('/poll', async (req, res) => {
 
     res.end();
 });
+// Change to be writing to an array of objects all with yes or no variables
 
 app.listen(3000, () => console.log("Server is running..."));
