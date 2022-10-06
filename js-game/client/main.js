@@ -58,18 +58,25 @@ class Poll {
                 yes=1;
                 no=1;
         }
-        placement.innerHTML = `
+        if(answeredYes === 0){
+            placement.innerHTML = `
         <p><span class="yesPercent">${ yes }</span>% Agreed with you.</p>
         <p><span class="noPercent">${ no }</span>% Disagreed with you.</p>
         `;
-
+        } else if(answeredYes === 1){
+            placement.innerHTML = `
+        <p><span class="noPercent">${ no }</span>% Disagreed with you.</p>
+        <p><span class="yesPercent">${ yes }</span>% Agreed with you.</p>
+        `;
+        }
+        
         
         if (!this.selected) {
             if (answeredYes === 0) {
                 console.log("yes");
                     fetch(this.endpoint, {
                         method: "post",
-                        body: `add = Yes`,
+                        body: `add=Yes`,
                         headers: {
                             "Content-Type": "application/x-www-form-urlencoded"
                         }
@@ -85,7 +92,7 @@ class Poll {
                 console.log("no");
                 fetch(this.endpoint, {
                     method: "post",
-                    body: `add = No`,
+                    body: `add=No`,
                     headers: {
                         "Content-Type": "application/x-www-form-urlencoded"
                     }
@@ -102,19 +109,13 @@ class Poll {
 
 
 yesButton.addEventListener('click', answer => {
-    if(answeredYes == 2) {
-        console.log("voted yes");
-        answeredYes = 0;
-        const p = new Poll(document.querySelector('.answerBox'));
-    }
+    answeredYes = 0;
+    const p = new Poll(document.querySelector('.answerBox'));
 });
     
 noButton.addEventListener('click', answer => {
-    if(answeredYes == 2) {
-        console.log("voted no");
-        answeredYes = 1;
-        const p = new Poll(document.querySelector('.answerBox'));
-    }
+    answeredYes = 1;
+    const p = new Poll(document.querySelector('.answerBox'));
 });
 
 

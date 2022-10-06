@@ -54,8 +54,12 @@ app.get('/poll', async (req, res) => {
 
 app.post('/poll', async (req, res) => {
     const data = JSON.parse(await fs.readFile(dataFile, 'utf-8'));
-    console.log("reqbody", req.body);
-    await fs.writeFile(dataFile, JSON.stringify(data, null, 2));
+    if(req.body.add === "Yes") {
+      data.q1.Yes++;
+    } else if(req.body.add === "No"){
+      data.q1.No++;
+    }
+    await fs.writeFile(dataFile, JSON.stringify(data));
 
     res.end();
 });
