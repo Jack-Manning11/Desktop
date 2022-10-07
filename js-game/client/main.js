@@ -76,9 +76,12 @@ class Poll {
                 console.log("yes");
                     fetch(this.endpoint, {
                         method: "post",
-                        body: `add=Yes`,
+                        body: JSON.stringify({
+                            question: 1,
+                            answer: "yes",
+                        }),
                         headers: {
-                            "Content-Type": "application/x-www-form-urlencoded"
+                            "Content-Type": "application/json; charset=utf-8"
                         }
                     }).then(() => {
                         this.selected = "Yes";
