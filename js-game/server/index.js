@@ -1,5 +1,6 @@
 //req is request
 //res is response
+const { json } = require('express');
 const express = require('express');
 const fs = require('fs').promises; //interacting with JSON file
 const path = require('path'); //handling path creation for said JSON
@@ -7,7 +8,7 @@ const app = express();
 const dataFile = path.join(__dirname, 'data.json');
 
 //support posting form data with url encoded
-//app.use(express.urlencoded({ extended: true })); 
+app.use(express.urlencoded({ extended: true })); 
 
 //  Enable CORS
 
@@ -57,7 +58,6 @@ app.get('/poll', async (req, res) => {
 
 app.post('/poll', async (req, res) => {
     const data = JSON.parse(await fs.readFile(dataFile, 'utf-8'));
-
     console.log(req.body);
     if(req.body.add === "Yes") {
       data.q1.Yes++;
@@ -69,4 +69,4 @@ app.post('/poll', async (req, res) => {
     res.end();
 });
 
-app.listen(3000, () => console.log("Server is running..."));
+app.listen(4000, () => console.log("Server is running..."));

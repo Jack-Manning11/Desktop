@@ -16,7 +16,7 @@ class Poll {
     constructor(root) {
         this.root = root;
         this.selected = sessionStorage.getItem('answer');
-        this.endpoint = 'http://localhost:3000/poll';
+        this.endpoint = 'http://localhost:4000/poll';
         this._refresh();
     }
 
@@ -81,7 +81,7 @@ class Poll {
                             answer: "yes",
                         }),
                         headers: {
-                            "Content-Type": "application/json; charset=utf-8"
+                            "Content-Type": "application/x-www-form-urlencoded"
                         }
                     }).then(() => {
                         this.selected = "Yes";
