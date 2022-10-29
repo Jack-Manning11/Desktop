@@ -165,10 +165,11 @@ console.log(company3.employeeList);
  *
  * Print updated JSON to console.
  **/
-let check = false;
 let wfh = ['Anna', 'Sam'];
 for(let i = 0; i < company3.employeeList.length; i++){
+  let check = false;
   let name = company3.employeeList[i].firstName;
+  console.log(check);
   for(let j = 0; j < wfh.length; j++){
     if(wfh[j] === name){
       check = true;
