@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1000px 1fr;
+    align-items: center;
+    background-color: #F3F5EA;
+}
+.start {
+    height: 200px;
+}
+.main {
+    padding: 15px;
+}
+.main h1 {
+    padding-top: 50px;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 60px;
+    text-align: center;
+}
+.main h2 {
+    padding-top: 10px;
+    padding-bottom: 35px;
+    text-align: center;
+    font-family: Montserrat;
+}
+.main p{
+    font-family: Lato;
+    text-indent: 2em;
+    font-size: 20px;
+}
+.spacer {
+    height: 3000px;
+}
+.sticky-text{
+    text-align: center;
+    font-family: Lato;
+    font-size: 20px;
+}
