@@ -21,6 +21,7 @@ Proficiencies:
 **Tools:** Metallurgist's Tools (Can be used to break nonmagical metal objects into metal pieces and combine metal pieces together into alloys that exist)
 
 **Saving Throws:** DEX, WIS
+
 **Skills:** Choose 3 from: Acrobatics, Perception, Athletics, Investigation, Stealth, Insight, and Sleight of Hand.
 
 **Equipment:** 
@@ -33,7 +34,52 @@ Proficiencies:
 ## Mistcloak
 The mistcloak is an intricately made piece of clothing that consists of longs strands of thick fabric sewed together so that they flow freely, masking a Mistborn's flights through the air by making them sound like the wind. Something with a bonus to AC but it is very recognizable, as only true Mistborn have ever been known to don a mistcloak.
 
+## 
+
 <br><br><br><br><br><br><br><br><br>
+
+{{classTable,decoration,frame
+##### The Mistborn
+| Level | Proficiency Bonus | Features |     Metal Pool     |
+|:-----:|:-----------------:|:---------|:---------------------:|
+|  1st  | +2 | Metallurgy, Burning         |8 
+2nd  | +2 | Fighting Style        |          8           |
+|  3rd  | +2 | Allomantic Specialty     |          10           |
+|  4th  | +2 | Ability Score Improvement   |          12           |
+|  5th  | +3 | Extra Attack      |          14           |
+|  6th  | +3 |   Improved Allomancy  |          14           |
+|  7th  | +3 |     Evasion    |          16           |
+|  8th  | +3 | Ability Score Improvement   |          18           |
+|  9th  | +4 |    Allomantic Specialty     |          18           |
+| 10th  | +4 |    Preservation's Blessing   |          20           |
+| 11th  | +4 |        |          22           |
+| 12th  | +4 | Ability Score Improvement       |          24   
+| 13th  | +5 |      Allomantic Specialty      |          26           |
+| 14th  | +5 |    |          28           |
+| 15th  | +5 |    |          30           |
+| 16th  | +5 | Ability Score Improvement      |          32           |
+| 17th  | +6 |    Allomantic Specialty   |          34           |
+| 18th  | +6 |      |          36           |
+| 19th  | +6 |      |          40           |
+| 20th  | +6 | One With the Mists    |40|
+}}
+
+## Fighting Style
+At second level you can pick up a fighting style from the list below.
+
+#### Coinshot
+Gain +2 bonus to all ranged weapon attacks
+
+#### Thug
+While you are wearing armor, increase your AC by 1
+
+#### Lurcher
+When an enemy makes an attack against one of your allies with a metal weapon, you can use your reaction to impose disadvantage on that attack.
+
+#### Pewterarm
+Your unarmed strikes can now deal 1d6 of damage and allow you to use DEX as the modifier.
+
+\page
 
 ## Metallurgy
 At first level you understand the basic metals and alloys, and have a good understanding of metals. You have the ability to craft (or buy) small vials of metal flakes suspended in liquid, each small vial holding 1 ounce of metals. You can also make large vials that hold any combination of 8 ounces of metals that require an action to consume. You can consume a vial as a bonus action, at which point those metals will be added to your pool, up to a cap. These metals last in your pool until you burn them, or have them stripped away through some other means. If you try to take a long rest with metals still in your system you will become poisoned for 24 hours and not gain the benefits of a long rest. 
@@ -44,8 +90,6 @@ Each metal you consume has it's own unique abilities and Burn time. The burn tim
 For example, Tin is an extremely common metal with a slow burn time of 1 hour, you can have a weak burn of tin for an hour, a strong burn of tin for a stronger effect for half an hour, or flare your tin for 12 minutes. Pewter however is a bit rarer, and has a relatively quick burn time at 1 minute. This means a weak burn of pewter lasts a minute, a strong burn 30 seconds(5 rounds), or flared for 12 seconds (2 rounds). 
 
 Beginning at first leve you can activate a weak allomantic ability as an bonus action but any level higher requires a full action. You can dismiss a metal at anytime as a free action or simply let them run out. If any of the metals require a DC the DC will be equal to 8 + proficiency bonus + WIS modifier unless specified otherwise. 
-
-\page
 
 ## Base Metals
 These metals represent the 4 base metal pairings, each one with a push and pull. These metals are relatively easy to come by and each can burn at varying levels, using up their resource quicker.
@@ -67,6 +111,7 @@ You can pull yourself towards a metal that is anchored to an object heavier than
 ### Steel - 1 Hour
 While you are burning Steel ethereal blue lines sprout from your body and connect to pieces of metal surrounding you in a 100ft radius, their thickness relating to the size of the source of metal. When activating this effect the you calculate your weight vs the weight of the object(s).
 
+\page
 **Weak:** Whenever you activate this effect you can push on up to 4 metal objects of your choice directly towards you, these metals must be within 100 feet of you. A creature wearing this metal object adds to the metal's weight. A creature holding this metal object can make a STR save against your Allomantic Save DC to add its weight to the weight of the object. A creature in the path of the object you are pushing must make a DEX save against your Allomantic Save DC or suffer damage equal 1d4 + your WIS Modifier. 
 
 You can push yourself off a metal that is anchored to an object heavier than you. If you are lighter than the object(s), you fly directly away from that object, flying half your move into the air.
@@ -78,7 +123,6 @@ You can push yourself off a metal that is anchored to an object heavier than you
 **Flared:** Whenever you activate this effect you can push on up to 8 metal objects of your choice directly towards you, these metals must be within 100 feet of you. A creature wearing this metal object adds to the metal's weight. A creature holding this metal object can make a STR save against your Allomantic Save DC to add its weight to the weight of the object. A creature in the path of the object you are pushing must make a DEX save against your Allomantic Save DC or suffer damage equal 1d12 + your WIS Modifier. 
 
 You can push yourself off a metal that is anchored to an object heavier than you. If you are lighter than the object(s), you fly directly away from that object, flying double your move into the air.
-\page
 
 ### Tin - 1 Hour
 When burning Tin your senses are heightened, improved eyesight, better hearing, a detailed sense of touch. These sense improvements are not optional though, you cannot improve your eyesight but keep your hearing dulled, you experience everything at a greater volume.
@@ -102,7 +146,7 @@ This metal enhances your physical traits, without altering your appearance. You 
 
 **Strong:** While this metal is burning your move speed increases by 10ft, have +2 to all melee attacks, and are immune to the exhausted condition.
 
-**Flare:** While this metal is burning your move speed increases by 15ft, have a +2 to all melee attacks, +2 to AC, are immune to the exhausted condition, and will instantly stabilize if knocked unconcious.
+**Flare:** While this metal is burning your move speed increases by 15ft, have a +2 to all melee attacks, +2 to AC, are immune to the exhausted condition, and will automatically succeed on your death saving throws.
 
 ### Zinc - 30 Mins
 Burning Zinc allows a Mistborn to enflame a certain emotion of the people around them, making them feel something much stronger than everything else. This is not mind control, just a nudge in a direction. Emotional Allomancy only works on creatures with an INT of 8 or more. Could have some interesting interactions with the Charmed or Frightened conditions.
@@ -111,6 +155,7 @@ Burning Zinc allows a Mistborn to enflame a certain emotion of the people around
 
 **Strong:** Choose up to 15 targets within 30ft of you to push  with a specific emotion. Everyone now has a +4 to checks regarding that emotion, Persuasion, Intimidation, Deception, or Animal Handling. If any of these creatures act too out of place (DM's discretion) a creature can make an INT check against your Allomantic Save DC to know if anyone is being manipulated.
 
+\page
 **Flare:** Choose up to 15 targets within 30ft of you to push  with a specific emotion. Everyone now has advantage to checks regarding that emotion, Persuasion, Intimidation, Deception, or Animal Handling. If any of these creatures act too out of place (DM's discretion) a creature can make an INT check against your Allomantic Save DC to know if anyone is being manipulated.
 
 ### Brass - 30 Mins
@@ -121,8 +166,6 @@ Burning Brass allows a Mistborn to soothe a certain emotion of the people around
 **Strong:** Choose up to 15 targets within 30ft of you to soothe a specific emotion. Everyone now has a +4 to checks regarding that emotion, Persuasion, Intimidation, Deception, or Animal Handling. If any of these creatures act too out of place (DM's discretion) a creature can make an INT check against your Allomantic Save DC to know if anyone is being manipulated.
 
 **Flare:** Choose up to 15 targets within 30ft of you to dampen  a specific emotion. Everyone now has advantage to checks regarding that emotion, Persuasion, Intimidation, Deception, or Animal Handling. If any of these creatures act too out of place (DM's discretion) a creature can make an INT check against your Allomantic Save DC to know if anyone is being manipulated.
-
-\page
 
 ### Copper - 2 Hours
 Burning copper creates a Copper Cloud, shrouding you and those around you from magical means of tracking. This will only work on the standard methods of magical spying, an incredibly powerful being will be able to pierce your coppercloud with a strong enough effect. This is not an anti-magic field, spells that simply wish to do damage to you via line of sight will still work, this only prevents your magical detection.
@@ -152,7 +195,9 @@ Gold reveals your past self had you made different chocies, or had your situatio
 ### Electrum - 5 minutes
 Electrum reveals your own future, sprouting shadows from yourself with a number of possible futures. It also acts as a counter to Atium.
 
-**Burning:** While burning this metal you create a number of shadows equal to 2 x your proficiency bonus that play out the next 6 seconds if you were to take those specific actions. Interpreting these shadows requires immense concentration, so you must treat burning this metal as if you were concentrating on a spell. These shadows do not tell you what action to take, they simply reveal the consequences should you take an action. 
+**Burning:** While burning this metal you create a number of shadows equal to 2 x your proficiency bonus that play out the next 6 seconds if you were to take those specific actions. Interpreting these shadows requires immense concentration, so you must treat burning this metal as if you were concentrating on a 
+\page
+spell. These shadows do not tell you what action to take, they simply reveal the consequences should you take an action. 
 
 You can make an INT check to try and gain information on what the best course of action may be. The DC is set at DM's discretion, scaling depending on the situation, and on a successful check you are able to properly inform yourself on what the best course of action is.
 
@@ -186,11 +231,64 @@ Aluminum is an interesting metal, one widely considered pretty useless.
 Duralumin is an enhancement metal, one that must be burned in combination with another metal. This combination causes whatever metal(s) that are burning to be greatly enhanced, increasing their power in a singular burst.
 
 **Burning:** When you burn duralumin any other metals that are stored are instantly consumed, draining them entirely for a burst of power. Whatever other metal(s) you are burning at the time will cause the corresponding affects to take place:
+
 *Iron:* You pull with incredible power, ripping things towards you in a wild burst. You are able to pull on any number of sources of metal within 100ft, yanking them towards you with incredible power, your damage increases to 2d8 and you are able to pull on metal in someone's body and aluminum.
+
 *Steel:* You push in a burst of power, launching things away from you with raw power. Your damage die increases to 2d8 and there is no limit on the amount of things you can push on. You gain the ability to affect and detect metal in someone as well as aluminum. If you push off an anchor to fly your fly speed is doubled.
-*Tin:* Burning duralumin with tin is often a bad idea, the incredible burst of sensory overload can risk knocking you unconcious if you don't have a way to dampen it's strength. You will have a momentary burst of understanding, seeing or hearing with your range being doubled before knocking yourself out as every sound becomes deafening and every light source becomes blinding.
+
+*Tin:* Burning duralumin with tin is often a bad idea, the incredible burst of sensory overload can 
+\page
+risk knocking you unconcious if you don't have a way to dampen it's strength. You will have a momentary burst of understanding, seeing or hearing with your range being doubled before knocking yourself out as every sound becomes deafening and every light source becomes blinding.
+
 *Pewter:* Burning pewter and duralumin ignites that fire inside you, pushing your body to limits you never thought imaginable. During the burst you have double your movespeed, a +5 to melee attacks, +5 to AC, cleanse your body from any negative conditions and heal 2 of your damage die instantly. You have advantage on all STR checks as well. After this duralumin burst you gain a level of exhaustion.
+
 *Zinc:* You pick an emotion and release a wave of raw power, that emotion becoming all the targets feel. You can affect any number of creatures in a 60ft radius, empowering them with that single emotion. Creatures have advantage on the check to know they are being manipulated but will take the course of action that makes the most sense based on the emotion. Worry may cause people to flee, despair causing people to give up, hope inspiring them to join your cause, or anger to insite a riot.
+
 *Brass:* You pick an emotion and remove it entirely from the targets, leaving that part of their emotions empty. You can affect any number of creatures in a 60ft radius. Creatures have advantage on the check to know they are being manipulated but will take the course of action that makes the most sense based on the emotion chosen. Sootheing away anger might make a creature docile, hope may make them surrender, confidence may make them flee, etc.
+
 *Copper:* ...?
+
 *Bronze:* ...?
+
+## Godly Metals
+While few the godly metals are metals created from the body of gods, mostly alloys of Atium, the earthly body of Preservation's sworn nemesis Ruin. These metals possess incredible power but are extremely rare. 
+
+### Atium
+Burning Atium allows you to see briefly into other people's futures, showing you an ethereal shadow of their movement's throughout the next 6 seconds. This power is incredible, allowing you to dodge any attack, and strike at the most opportune times, every opponents decision laid out for you to counterract. This effect can be countered by your enemy burning Atium or Electrum, as they are now also seeing shadows of decisions, causing both parties to lose the affects. 
+
+**Burning:** While Atium is active you are the most feared being on the planet, you gain a +5 to AC, knowledge of your opponents next turn, advantage on all attacks, and impose disadvantage on all attackers you can see. 
+
+### Malatium
+Malatium is an interesting metal and one of legend, mistakingly referred to as the "eleventh" metal. While not as potent as Atium in combat, it can provide insight unlike any other.
+
+**Burning:** While burning Malatium you are able to see the past of any creature around you, viewing them not only as just their past self, but also what they could've been. This power gives you a glimpse into the Cognitive Realm, giving you insight and information on the person's place in the universe. You have advantage on all History, Insight, and Arcana checks made to learn information about the creature's past, and understand their alignment in the world. 
+
+### Lerasium
+The last known metal is called Lerasium, and it was the birth of all Allomancers. While Allomancers and Mistings can be awoken by Allomantically snapping via their bloodline, there is another way to become Mistborn. When ingested by a creature with no Allomancer levels, they are immediately given a level of Allomancer, and have their bodies filled with 1 ounce of every base metal. The affects this has on a preexisting mistborn are yet to be discovered...
+
+# Allomantic Specialties
+<br>
+This is where things get interesting! Acting similar to Pact Boons from DND's warlocks these are customizable traits that you can pick up at anytime the "Allomantic Specialties" feature appears on your class chart. Each time this feature is triggered you may pick 3 specialties. They are organized into categories to help decision making but you may choose any one you are interested in. Some features are higher level traits that have prerequisites.
+\page
+## Battle Allomancers
+These abilities improve your martial prowess, focusing on the metals you may use in combat situations.
+### Iron - Lurcher
+You can now use your reaction to pull on an opponent's attack 
+
+### Steel - Forceful Shot
+When you make a ranged attack with a metal projectile you are able to empower it with your Steel, shoving it as it exits the weapon or your hand. Once per turn while Steel is burning you are able to make this empowered shot, allowing it to ignore 3/4 cover as it strikes it's target, and roll an extra d6 of damage. This shot also does 3X damage to objects. 
+
+### Steel - SteelBubble
+Your extended use of Steel has taught you how to push outwardly on all sources of metal, creating a bubble of protection from hostile metal sources. Whenever your Steel is burning you gain this to your abilitiy:
+
+**Weak:** You gain a +2 to AC for metallic projectiles
+
+**Strong:** You gain a +4 to AC for metallic projectiles
+
+**Flare:** You gain a +5 to AC and impose disadvantage for all metallic projectiles. 
+
+### Pewter - Strengthened Body
+You understand the true potential of pewter and how it can affect your body. Whenever you are reduced to 0 hitpoints and have pewter in your system you can now go to 1 instead. You can use this feature once per short or long rest.
+
+### Pewter - Dense Bones
+Your burning of pewter improves your bodies natural strengths, increasing it's ability to take a beating. You now gain resistance to all bludgeoning, piercing, and slashing damage while burning pewter at Strong or higher. 
