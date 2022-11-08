@@ -1,3 +1,4 @@
+console.log("starting");
 const quoteButton = document.getElementById('js-new-quote');
 quoteButton.addEventListener('click', getQuote);
 const endPoint = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
