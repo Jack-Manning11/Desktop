@@ -1,6 +1,6 @@
 const quoteButton = document.getElementById('js-new-quote');
 quoteButton.addEventListener('click', getQuote);
-const endPoint = 'https://www.boredapi.com/api/activity';
+const endPoint = 'http://www.thecocktaildb.com/api/json/v1/1/random.php';
 
 async function getQuote(){
   try{
@@ -10,8 +10,7 @@ async function getQuote(){
     }
     const json = await response.json();
     console.log(json);
-    displayQuote(json.activity);
-    displayAuthor(json.type);
+    //displayQuote(json.activity);
   }catch(err) {
     console.log(err);
     alert('failed');
@@ -23,7 +22,4 @@ function displayQuote(quote) {
   quoteText.textContent = quote;
 }
 
-function displayAuthor(author) {
-  const quoteAuthor = document.querySelector('#js-quote-author');
-  quoteAuthor.textContent = "- " + author;
-}
+getQuote();

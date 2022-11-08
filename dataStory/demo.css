@@ -1,3 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #E6D7C7;
+}
+#top-section {
+  padding-top: 5em;
+}
+h1, h2, h3, h4 {
+  font-family: 'Montserrat', sans-serif;
+  color: #2A3D45;
+}
+#credits {
+  font-style: italic;
+}
+h1 {
+  font-size: 50px;
+}
+p {
+  font-family: 'Cabin', sans-serif;
+  padding: 0.25em;
+  color: #2A3D45;
+}
 .filler {
   height: 20rem;
   text-align: center;

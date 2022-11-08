@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="demo.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+  <section class='filler' id="top-section">
+    <h1>Judging a Book by it's Title...</h1>
+    <p id="credits">A data visualization story by Jack Manning</p>
+    <br>
+    <p>Set up the main context of the story I'll be talking about</p>
+    <p>Talk a bit about the data involved and how it was cleaned/organized</p>
+  </section>
+  
+  <section class='full-scroll'>
+    <div class='scroll-section'>
+        <figure class='sticky'>
+          <div class='center'>
+            <img src="../dataStorytelling/shelf-1.png" alt="vector art of a bookshelf" id="center">
+          </div>
+        </figure>
+        <div class='step' data-pic="img/books-first.png" data-index="0">
+          <p>This bookshelf represents all of the fantasy books that were analyzed as a part of this story, the full length representing the almost 15,000 titles</p>
+        </div>
+        <div class='step' data-pic="img/books-first.png" data-index="1">
+          <p>These blue books on the left represent all of the titles that fall under the "blank of blank" trope</p>
+        </div>
+        <div class='step' data-pic="img/books2.png" data-index="2">
+          <p>This green novel shows the amount of books that are "blank and blank"</p>
+        </div>
+        <div class='step' data-pic="img/books3.png" data-index="3">
+          <p>This purple section is every title that follows the structure of "The Adjective Noun"</p>
+        </div>
+        <div class='step' data-pic="img/books4.png" data-index="4">
+          <p>This large red section is every book that has a one word title</p>
+        </div>
+        <div class='step' data-pic="img/books5.png" data-index="5">
+          <p>This yellow book shows all of the books that are "The" one word titles</p>
+        </div>
+        <div class='step' data-pic="img/books6.png" data-index="6">
+          <p>And this final gray section are the books that do not fit in any of the above categories, representing 43% of the books in this dataset</p>
+        </div>
+        <div class='step' data-pic="img/books7.png" data-index="7"></div>
+    </div>
+  </section>
+  
+  <section class='filler'>
+    <p>
+      End
+    </p>
+  </section>
+  <script src="https://unpkg.com/d3@5.4.0/dist/d3.min.js"></script>
+  <script src="https://unpkg.com/enter-view@1.0.0/enter-view.min.js"></script>
+  <script src="https://unpkg.com/stickyfilljs@2.0.5/dist/stickyfill.js"></script>
+  <script src="demo.js"></script>
+</body>
+</html>
