@@ -3,6 +3,7 @@ quoteButton.addEventListener('click', getQuote);
 const endPoint = 'http://www.thecocktaildb.com/api/json/v1/1/random.php';
 
 async function getQuote(){
+  console.log("fetching");
   try{
     const response = await fetch(endPoint);
     if(!response.ok) {
