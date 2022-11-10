@@ -76,6 +76,7 @@ body {
     z-index: -2;
   }
   .content {
+    position: absolute;
     z-index: -1;
     top: 0.25rem;
     left: 50%;
@@ -83,7 +84,6 @@ body {
     width: 49.5%;
     height: 98.5%;
     color: #777;
-    position: absolute;
     padding: 1rem;
     transform-origin: 0 0;
     border-radius: 5px 0 0 5px;
@@ -93,5 +93,30 @@ body {
   }
 
 .active {
-    z-index: 999;
+    z-index: -999;
 }
+.backside {
+    position: absolute;
+    z-index: -5;
+    top: 0.25rem;
+    right: 50%;
+    background-color: #e9e6c4;
+    width: 49.5%;
+    height: 98.5%;
+    color: #777;
+    padding: 1rem;
+    transform-origin: 0 0;
+    border-radius: 5px 0 0 5px;
+    box-shadow: inset 3px 0px 20px rgba(0, 0, 0, 0.2),
+      0px 0px 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    opacity: 0;
+}
+.backside.on {
+    animation: fadeIn 3.5s forwards;
+  }
+  @keyframes fadeIn {
+    30% { opacity: 15 }
+    100% {  opacity: 100;
+      z-index: 1000;}
+  }
