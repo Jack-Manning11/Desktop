@@ -23,3 +23,5 @@ function updateChart(index) {
   }
   
   init();
+
+  
