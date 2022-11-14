@@ -4,25 +4,22 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #E6D7C7;
+  background-color: #FFEAD6;
 }
 #top-section {
   padding-top: 5em;
 }
 h1, h2, h3, h4 {
-  font-family: 'Montserrat', sans-serif;
-  color: #2A3D45;
-}
-#credits {
-  font-style: italic;
+  font-family: 'Abril Fatface', cursive;
+  color: #40434E;
 }
 h1 {
   font-size: 50px;
 }
 p {
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Roboto Slab', serif;
   padding: 0.25em;
-  color: #2A3D45;
+  color: #40434E;
 }
 .filler {
   height: 20rem;
