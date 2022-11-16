@@ -6,27 +6,28 @@
 body {
   background-color: #FFEAD6;
 }
-#top-section {
-  padding-top: 5em;
-}
+
 h1, h2, h3, h4 {
   font-family: 'Abril Fatface', cursive;
   color: #40434E;
 }
 h1 {
-  font-size: 50px;
+  font-size: 70px;
+  z-index: 5;
 }
 p {
   font-family: 'Roboto Slab', serif;
-  padding: 0.25em;
   color: #40434E;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-size: 18px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .filler {
-  height: 20rem;
   text-align: center;
 }
 .fillerBot {
-  padding-top: 100px;
   height: 45rem;
 }
 .full-scroll {
@@ -37,7 +38,7 @@ p {
 .full-scroll .scroll-section figure.sticky {
   position: sticky;
   width: 100%;
-  top: 25vh;
+  top: 35vh;
 }
 .full-scroll .step {
   padding: 0;
@@ -56,75 +57,25 @@ p {
   transition: background-color 250ms ease-in-out;
   color: #f4f4f4;
 }
-.cover {
-  right: 0;
-  background-color: #36354e;
-  width: 50%;
-  height: 100%;
-}
-.page {
-  top: 0.25rem;
-  left: 50%;
-  background-color: #e9e6c4;
-  width: 49%;
-  height: 98%;
-  color: #777;
-}
-.cover, .page {
-  position: absolute;
-  padding: 1rem;
-  transform-origin: 0 0;
-  border-radius: 5px 0 0 5px;
-  box-shadow: inset 3px 0px 20px rgba(0, 0, 0, 0.2),
-    0px 0px 15px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-}
-.cover.turn {
-  animation: bookCover 3s forwards;
-}
-.page.turn {
-  animation: bookOpen 3s forwards;
-}
-.page:nth-of-type(1) {
-  animation-delay: 0.05s;
-}
-.page:nth-of-type(2) {
-  animation-delay: 0.15s
-}
-.page:nth-of-type(3) {
-  animation-delay: 0.25s;
-}
-.page:nth-of-type(4) {
-  animation-delay: 0.35s;
-}
-.page:nth-of-type(5) {
-  animation-delay: 0.43s
-}
-.page:nth-of-type(6) {
-  animation-delay: 0.66s;
-}
-@keyframes bookOpen {
-  30% { z-index: 999 }
-  100% {  transform: rotateY(-180deg);
-    z-index: 999;}
-}
-@keyframes bookCover {
-  30% { z-index: 999 }
-  100% {  transform: rotateY(-180deg);
-    z-index: 1;}
-}
 
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: sans-serif;
 }
 
 .book {
   position: relative;
-  width: 350px;
-  height: 500px;
+  width: 500px;
+  height: 600px;
   transition: transform 1.5s;
+}
+
+.open-book {
+  opacity: 0;
+  width: 500px;
+  height: 600px;
 }
 
 .paper {
@@ -135,7 +86,7 @@ p {
 }
 
 .front, .back {
-  background-color: #FFFFF0;
+  background-color: #f4f4f4;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -170,28 +121,6 @@ p {
 .flipped .front,
 .flipped .back {
   transform: rotateY(-180deg);
-  /* border: 5px solid #79B4A9; */
-}
-/* 
-.paper:not(.flipped) {
-  border: 5px solid #79B4A9;
-} */
-
-
-button {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  margin: 10px;
-  transition: transform 1.5s;
-}
-
-button:focus {
-  outline: none;
-}
-
-button:hover i {
-  color: #636363;
 }
 
 i {
@@ -209,4 +138,49 @@ i {
 
 #p3 {
   z-index: 1;
+}
+
+#prev-btn {
+  display: none;
+}
+#front-cover-back {
+  outline: 5px solid black;
+}
+#b3 {
+  outline: 5px solid black;
+}
+.next-corner {
+  position: absolute;
+  width: 50px;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+  z-index: 1000;
+}
+.prev-corner {
+  position: relative;
+  width: 50px;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  cursor: pointer;
+  z-index: 1000;
+}
+.middle-line {
+  height: 100%;
+  width: 10px;
+  top: 0;
+  left: -5px;
+  background-color: #f4f4f4;
+  opacity: 0;
+  position: absolute;
+  z-index: 1000;
+  transition: 1s;
+}
+#sticky-text {
+  padding: 0;
+  max-width: 50rem;
+  margin: 0 auto;
+  text-align: center;
 }

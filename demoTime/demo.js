@@ -4,6 +4,7 @@ const container = document.querySelector('.container');
 const openBook = document.querySelector('.open-book');
 const nextCorner = document.querySelector('.next-corner');
 const prevCorner = document.querySelector('.prev-corner');
+const middleLine = document.querySelector('.middle-line');
 
 const paper1 = document.querySelector("#p1");
 const paper2 = document.querySelector("#p2");
@@ -25,6 +26,7 @@ function goNextPage() {
                 openBook.style.opacity = 100;
                 paper1.style.zIndex = 3;
                 paper1.classList.add("flipped");
+                middleLine.style.opacity = 100;
                 break;
             case 2:
                 paper1.style.zIndex = 1;
@@ -49,6 +51,7 @@ function goPrevPage() {
                 paper1.classList.remove("flipped");
                 paper1.style.zIndex = 3;
                 openBook.style.opacity = 0;
+                middleLine.style.opacity = 0;
                 break;
             case 3:
                 paper2.classList.remove("flipped");
