@@ -184,3 +184,21 @@ i {
   margin: 0 auto;
   text-align: center;
 }
+.typewriter {
+  text-align: center;
+  font-family: 'Abril Fatface', cursive;
+  font-size: 20px;
+  color: #40434E;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .10em;
+  position: absolute;
+}
+.animate {
+  animation: typing 3s steps(58, end)
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
