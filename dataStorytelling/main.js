@@ -1,19 +1,19 @@
-const { TIMEOUT } = require("dns");
-
 const container = d3.select('.full-scroll');
 const stepSel = container.selectAll('.step');
 const paragraph = document.querySelector('#sticky-text');
-const typewrite = document.querySelector('.typewriter');
+const typewrite = document.querySelectorAll('.typewriter');
 
 function updateChart(index) {
-    typewrite.textContent = "";
-    typewrite.classList.remove("animate");
 	const sel = container.select(`[data-index='${index}']`);
 	const pic = sel.attr('data-pic');
     const text = sel.attr('data-text');
 	document.getElementById('center').src=pic;
-    typewrite.textContent = text;
-    typewrite.classList.add("animate");
+    typewrite[index].textContent = text;
+    typewrite[index].classList.add("animate");
+    if(index != 0){
+        let count = index - 1;
+        typewrite[count].style.display = "none";
+    }
   }
   
   function init() {  
@@ -101,11 +101,3 @@ function goPrevPage() {
         currentLocation--;
     }
 }
-
-
-
-
-
-paragraph.addEventListener("click", () => {
-
-});
