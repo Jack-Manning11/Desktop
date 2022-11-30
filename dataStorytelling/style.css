@@ -192,7 +192,7 @@ i {
   letter-spacing: .10em;
 }
 .animate {
-  animation: typing 3s steps(58, end)
+  animation: typing 2s steps(58, end)
 }
 @keyframes typing {
   from { width: 0 }
@@ -201,6 +201,7 @@ i {
 .center {
   text-align: center;
 }
+
 #f1 {
   background-color: #444B6E;
   outline: 2px solid #444B6E;
@@ -215,4 +216,19 @@ i {
   text-align: center;
   font-size: 25px;
   padding-top: 15px;
+}
+.move-out {
+  position: absolute;
+  animation-name: exit;
+  animation-duration: 2s;
+}
+@keyframes exit {
+  from {
+    opacity: 100;
+    transform: translate(0px, 0px);
+  }
+  to {
+    opacity: 0;
+    transform: translate(0px, -300px);
+  }
 }

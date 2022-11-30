@@ -1,19 +1,17 @@
 const container = d3.select('.full-scroll');
 const stepSel = container.selectAll('.step');
 const paragraph = document.querySelector('#sticky-text');
-const typewrite = document.querySelectorAll('.typewriter');
+const typewrite = document.querySelector('.typewriter');
+const otherType = document.querySelector('.animation-holder');
 
 function updateChart(index) {
 	const sel = container.select(`[data-index='${index}']`);
 	const pic = sel.attr('data-pic');
     const text = sel.attr('data-text');
 	document.getElementById('center').src=pic;
-    typewrite[index].textContent = text;
-    typewrite[index].classList.add("animate");
-    if(index != 0){
-        let count = index - 1;
-        typewrite[count].style.display = "none";
-    }
+    typewrite.textContent = text;
+    typewrite.classList.add("animate");
+    setTimeout(() => {typewrite.classList.remove("animate")}, 2000);
   }
   
   function init() {  
