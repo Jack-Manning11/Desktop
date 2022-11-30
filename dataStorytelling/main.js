@@ -2,7 +2,6 @@ const container = d3.select('.full-scroll');
 const stepSel = container.selectAll('.step');
 const paragraph = document.querySelector('#sticky-text');
 const typewrite = document.querySelector('.typewriter');
-const otherType = document.querySelector('.animation-holder');
 
 function updateChart(index) {
 	const sel = container.select(`[data-index='${index}']`);
