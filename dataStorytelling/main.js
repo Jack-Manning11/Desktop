@@ -12,7 +12,7 @@ const bAndBBook = document.querySelector('.blankAndBlankBook');
 
 
 blueBook.addEventListener('click', ()=>{
-    bOfBBook.style.display = "flex";
+    //bOfBBook.style.display = "flex";
 });
 redBook.addEventListener('click', ()=>{
     alert("red");
@@ -21,7 +21,7 @@ yellowBook.addEventListener('click', ()=>{
     alert("yellow");
 });
 greenBook.addEventListener('click', ()=>{
-    bAndBBook.style.display = "flex";
+    //bAndBBook.style.display = "flex";
 });
 purpleBook.addEventListener('click', ()=>{
     alert("purple");
