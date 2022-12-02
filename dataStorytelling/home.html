@@ -49,57 +49,111 @@
     </div>
   </section>
   <section class='fillerBot'>
+    <p>Here there will be the final wrap up viz for the bookshelf above, as well as some indicator that the "scrollytelling" portion is complete. I'n still working on copy so that will come later but pretend for now I very eloquently set up a bit about perusing the shelves of this Fantasy Library.</p>
     <div class="library">
-        <img src="img/library-test2.png" alt="vector art of a bookshelf">
+        <map name="library-map"> 
+            <area shape="rect" title="blueBook" coords="52,8,73,162" target="_blank" id="blue"/>
+            <area shape="rect" title="redBook" coords="166,199,196,363" target="_blank" id="red"/>
+            <area shape="rect" title="purpleBook" coords="851,3,877,162" target="_blank" id="purple"/>
+            <area shape="rect" title="yellowBook" coords="1004,219,1036,363" target="_blank" id="yellow"/>
+            <area shape="rect" title="greenBook" coords="443,410,469,562" target="_blank" id="green"/>
+        </map>
+        <img src="img/library-v1.png" alt="vector art of a bookshelf" width="1100" height="600" usemap="#library-map">
+        <div class="blankOfBlankBook">
+            <div class="open-book">
+                <div class="prev-corner"></div>
+            </div>
+            <div id="book" class="book">
+                <div class="middle-line"></div>
+                <div class="next-corner"></div>
+                <div id="p1" class="paper">
+                    <div class="front">
+                        <div id="f1" class="front-content">
+                            <h3>A Title of Words</h3>
+                        </div>
+                    </div>
+                    <div id="front-cover-back" class="back">
+                        <div id="b1" class="back-content">
+                            <h1></h1>
+                        </div>
+                    </div>
+                </div>
+                <div id="p2" class="paper">
+                    <div class="front">
+                        <div id="f2" class="front-content">
+                            <h3>Blank of Blank books</h3>
+                            <p>This trope is the largest group of titles I could find, including 18.8% of all the Fantasy and Sci-Fi titles that were included in the dataset.</p>
+                            <p>Not only did it have the largest quantity it also has some of the best quality books, according to popularity. The two most famous fantasy fandoms, Game of Thrones and Lord of the Rings, both fall into this trope. And their new TV shows, House of Dragons and Rings of Power respectively, also fall victim to this common title structure.</p>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div id="b2" class="back-content">
+                            <h1>Visualizations continued</h1>
+                        </div>
+                    </div>
+                </div>
+                <div id="p3" class="paper">
+                    <div class="front">
+                        <div id="f3" class="front-content">
+                            <h1>More Info :)</h1>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div id="b3" class="back-content">
+                            <h1>Back Cover</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="blankAndBlankBook">
+            <div class="open-book">
+                <div class="prev-corner"></div>
+            </div>
+            <div id="book" class="book">
+                <div class="middle-line"></div>
+                <div class="next-corner"></div>
+                <div id="p1" class="paper">
+                    <div class="front">
+                        <div id="f1" class="front-content">
+                            <h3>Different and Rare</h3>
+                        </div>
+                    </div>
+                    <div id="front-cover-back" class="back">
+                        <div id="b1" class="back-content">
+                            <h1></h1>
+                        </div>
+                    </div>
+                </div>
+                <div id="p2" class="paper">
+                    <div class="front">
+                        <div id="f2" class="front-content">
+                            <h3>Blank and Blank books</h3>
+                            <p>This trope is the partner of the blank of blank books, not taking up quite as many titles but including a hefty amount of the overall collection. </p>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div id="b2" class="back-content">
+                            <h1>Visualizations continued</h1>
+                        </div>
+                    </div>
+                </div>
+                <div id="p3" class="paper">
+                    <div class="front">
+                        <div id="f3" class="front-content">
+                            <h1>More Info :)</h1>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div id="b3" class="back-content">
+                            <h1>Back Cover</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="container">
-      <div class="open-book">
-          <div class="prev-corner"></div>
-      </div>
-      <div id="book" class="book">
-          <div class="middle-line"></div>
-          <div class="next-corner"></div>
-          <div id="p1" class="paper">
-              <div class="front">
-                  <div id="f1" class="front-content">
-                      <h3>A Title of Words</h3>
-                  </div>
-              </div>
-              <div id="front-cover-back" class="back">
-                  <div id="b1" class="back-content">
-                      <h1></h1>
-                  </div>
-              </div>
-          </div>
-          <div id="p2" class="paper">
-              <div class="front">
-                  <div id="f2" class="front-content">
-                      <h3>Blank of Blank books</h3>
-                      <p>This trope is the largest group of titles I could find, including 18.8% of all the Fantasy and Sci-Fi titles that were included in the dataset.</p>
-                      <p>Not only did it have the largest quantity it also has some of the best quality books, according to popularity. The two most famous fantasy fandoms, Game of Thrones and Lord of the Rings, both fall into this trope. And their new TV shows, House of Dragons and Rings of Power respectively, also fall victim to this common title structure.</p>
-                  </div>
-              </div>
-              <div class="back">
-                  <div id="b2" class="back-content">
-                      <h1>Visualizations continued</h1>
-                  </div>
-              </div>
-          </div>
-          <div id="p3" class="paper">
-              <div class="front">
-                  <div id="f3" class="front-content">
-                      <h1>More Info :)</h1>
-                  </div>
-              </div>
-              <div class="back">
-                  <div id="b3" class="back-content">
-                      <h1>Back Cover</h1>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+    
   </section>
   <script src="https://unpkg.com/d3@5.4.0/dist/d3.min.js"></script>
   <script src="https://unpkg.com/enter-view@1.0.0/enter-view.min.js"></script>

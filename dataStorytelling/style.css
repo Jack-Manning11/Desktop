@@ -58,18 +58,44 @@ p {
   color: #f4f4f4;
 }
 
-.container {
-  display: flex;
+.blankOfBlankBook {
+  display: none;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+.blankAndBlankBook {
+  display: none;
+  position: absolute;
   justify-content: center;
   align-items: center;
   font-family: sans-serif;
 }
 
 .library {
+  height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: sans-serif;
+}
+#blue {
+  cursor: pointer;
+}
+#red {
+  cursor: pointer;
+}
+#green {
+  cursor: pointer;
+}
+#yellow {
+  cursor: pointer;
+}
+#purple {
+  cursor: pointer;
 }
 
 .book {
@@ -199,7 +225,7 @@ i {
   letter-spacing: .10em;
 }
 .animate {
-  animation: typing 2s steps(58, end)
+  animation: typing 2.5s steps(58, end)
 }
 @keyframes typing {
   from { width: 0 }
@@ -223,19 +249,4 @@ i {
   text-align: center;
   font-size: 25px;
   padding-top: 15px;
-}
-.move-out {
-  position: absolute;
-  animation-name: exit;
-  animation-duration: 2s;
-}
-@keyframes exit {
-  from {
-    opacity: 100;
-    transform: translate(0px, 0px);
-  }
-  to {
-    opacity: 0;
-    transform: translate(0px, -300px);
-  }
 }

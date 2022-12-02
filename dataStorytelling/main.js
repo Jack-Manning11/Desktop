@@ -2,6 +2,31 @@ const container = d3.select('.full-scroll');
 const stepSel = container.selectAll('.step');
 const paragraph = document.querySelector('#sticky-text');
 const typewrite = document.querySelector('.typewriter');
+const blueBook = document.getElementById('blue');
+const redBook = document.getElementById('red');
+const purpleBook = document.getElementById('purple');
+const greenBook = document.getElementById('green');
+const yellowBook = document.getElementById('yellow');
+const bOfBBook = document.querySelector('.blankOfBlankBook');
+const bAndBBook = document.querySelector('.blankAndBlankBook');
+
+
+blueBook.addEventListener('click', ()=>{
+    bOfBBook.style.display = "flex";
+});
+redBook.addEventListener('click', ()=>{
+    alert("red");
+});
+yellowBook.addEventListener('click', ()=>{
+    alert("yellow");
+});
+greenBook.addEventListener('click', ()=>{
+    bAndBBook.style.display = "flex";
+});
+purpleBook.addEventListener('click', ()=>{
+    alert("purple");
+});
+
 
 function updateChart(index) {
 	const sel = container.select(`[data-index='${index}']`);
@@ -10,7 +35,7 @@ function updateChart(index) {
 	document.getElementById('center').src=pic;
     typewrite.textContent = text;
     typewrite.classList.add("animate");
-    setTimeout(() => {typewrite.classList.remove("animate")}, 2000);
+    setTimeout(() => {typewrite.classList.remove("animate")}, 2500);
   }
   
   function init() {  
