@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/b0f29e9bfe.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/9ec0b1b260.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto+Slab:wght@300;400;600&display=swap" rel="stylesheet">  <title>Data Storytelling</title>
 </head>
 <body>
@@ -51,14 +52,16 @@
   <section class='fillerBot'>
     <p>Here there will be the final wrap up viz for the bookshelf above, as well as some indicator that the "scrollytelling" portion is complete. I'n still working on copy so that will come later but pretend for now I very eloquently set up a bit about perusing the shelves of this Fantasy Library.</p>
     <div class="library">
+        <a id="backButton"><i class="fa-solid fa-arrow-left"></i></a>
         <map name="library-map"> 
-            <area shape="rect" title="blueBook" coords="52,8,73,162" target="_blank" id="blue"/>
+            <area shape="rect" title="blueBook" coords="303,8,324,162" target="_blank" id="blue"/>
             <area shape="rect" title="redBook" coords="166,199,196,363" target="_blank" id="red"/>
             <area shape="rect" title="purpleBook" coords="851,3,877,162" target="_blank" id="purple"/>
             <area shape="rect" title="yellowBook" coords="1004,219,1036,363" target="_blank" id="yellow"/>
             <area shape="rect" title="greenBook" coords="443,410,469,562" target="_blank" id="green"/>
         </map>
-        <img src="img/library-v1.png" alt="vector art of a bookshelf" width="1100" height="600" usemap="#library-map">
+        <img src="img/library-updated.png" alt="vector art of a bookshelf" width="1100" height="600" usemap="#library-map">
+        
         <div class="blankOfBlankBook">
             <div class="open-book">
                 <div class="prev-corner"></div>
@@ -152,6 +155,150 @@
                 </div>
             </div>
         </div>
+        <div class="theAdjNounBook">
+            <div class="open-book">
+                <div class="prev-corner"></div>
+            </div>
+            <div id="book" class="book">
+                <div class="middle-line"></div>
+                <div class="next-corner"></div>
+                <div id="p1" class="paper">
+                    <div class="front">
+                        <div id="f1" class="front-content">
+                            <h3>A Title of Words</h3>
+                        </div>
+                    </div>
+                    <div id="front-cover-back" class="back">
+                        <div id="b1" class="back-content">
+                            <h1></h1>
+                        </div>
+                    </div>
+                </div>
+                <div id="p2" class="paper">
+                    <div class="front">
+                        <div id="f2" class="front-content">
+                            <h3>Blank of Blank books</h3>
+                            <p>This trope is the largest group of titles I could find, including 18.8% of all the Fantasy and Sci-Fi titles that were included in the dataset.</p>
+                            <p>Not only did it have the largest quantity it also has some of the best quality books, according to popularity. The two most famous fantasy fandoms, Game of Thrones and Lord of the Rings, both fall into this trope. And their new TV shows, House of Dragons and Rings of Power respectively, also fall victim to this common title structure.</p>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div id="b2" class="back-content">
+                            <h1>Visualizations continued</h1>
+                        </div>
+                    </div>
+                </div>
+                <div id="p3" class="paper">
+                    <div class="front">
+                        <div id="f3" class="front-content">
+                            <h1>More Info :)</h1>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div id="b3" class="back-content">
+                            <h1>Back Cover</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="oneWordBook">
+            <div class="open-book">
+                <div class="prev-corner"></div>
+            </div>
+            <div id="book" class="book">
+                <div class="middle-line"></div>
+                <div class="next-corner"></div>
+                <div id="p1" class="paper">
+                    <div class="front">
+                        <div id="f1" class="front-content">
+                            <h3>A Title of Words</h3>
+                        </div>
+                    </div>
+                    <div id="front-cover-back" class="back">
+                        <div id="b1" class="back-content">
+                            <h1></h1>
+                        </div>
+                    </div>
+                </div>
+                <div id="p2" class="paper">
+                    <div class="front">
+                        <div id="f2" class="front-content">
+                            <h3>Blank of Blank books</h3>
+                            <p>This trope is the largest group of titles I could find, including 18.8% of all the Fantasy and Sci-Fi titles that were included in the dataset.</p>
+                            <p>Not only did it have the largest quantity it also has some of the best quality books, according to popularity. The two most famous fantasy fandoms, Game of Thrones and Lord of the Rings, both fall into this trope. And their new TV shows, House of Dragons and Rings of Power respectively, also fall victim to this common title structure.</p>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div id="b2" class="back-content">
+                            <h1>Visualizations continued</h1>
+                        </div>
+                    </div>
+                </div>
+                <div id="p3" class="paper">
+                    <div class="front">
+                        <div id="f3" class="front-content">
+                            <h1>More Info :)</h1>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div id="b3" class="back-content">
+                            <h1>Back Cover</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="theOneWordBook">
+            <div class="open-book">
+                <div class="prev-corner"></div>
+            </div>
+            <div id="book" class="book">
+                <div class="middle-line"></div>
+                <div class="next-corner"></div>
+                <div id="p1" class="paper">
+                    <div class="front">
+                        <div id="f1" class="front-content">
+                            <h3>The name</h3>
+                        </div>
+                    </div>
+                    <div id="front-cover-back" class="back">
+                        <div id="b1" class="back-content">
+                            <h1></h1>
+                        </div>
+                    </div>
+                </div>
+                <div id="p2" class="paper">
+                    <div class="front">
+                        <div id="f2" class="front-content">
+                            <h3>The One Word books</h3>
+                            <p>This is the companion trope to one word titles, including enough individual books to be worth a mention as a part of this study. Similar to blank and blank titles it only takes up about 5% of the overall dataset, but that is over 620 titles.</p>
+                            <p>While the category is small the titles it includes have large franchises. Books in this category include The Giver, The Odyssey, and The Lorax.</p>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div id="b2" class="back-content">
+                            <h1>Visualizations continued</h1>
+                        </div>
+                    </div>
+                </div>
+                <div id="p3" class="paper">
+                    <div class="front">
+                        <div id="f3" class="front-content">
+                            <h1>More Info :)</h1>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div id="b3" class="back-content">
+                            <h1>Back Cover</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
     
   </section>

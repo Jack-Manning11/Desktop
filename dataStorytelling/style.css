@@ -74,6 +74,30 @@ p {
   font-family: sans-serif;
 }
 
+.theAdjNounBook {
+  display: none;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+.oneWordBook {
+  display: none;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+.theOneWordBook {
+  display: none;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
 .library {
   height: 100vh;
   width: 100vw;
@@ -239,6 +263,7 @@ i {
   background-color: #444B6E;
   outline: 2px solid #444B6E;
 }
+
 #f1 h3 {
   color: #F6F0E0;
   font-size: 40px;
@@ -249,4 +274,17 @@ i {
   text-align: center;
   font-size: 25px;
   padding-top: 15px;
+}
+#backButton{
+  position: absolute;
+  right: 2%;
+  font-size: 30px;
+  line-height: 60px;
+  transition: .3s;
+  cursor: pointer;
+  transform: translate(0px, -250px);
+  display: none;
+}
+#backButton:hover {
+  transform: translate(-10px, -250px);
 }

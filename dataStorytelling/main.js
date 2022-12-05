@@ -9,22 +9,76 @@ const greenBook = document.getElementById('green');
 const yellowBook = document.getElementById('yellow');
 const bOfBBook = document.querySelector('.blankOfBlankBook');
 const bAndBBook = document.querySelector('.blankAndBlankBook');
+const theOneWordBook = document.querySelector('.theOneWordBook');
+const oneWordBook = document.querySelector('.oneWordBook');
+const theAdjNounBook = document.querySelector('.theAdjNounBook');
 
+const library = document.querySelector('.library');
+const backButton = document.querySelector('#backButton');
+var bookIndex = 0;
+const openBook = document.querySelectorAll('.open-book');
+const nextCorner = document.querySelectorAll('.next-corner');
+const prevCorner = document.querySelectorAll('.prev-corner');
+const middleLine = document.querySelectorAll('.middle-line');
+
+const paper1 = document.querySelectorAll("#p1");
+const paper2 = document.querySelectorAll("#p2");
+const paper3 = document.querySelectorAll("#p3");
+
+nextCorner[0].addEventListener("click", goNextPage);
+prevCorner[0].addEventListener("click", goPrevPage);
+nextCorner[1].addEventListener("click", goNextPage);
+prevCorner[1].addEventListener("click", goPrevPage);
+nextCorner[2].addEventListener("click", goNextPage);
+prevCorner[2].addEventListener("click", goPrevPage);
+nextCorner[3].addEventListener("click", goNextPage);
+prevCorner[3].addEventListener("click", goPrevPage);
+nextCorner[4].addEventListener("click", goNextPage);
+prevCorner[4].addEventListener("click", goPrevPage);
 
 blueBook.addEventListener('click', ()=>{
-    //bOfBBook.style.display = "flex";
+    bOfBBook.style.display = "flex";
+    backButton.style.display = "block";
+    bookIndex = 0;
+    nextCorner[0].style.display = "block";
 });
 redBook.addEventListener('click', ()=>{
-    alert("red");
+    oneWordBook.style.display = "flex";
+    backButton.style.display = "block";
+    bookIndex = 0;
+    nextCorner[3].style.display = "block";
 });
 yellowBook.addEventListener('click', ()=>{
-    alert("yellow");
+    theOneWordBook.style.display = "flex";
+    backButton.style.display = "block";
+    bookIndex = 0;
+    nextCorner[4].style.display = "block";
 });
 greenBook.addEventListener('click', ()=>{
-    //bAndBBook.style.display = "flex";
+    bAndBBook.style.display = "flex";
+    backButton.style.display = "block";
+    bookIndex = 1;
+    nextCorner[1].style.display = "block";
 });
 purpleBook.addEventListener('click', ()=>{
-    alert("purple");
+    theAdjNounBook.style.display = "flex";
+    backButton.style.display = "block";
+    bookIndex = 0;
+    nextCorner[2].style.display = "block";
+});
+backButton.addEventListener('click', ()=> {
+    bOfBBook.style.display = "none";
+    bAndBBook.style.display = "none";
+    theAdjNounBook.style.display = "none";
+    theOneWordBook.style.display = "none";
+    oneWordBook.style.display = "none";
+    backButton.style.display = "none";
+    currentLocation = 1;
+    paper1[bookIndex].classList.remove("flipped");
+    paper2[bookIndex].classList.remove("flipped");
+    paper1[bookIndex].style.zIndex = 3;
+    openBook[bookIndex].style.opacity = 0;
+    middleLine[bookIndex].style.opacity = 0;
 });
 
 
@@ -55,22 +109,9 @@ function updateChart(index) {
   
   init();
 
-// References to DOM Elements
-const book = document.querySelector("#book");
-const openBook = document.querySelector('.open-book');
-const nextCorner = document.querySelector('.next-corner');
-const prevCorner = document.querySelector('.prev-corner');
-const middleLine = document.querySelector('.middle-line');
+//blank of blank book
 
-const paper1 = document.querySelector("#p1");
-const paper2 = document.querySelector("#p2");
-const paper3 = document.querySelector("#p3");
 
-// Event Listener
-nextCorner.addEventListener("click", goNextPage);
-prevCorner.addEventListener("click", goPrevPage);
-
-// Business Logic
 let currentLocation = 1;
 let numOfPapers = 3;
 let maxLocation = numOfPapers + 1;
@@ -79,19 +120,19 @@ function goNextPage() {
     if(currentLocation < maxLocation) {
         switch(currentLocation) {
             case 1:
-                openBook.style.opacity = 100;
-                paper1.style.zIndex = 3;
-                paper1.classList.add("flipped");
-                middleLine.style.opacity = 100;
+                openBook[bookIndex].style.opacity = 100;
+                paper1[bookIndex].style.zIndex = 3;
+                paper1[bookIndex].classList.add("flipped");
+                middleLine[bookIndex].style.opacity = 100;
                 break;
             case 2:
-                paper1.style.zIndex = 1;
-                paper2.classList.add("flipped");
-                paper2.style.zIndex = 2;
-                nextCorner.style.display = "none";
+                paper1[bookIndex].style.zIndex = 1;
+                paper2[bookIndex].classList.add("flipped");
+                paper2[bookIndex].style.zIndex = 2;
+                nextCorner[bookIndex].style.display = "none";
                 break;
             case 3:
-                paper3.style.zIndex = 3;
+                paper3[bookIndex].style.zIndex = 3;
                 break;
             default:
                 throw new Error("unkown state");
@@ -104,18 +145,18 @@ function goPrevPage() {
     if(currentLocation > 1) {
         switch(currentLocation) {
             case 2:
-                paper1.classList.remove("flipped");
-                paper1.style.zIndex = 3;
-                openBook.style.opacity = 0;
-                middleLine.style.opacity = 0;
+                paper1[bookIndex].classList.remove("flipped");
+                paper1[bookIndex].style.zIndex = 3;
+                openBook[bookIndex].style.opacity = 0;
+                middleLine[bookIndex].style.opacity = 0;
                 break;
             case 3:
-                paper2.classList.remove("flipped");
-                nextCorner.style.display = "block";
-                paper2.style.zIndex = 2;
+                paper2[bookIndex].classList.remove("flipped");
+                nextCorner[bookIndex].style.display = "block";
+                paper2[bookIndex].style.zIndex = 2;
                 break;
             case 4:
-                paper3.style.zIndex = 1;
+                paper3[bookIndex].style.zIndex = 1;
                 break;
             default:
                 throw new Error("unkown state");
