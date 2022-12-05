@@ -263,6 +263,10 @@ i {
   background-color: #444B6E;
   outline: 2px solid #444B6E;
 }
+#a-different-id {
+  background-color: #588B8B;
+  outline: 2px solid #588B8B;
+}
 
 #f1 h3 {
   color: #F6F0E0;

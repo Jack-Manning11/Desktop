@@ -45,13 +45,13 @@ blueBook.addEventListener('click', ()=>{
 redBook.addEventListener('click', ()=>{
     oneWordBook.style.display = "flex";
     backButton.style.display = "block";
-    bookIndex = 0;
+    bookIndex = 3;
     nextCorner[3].style.display = "block";
 });
 yellowBook.addEventListener('click', ()=>{
     theOneWordBook.style.display = "flex";
     backButton.style.display = "block";
-    bookIndex = 0;
+    bookIndex = 4;
     nextCorner[4].style.display = "block";
 });
 greenBook.addEventListener('click', ()=>{
@@ -63,7 +63,7 @@ greenBook.addEventListener('click', ()=>{
 purpleBook.addEventListener('click', ()=>{
     theAdjNounBook.style.display = "flex";
     backButton.style.display = "block";
-    bookIndex = 0;
+    bookIndex = 2;
     nextCorner[2].style.display = "block";
 });
 backButton.addEventListener('click', ()=> {
