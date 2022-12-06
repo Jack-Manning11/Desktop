@@ -203,6 +203,7 @@ i {
 #b3 {
   outline: 5px solid #444B6E;
 }
+
 .next-corner {
   position: absolute;
   width: 50px;
@@ -223,13 +224,24 @@ i {
 }
 .middle-line {
   height: 100%;
-  width: 10px;
+  width: 6px;
   top: 0;
-  left: -5px;
-  background-color: #F6F0E0;
+  left: 0px;
+  background: linear-gradient(to left, #F6F0E0, #F2E8CF);
   opacity: 0;
   position: absolute;
   z-index: 1000;
+  transition: 1s;
+}
+.divider-line {
+  height: 100%;
+  width: 6px;
+  top: 0;
+  left: -6px;
+  background: linear-gradient(to left, #F2E8CF, #F6F0E0);
+  opacity: 0;
+  position: absolute;
+  z-index: 999;
   transition: 1s;
 }
 #sticky-text {
@@ -263,10 +275,6 @@ i {
   background-color: #444B6E;
   outline: 2px solid #444B6E;
 }
-#a-different-id {
-  background-color: #588B8B;
-  outline: 2px solid #588B8B;
-}
 
 #f1 h3 {
   color: #F6F0E0;
@@ -291,4 +299,100 @@ i {
 }
 #backButton:hover {
   transform: translate(-10px, -250px);
+}
+
+#bofb1 {
+  background-color: #588B8B;
+  outline: 2px solid #588B8B;
+}
+#bofb1 h3{
+  color: #F6F0E0;
+  font-size: 40px;
+  padding-top: 100px;
+  text-align: center;
+}
+#bofb-cover {
+  outline: 5px solid #588B8B;
+}
+#bofb-back {
+  outline: 5px solid #588B8B;
+}
+
+#bandb1 {
+  background-color: #A4C2A5;
+  outline: 2px solid #A4C2A5;
+}
+#bandb1 h3{
+  color: #F6F0E0;
+  font-size: 40px;
+  padding-top: 100px;
+  text-align: center;
+}
+#bandb-cover {
+  outline: 5px solid #A4C2A5;
+}
+#bandb-back {
+  outline: 5px solid #A4C2A5;
+}
+
+#tan1 {
+  background-color: #5A455E;
+  outline: 2px solid #5A455E;
+}
+#tan1 h3{
+  color: #F6F0E0;
+  font-size: 40px;
+  padding-top: 100px;
+  text-align: center;
+}
+#tan-cover {
+  outline: 5px solid #5A455E;
+}
+#tan-back {
+  outline: 5px solid #5A455E;
+}
+
+#ow1 {
+  background-color: #C92827;
+  outline: 2px solid #C92827;
+}
+#ow1 h3{
+  color: #F6F0E0;
+  font-size: 40px;
+  padding-top: 100px;
+  text-align: center;
+}
+#ow-cover {
+  outline: 5px solid #C92827;
+}
+#ow-back {
+  outline: 5px solid #C92827;
+}
+
+#tow1 {
+  background-color: #FEC010;
+  outline: 2px solid #FEC010;
+}
+#tow1 h3{
+  color: #F6F0E0;
+  font-size: 40px;
+  padding-top: 100px;
+  text-align: center;
+}
+#tow-cover {
+  outline: 5px solid #FEC010;
+}
+#tow-back {
+  outline: 5px solid #FEC010;
+}
+ul {
+  list-style-type: square;
+  padding-left: 10%;
+}
+li {
+  font-family: 'Roboto Slab', serif;
+  color: #40434E;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-size: 16px;
 }

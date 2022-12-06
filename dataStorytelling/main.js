@@ -20,6 +20,7 @@ const openBook = document.querySelectorAll('.open-book');
 const nextCorner = document.querySelectorAll('.next-corner');
 const prevCorner = document.querySelectorAll('.prev-corner');
 const middleLine = document.querySelectorAll('.middle-line');
+const dividerLine = document.querySelectorAll('.divider-line')
 
 const paper1 = document.querySelectorAll("#p1");
 const paper2 = document.querySelectorAll("#p2");
@@ -79,6 +80,7 @@ backButton.addEventListener('click', ()=> {
     paper1[bookIndex].style.zIndex = 3;
     openBook[bookIndex].style.opacity = 0;
     middleLine[bookIndex].style.opacity = 0;
+    dividerLine[bookIndex].style.opacity = 0;
 });
 
 
@@ -124,6 +126,7 @@ function goNextPage() {
                 paper1[bookIndex].style.zIndex = 3;
                 paper1[bookIndex].classList.add("flipped");
                 middleLine[bookIndex].style.opacity = 100;
+                dividerLine[bookIndex].style.opacity = 100;
                 break;
             case 2:
                 paper1[bookIndex].style.zIndex = 1;
@@ -149,6 +152,7 @@ function goPrevPage() {
                 paper1[bookIndex].style.zIndex = 3;
                 openBook[bookIndex].style.opacity = 0;
                 middleLine[bookIndex].style.opacity = 0;
+                dividerLine[bookIndex].style.opacity = 0;
                 break;
             case 3:
                 paper2[bookIndex].classList.remove("flipped");
