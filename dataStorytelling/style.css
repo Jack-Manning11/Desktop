@@ -29,6 +29,10 @@ p {
 }
 .fillerBot {
   height: 45rem;
+  padding-top: 50px;
+}
+.fillerBot p {
+  text-align: center;
 }
 .full-scroll {
   width: 100%;
