@@ -127,6 +127,7 @@ function goNextPage() {
                 paper1[bookIndex].classList.add("flipped");
                 middleLine[bookIndex].style.opacity = 100;
                 dividerLine[bookIndex].style.opacity = 100;
+                prevCorner[bookIndex].style.display = "block";
                 break;
             case 2:
                 paper1[bookIndex].style.zIndex = 1;
@@ -153,6 +154,7 @@ function goPrevPage() {
                 openBook[bookIndex].style.opacity = 0;
                 middleLine[bookIndex].style.opacity = 0;
                 dividerLine[bookIndex].style.opacity = 0;
+                prevCorner[bookIndex].style.display = "none";
                 break;
             case 3:
                 paper2[bookIndex].classList.remove("flipped");

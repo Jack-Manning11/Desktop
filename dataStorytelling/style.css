@@ -210,7 +210,7 @@ i {
 
 .next-corner {
   position: absolute;
-  width: 50px;
+  width: 500px;
   height: 100%;
   right: 0;
   bottom: 0;
@@ -219,12 +219,13 @@ i {
 }
 .prev-corner {
   position: relative;
-  width: 50px;
+  width: 500px;
   height: 100%;
   left: 0;
   bottom: 0;
   cursor: pointer;
   z-index: 1000;
+  display: none;
 }
 .middle-line {
   height: 100%;
