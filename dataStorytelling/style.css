@@ -405,8 +405,16 @@ li {
   padding-bottom: 2px;
   font-size: 16px;
 }
+.instruction{
+  font-size: 12px;
+  font-family: 'Abril Fatface', cursive;
+  color: #F6F0E0;
+  transform: translate(0px, 400px);
+}
 
-
-#bookLabel {
-  text-align: center;
+.instruction2{
+  font-size: 12px;
+  font-family: 'Abril Fatface', cursive;
+  color: #444B6E;
+  transform: translate(0px, 400px);
 }
