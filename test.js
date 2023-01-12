@@ -1,12 +1,22 @@
+const nameHolder = document.querySelector('#playerName');
+const attemptHolder = document.querySelector('#attemps');
+const pos2 = document.querySelector('#two');
+const pos3 = document.querySelector('#three');
+const pos4 = document.querySelector('#four');
+const pos5 = document.querySelector('#five');
+const yes = document.querySelector('#y')
+const no = document.querySelector('#n');
+const next = document.querySelector('#nextUp');
+let nextUp = 5;
+let currRotation = [0,1,2,3,4];
+
 let players = [
   {
     name: "Alice",
-    FA: 0, 
     attemps: 3
   },
   {
     name: "Ben",
-    FA: 0, 
     attemps: 3
   },
   {
@@ -16,42 +26,106 @@ let players = [
   },
   {
     name: "Dan",
-    FA: 0, 
     attemps: 3
   },
   {
     name: "Eli",
-    FA: 0, 
     attemps: 3
   },
   {
     name: "Frank",
-    FA: 0, 
     attemps: 3
   },
   {
     name: "Gary",
-    FA: 0, 
     attemps: 3
   },
   {
     name: "Hank",
-    FA: 0, 
     attemps: 3
   },
   {
     name: "Isaac",
-    FA: 0, 
     attemps: 3
   },
   {
     name: "Jack",
-    FA: 0, 
     attemps: 3
   },
   {
     name: "Kaladin",
-    FA: 0, 
+    attemps: 3
+  },
+  {
+    name: "Lauren",
+    attemps: 3
+  },
+  {
+    name: "Manny",
+    attemps: 3
+  },
+  {
+    name: "Ned",
+    attemps: 3
+  },
+  {
+    name: "Oscar",
+    attemps: 3
+  },
+  {
+    name: "Paul",
     attemps: 3
   }
 ]
+
+yes.addEventListener('click', ()=>{
+  let temp = currRotation;
+  for(let i = 0; i < 4; i++){
+    currRotation[i] = temp[i+1];
+  }
+  currRotation[4] = nextUp;
+  nextUp++;
+
+  nameHolder.textContent = players[currRotation[0]].name;
+  attemptHolder.textContent = players[currRotation[0]].attemps;
+  pos2.textContent = "Name: " + players[currRotation[1]].name + "____Attemps:" + players[currRotation[1]].attemps;
+  pos3.textContent = "Name: " + players[currRotation[2]].name + "____Attemps:" + players[currRotation[2]].attemps;
+  pos4.textContent = "Name: " + players[currRotation[3]].name + "____Attemps:" + players[currRotation[3]].attemps;
+  pos5.textContent = "Name: " + players[currRotation[4]].name + "____Attemps:" + players[currRotation[4]].attemps;
+  next.textContent = "Next up... " + players[nextUp].name;
+});
+
+no.addEventListener('click', ()=>{
+  players[currRotation[0]].attemps = players[currRotation[0]].attemps - 1;
+  if(players[currRotation[0]].attemps == 0){
+    let temp = currRotation;
+    for(let i = 0; i < 4; i++){
+      currRotation[i] = temp[i+1];
+    }
+    currRotation[4] = nextUp;
+    nextUp++;
+  } else {
+    let temp = currRotation;
+    let reRun = currRotation[0];
+    for(let i = 0; i < 4; i++){
+      currRotation[i] = temp[i+1];
+    }
+    currRotation[4] = reRun;
+  }
+  
+  nameHolder.textContent = players[currRotation[0]].name;
+  attemptHolder.textContent = players[currRotation[0]].attemps;
+  pos2.textContent = "Name: " + players[currRotation[1]].name + "____Attemps:" + players[currRotation[1]].attemps;
+  pos3.textContent = "Name: " + players[currRotation[2]].name + "____Attemps:" + players[currRotation[2]].attemps;
+  pos4.textContent = "Name: " + players[currRotation[3]].name + "____Attemps:" + players[currRotation[3]].attemps;
+  pos5.textContent = "Name: " + players[currRotation[4]].name + "____Attemps:" + players[currRotation[4]].attemps;
+  next.textContent = "Next up... " + players[nextUp].name;
+});
+
+nameHolder.textContent = players[currRotation[0]].name;
+attemptHolder.textContent = players[currRotation[0]].attemps;
+pos2.textContent = "Name: " + players[currRotation[1]].name + "____Attemps:" + players[currRotation[1]].attemps;
+pos3.textContent = "Name: " + players[currRotation[2]].name + "____Attemps:" + players[currRotation[2]].attemps;
+pos4.textContent = "Name: " + players[currRotation[3]].name + "____Attemps:" + players[currRotation[3]].attemps;
+pos5.textContent = "Name: " + players[currRotation[4]].name + "____Attemps:" + players[currRotation[4]].attemps;
+next.textContent = "Next up... " + players[nextUp].name;
