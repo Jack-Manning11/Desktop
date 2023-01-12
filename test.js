@@ -21,7 +21,6 @@ let players = [
   },
   {
     name: "Charlie",
-    FA: 0, 
     attemps: 3
   },
   {
@@ -79,13 +78,15 @@ let players = [
 ]
 
 yes.addEventListener('click', ()=>{
-  let temp = currRotation;
-  for(let i = 0; i < 4; i++){
-    currRotation[i] = temp[i+1];
+  if(players.length >= 10){
+    let temp = currRotation;
+    for(let i = 0; i < 4; i++){
+      currRotation[i] = temp[i+1];
+    }
+    currRotation[4] = nextUp;
+    nextUp++;
   }
-  currRotation[4] = nextUp;
-  nextUp++;
-
+  
   nameHolder.textContent = players[currRotation[0]].name;
   attemptHolder.textContent = players[currRotation[0]].attemps;
   pos2.textContent = "Name: " + players[currRotation[1]].name + "____Attemps:" + players[currRotation[1]].attemps;
@@ -96,21 +97,27 @@ yes.addEventListener('click', ()=>{
 });
 
 no.addEventListener('click', ()=>{
-  players[currRotation[0]].attemps = players[currRotation[0]].attemps - 1;
-  if(players[currRotation[0]].attemps == 0){
-    let temp = currRotation;
-    for(let i = 0; i < 4; i++){
-      currRotation[i] = temp[i+1];
+  if(players.length >= 10){
+    players[currRotation[0]].attemps = players[currRotation[0]].attemps - 1;
+    if(players[currRotation[0]].attemps == 0){
+      players.splice(currRotation[0], 1);
+      console.log(players);
+      let temp = currRotation;
+      for(let i = 0; i < 4; i++){
+        currRotation[i] = temp[i+1];
+      }
+      currRotation[4] = nextUp;
+      nextUp++;
+    } else {
+      let temp = currRotation;
+      let reRun = currRotation[0];
+      for(let i = 0; i < 4; i++){
+        currRotation[i] = temp[i+1];
+      }
+      currRotation[4] = reRun;
     }
-    currRotation[4] = nextUp;
-    nextUp++;
   } else {
-    let temp = currRotation;
-    let reRun = currRotation[0];
-    for(let i = 0; i < 4; i++){
-      currRotation[i] = temp[i+1];
-    }
-    currRotation[4] = reRun;
+    alert("Five Alive is dead");
   }
   
   nameHolder.textContent = players[currRotation[0]].name;
