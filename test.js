@@ -93,16 +93,104 @@ yes.addEventListener('click', ()=>{
     players.splice(0, 1);
     nameHolder.textContent = players[0].name;
     attemptHolder.textContent = players[0].attemps;
-    pos2.textContent = "Name: " + players[1].name + " " + players[1].attemps;
-    pos3.textContent = "Name: " + players[2].name + " " + players[2].attemps;
-    pos4.textContent = "Name: " + players[3].name + " " + players[3].attemps;
-    pos5.textContent = "Name: " + players[4].name + " " + players[4].attemps;
-    pos6.textContent = "Name: " + players[5].name + " " + players[5].attemps;
-    pos7.textContent = "Name: " + players[6].name + " " + players[6].attemps;
-    pos8.textContent = "Name: " + players[7].name + " " + players[7].attemps;
-    pos9.textContent = "Name: " + players[8].name + " " + players[8].attemps;
+    switch(players.length){
+      case 9:
+        pos2.textContent = "Name: " + players[1].name + " " + players[1].attemps;
+        pos3.textContent = "Name: " + players[2].name + " " + players[2].attemps;
+        pos4.textContent = "Name: " + players[3].name + " " + players[3].attemps;
+        pos5.textContent = "Name: " + players[4].name + " " + players[4].attemps;
+        pos6.textContent = "Name: " + players[5].name + " " + players[5].attemps;
+        pos7.textContent = "Name: " + players[6].name + " " + players[6].attemps;
+        pos8.textContent = "Name: " + players[7].name + " " + players[7].attemps;
+        pos9.textContent = "Name: " + players[8].name + " " + players[8].attemps;
+        break;
+      case 8:
+        pos2.textContent = "Name: " + players[1].name + " " + players[1].attemps;
+        pos3.textContent = "Name: " + players[2].name + " " + players[2].attemps;
+        pos4.textContent = "Name: " + players[3].name + " " + players[3].attemps;
+        pos5.textContent = "Name: " + players[4].name + " " + players[4].attemps;
+        pos6.textContent = "Name: " + players[5].name + " " + players[5].attemps;
+        pos7.textContent = "Name: " + players[6].name + " " + players[6].attemps;
+        pos8.textContent = "Name: " + players[7].name + " " + players[7].attemps;
+        pos9.textContent = "";
+        break;
+      case 7:
+        pos2.textContent = "Name: " + players[1].name + " " + players[1].attemps;
+        pos3.textContent = "Name: " + players[2].name + " " + players[2].attemps;
+        pos4.textContent = "Name: " + players[3].name + " " + players[3].attemps;
+        pos5.textContent = "Name: " + players[4].name + " " + players[4].attemps;
+        pos6.textContent = "Name: " + players[5].name + " " + players[5].attemps;
+        pos7.textContent = "Name: " + players[6].name + " " + players[6].attemps;
+        pos8.textContent = "";
+        pos9.textContent = "";
+        break;
+      case 6:
+        pos2.textContent = "Name: " + players[1].name + " " + players[1].attemps;
+        pos3.textContent = "Name: " + players[2].name + " " + players[2].attemps;
+        pos4.textContent = "Name: " + players[3].name + " " + players[3].attemps;
+        pos5.textContent = "Name: " + players[4].name + " " + players[4].attemps;
+        pos6.textContent = "Name: " + players[5].name + " " + players[5].attemps;
+        pos7.textContent = "";
+        pos8.textContent = "";
+        pos9.textContent = "";
+        break;
+      case 5:
+        pos2.textContent = "Name: " + players[1].name + " " + players[1].attemps;
+        pos3.textContent = "Name: " + players[2].name + " " + players[2].attemps;
+        pos4.textContent = "Name: " + players[3].name + " " + players[3].attemps;
+        pos5.textContent = "Name: " + players[4].name + " " + players[4].attemps;
+        pos6.textContent = "";
+        pos7.textContent = "";
+        pos8.textContent = "";
+        pos9.textContent = "";
+        break;
+      case 4:
+        pos2.textContent = "Name: " + players[1].name + " " + players[1].attemps;
+        pos3.textContent = "Name: " + players[2].name + " " + players[2].attemps;
+        pos4.textContent = "Name: " + players[3].name + " " + players[3].attemps;
+        pos5.textContent = "";
+        pos6.textContent = "";
+        pos7.textContent = "";
+        pos8.textContent = "";
+        pos9.textContent = "";
+        break;
+      case 3:
+        pos2.textContent = "Name: " + players[1].name + " " + players[1].attemps;
+        pos3.textContent = "Name: " + players[2].name + " " + players[2].attemps;
+        pos4.textContent = "";
+        pos5.textContent = "";
+        pos6.textContent = "";
+        pos7.textContent = "";
+        pos8.textContent = "";
+        pos9.textContent = "";
+        break;
+      case 2:
+        pos2.textContent = "Name: " + players[1].name + " " + players[1].attemps;
+        pos3.textContent = "";
+        pos4.textContent = "";
+        pos5.textContent = "";
+        pos6.textContent = "";
+        pos7.textContent = "";
+        pos8.textContent = "";
+        pos9.textContent = "";
+        break;
+      case 1:
+        pos2.textContent = "";
+        pos3.textContent = "";
+        pos4.textContent = "";
+        pos5.textContent = "";
+        pos6.textContent = "";
+        pos7.textContent = "";
+        pos8.textContent = "";
+        pos9.textContent = "";
+      break;
+      case 0:
+        nameHolder.textContent = "Players are all finished!";
+        break;
+      default:
+        alert("error");
+    }
   }
-  console.log(players);
 });
 
 no.addEventListener('click', ()=>{
@@ -135,18 +223,108 @@ no.addEventListener('click', ()=>{
       }
       players[players.length-1] = temp;
     }
-    nameHolder.textContent = players[0].name;
-    attemptHolder.textContent = players[0].attemps;
-    pos2.textContent = "Name: " + players[1].name + " " + players[1].attemps;
-    pos3.textContent = "Name: " + players[2].name + " " + players[2].attemps;
-    pos4.textContent = "Name: " + players[3].name + " " + players[3].attemps;
-    pos5.textContent = "Name: " + players[4].name + " " + players[4].attemps;
-    pos6.textContent = "Name: " + players[5].name + " " + players[5].attemps;
-    pos7.textContent = "Name: " + players[6].name + " " + players[6].attemps;
-    pos8.textContent = "Name: " + players[7].name + " " + players[7].attemps;
-    pos9.textContent = "Name: " + players[8].name + " " + players[8].attemps;
+    if(players.length != 0){
+      nameHolder.textContent = players[0].name;
+      attemptHolder.textContent = players[0].attemps;
+    }
+    switch(players.length){
+      case 9:
+        pos2.textContent = "Name: " + players[1].name + " " + players[1].attemps;
+        pos3.textContent = "Name: " + players[2].name + " " + players[2].attemps;
+        pos4.textContent = "Name: " + players[3].name + " " + players[3].attemps;
+        pos5.textContent = "Name: " + players[4].name + " " + players[4].attemps;
+        pos6.textContent = "Name: " + players[5].name + " " + players[5].attemps;
+        pos7.textContent = "Name: " + players[6].name + " " + players[6].attemps;
+        pos8.textContent = "Name: " + players[7].name + " " + players[7].attemps;
+        pos9.textContent = "Name: " + players[8].name + " " + players[8].attemps;
+        break;
+      case 8:
+        pos2.textContent = "Name: " + players[1].name + " " + players[1].attemps;
+        pos3.textContent = "Name: " + players[2].name + " " + players[2].attemps;
+        pos4.textContent = "Name: " + players[3].name + " " + players[3].attemps;
+        pos5.textContent = "Name: " + players[4].name + " " + players[4].attemps;
+        pos6.textContent = "Name: " + players[5].name + " " + players[5].attemps;
+        pos7.textContent = "Name: " + players[6].name + " " + players[6].attemps;
+        pos8.textContent = "Name: " + players[7].name + " " + players[7].attemps;
+        pos9.textContent = "";
+        break;
+      case 7:
+        pos2.textContent = "Name: " + players[1].name + " " + players[1].attemps;
+        pos3.textContent = "Name: " + players[2].name + " " + players[2].attemps;
+        pos4.textContent = "Name: " + players[3].name + " " + players[3].attemps;
+        pos5.textContent = "Name: " + players[4].name + " " + players[4].attemps;
+        pos6.textContent = "Name: " + players[5].name + " " + players[5].attemps;
+        pos7.textContent = "Name: " + players[6].name + " " + players[6].attemps;
+        pos8.textContent = "";
+        pos9.textContent = "";
+        break;
+      case 6:
+        pos2.textContent = "Name: " + players[1].name + " " + players[1].attemps;
+        pos3.textContent = "Name: " + players[2].name + " " + players[2].attemps;
+        pos4.textContent = "Name: " + players[3].name + " " + players[3].attemps;
+        pos5.textContent = "Name: " + players[4].name + " " + players[4].attemps;
+        pos6.textContent = "Name: " + players[5].name + " " + players[5].attemps;
+        pos7.textContent = "";
+        pos8.textContent = "";
+        pos9.textContent = "";
+        break;
+      case 5:
+        pos2.textContent = "Name: " + players[1].name + " " + players[1].attemps;
+        pos3.textContent = "Name: " + players[2].name + " " + players[2].attemps;
+        pos4.textContent = "Name: " + players[3].name + " " + players[3].attemps;
+        pos5.textContent = "Name: " + players[4].name + " " + players[4].attemps;
+        pos6.textContent = "";
+        pos7.textContent = "";
+        pos8.textContent = "";
+        pos9.textContent = "";
+        break;
+      case 4:
+        pos2.textContent = "Name: " + players[1].name + " " + players[1].attemps;
+        pos3.textContent = "Name: " + players[2].name + " " + players[2].attemps;
+        pos4.textContent = "Name: " + players[3].name + " " + players[3].attemps;
+        pos5.textContent = "";
+        pos6.textContent = "";
+        pos7.textContent = "";
+        pos8.textContent = "";
+        pos9.textContent = "";
+        break;
+      case 3:
+        pos2.textContent = "Name: " + players[1].name + " " + players[1].attemps;
+        pos3.textContent = "Name: " + players[2].name + " " + players[2].attemps;
+        pos4.textContent = "";
+        pos5.textContent = "";
+        pos6.textContent = "";
+        pos7.textContent = "";
+        pos8.textContent = "";
+        pos9.textContent = "";
+        break;
+      case 2:
+        pos2.textContent = "Name: " + players[1].name + " " + players[1].attemps;
+        pos3.textContent = "";
+        pos4.textContent = "";
+        pos5.textContent = "";
+        pos6.textContent = "";
+        pos7.textContent = "";
+        pos8.textContent = "";
+        pos9.textContent = "";
+        break;
+      case 1:
+        pos2.textContent = "";
+        pos3.textContent = "";
+        pos4.textContent = "";
+        pos5.textContent = "";
+        pos6.textContent = "";
+        pos7.textContent = "";
+        pos8.textContent = "";
+        pos9.textContent = "";
+      break;
+      case 0:
+        nameHolder.textContent = "Players are all finished!";
+        break;
+      default:
+        alert("error");
+    }
   }
-  console.log(players);
 });
 
 if(players.length < 10){
