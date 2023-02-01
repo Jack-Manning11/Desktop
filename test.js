@@ -64,18 +64,6 @@ let players = [
   {
     name: "Manny",
     attemps: 3
-  },
-  {
-    name: "Ned",
-    attemps: 3
-  },
-  {
-    name: "Oscar",
-    attemps: 3
-  },
-  {
-    name: "Paul",
-    attemps: 3
   }
 ]
 
