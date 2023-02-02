@@ -15,6 +15,8 @@ with open('blocks.in') as fileIn:
 	n = int(fileIn.readline()) #Grab the number of lines from line 1
 	words = [fileIn.readline().strip().split(' ') for x in range(n)] #split based on number of lines 
 
+print(words)
+
 #Create an empty array of 26 numbers
 endFrequency = [0] * 26
 
