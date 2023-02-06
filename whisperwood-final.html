@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play The Roots of Whisperwood.</tw-noscript></noscript></tw-story>
-<tw-storydata name="The Roots of Whisperwood" startnode="1" creator="Twine" creator-version="2.6.0" format="Harlowe" format-version="3.3.4" ifid="D92867A7-BBB6-4972-8401-7439B22ACDB6" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story[tags~="empty"] {
+<tw-storydata name="The Roots of Whisperwood" startnode="43" creator="Twine" creator-version="2.6.0" format="Harlowe" format-version="3.3.4" ifid="D92867A7-BBB6-4972-8401-7439B22ACDB6" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story[tags~="empty"] {
 	background-image: url("https://jack-manning11.github.io/img/twineJam/Whisperwood-Overlay1.png");
   background-size: 100%;
 }
@@ -190,9 +190,29 @@ Desiring some answers Oliver pressed on into the [[kitchen]].
 ]
 
 
-(if:$showInventory is true)[
+(if:$showInventory is true and $wrench is false)[
 &lt;div&gt;
 	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/empty-gui-2.png&quot;&gt;
+&lt;/div&gt;
+](else-if:$wrench is true and $gear is false)[
+&lt;div&gt;
+	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/wrench.png&quot;&gt;
+&lt;/div&gt;
+](else-if:$gear is true and $acorn is false)[
+&lt;div&gt;
+	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/gear.png&quot;&gt;
+&lt;/div&gt;
+](else-if:$acorn is true and $goggles is false)[
+&lt;div&gt;
+	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/acorn.png&quot;&gt;
+&lt;/div&gt;
+](else-if:$goggles is true and $key is false)[
+&lt;div&gt;
+	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/goggles.png&quot;&gt;
+&lt;/div&gt;
+](else-if:$key is true)[
+&lt;div&gt;
+	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/key.png&quot;&gt;
 &lt;/div&gt;
 ]</tw-passagedata><tw-passagedata pid="19" name="den" tags="map" position="900,1700" size="100,100">(if: visits is 1)[
 Stepping into the large expansive den Oliver was hit with a rush of nostalgia, a deep feeling of connection to his zany old man, and the sudden desire to find him in this expansive home. 
@@ -658,7 +678,6 @@ The lush garden environment welcomed Oliver in.
 Oliver returned to the [[trophy room]].
 (if:$acorn is true and $goggles is false)[
 Returning with acorn in hand Oliver Artemis Kameni realizes there are 3 pots with mysteriously nothing in them. Each one labeled with a type of tree.
-
 [[Spruce]]
 [[Oak]]
 [[Maple]]
@@ -898,7 +917,15 @@ What an intruiging [[mystery|hallway]]...
 
 It&#39;ll work... I know it&#39;ll work
 
-I need your help Oliver.</tw-passagedata></tw-storydata>
+I need your help Oliver.
+
+You need to [[understand]].</tw-passagedata><tw-passagedata pid="43" name="Start" tags="empty" position="100,100" size="100,100">Welcome to the Roots of Whisperwood
+
+This is a mystery / exploration game I made as a TwineJam around the concept of a gear and a scroll. I hope you enjoy! All of the story and pixelart is made by me :)
+
+[[start|setup info]]</tw-passagedata><tw-passagedata pid="44" name="understand" tags="empty" position="1300,2400" size="100,100">Game End! 
+
+I hope you liked the game :)</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
