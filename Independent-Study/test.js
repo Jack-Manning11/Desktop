@@ -12,6 +12,15 @@ const pos9 = document.querySelector('#nine');
 const yes = document.querySelector('#y')
 const no = document.querySelector('#n');
 
+const form = document.querySelector('form')
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const formData = new FormData(form);
+  for (const pair of formData.entries()) {
+    console.log(pair)
+  }
+})
+
 let players = [
   {
     name: "Alice",
