@@ -9,37 +9,49 @@
     <title>Five Alive</title>
 </head>
 <body>
-    <div class="filler">
-        <h1>Enter Player Info Here:</h1>
-        <form>
-            <label for="fname">First name:</label>
-            <input type="text" id="fname" name="fname">
-            <br><br>
-            <label for="lname">Last name:</label>
-            <input type="text" id="lname" name="lname">
-            <br><br>
-            <label for="school">School:</label>
-            <input type="text" id="school" name="school">
-            <br><br>
-            <input type="submit" value="Submit">
-            <button type="reset">Clear</button>
-        </form>
-    </div>
-    <div class="container">
-        <h1 id="playerName">Player Name</h1>
-        <h2 id="attemps">Attempts</h2>
-        <p id="y">Yes</p>
-        <p id="n">No</p>
-    </div>
-    <div class="bottom">
-        <h3 id="two">Player 2</h3>
-        <h3 id="three">Player 3</h3>
-        <h3 id="four">Player 4</h3>
-        <h3 id="five">Player 5</h3>
-        <h3 id="six">Next Up</p>
-        <h3 id="seven"></p>
-        <h3 id="eight"></p>
-        <h3 id="nine"></p>
+    <div class="grid">
+        <div class="entryForm">
+            <h1>Enter Player Info Here:</h1>
+            <form>
+                <label for="fname">First name:</label>
+                <input type="text" id="fname" name="fname">
+                <br><br>
+                <label for="lname">Last name:</label>
+                <input type="text" id="lname" name="lname">
+                <br><br>
+                <label for="school">School:</label>
+                <input type="text" id="school" name="school">
+                <br><br>
+                <input type="submit" value="Submit">
+                <button type="reset">Clear</button>
+            </form>
+            <div class="activePlayers"></div>
+        </div>
+        <div class="other">
+            <div class="first"></div>
+            <button>Success</button>
+            <button>Failure</button>
+            <button>Pass</button>
+            <div class="second"></div>
+            <!--
+                <div class="container">
+                <h1 id="playerName">Player Name</h1>
+                <h2 id="attemps">Attempts</h2>
+                <p id="y">Yes</p>
+                <p id="n">No</p>
+            </div>
+            <div class="players">
+                <h3 id="two">Player 2</h3>
+                <h3 id="three">Player 3</h3>
+                <h3 id="four">Player 4</h3>
+                <h3 id="five">Player 5</h3>
+                <h3 id="six">Next Up</p>
+                <h3 id="seven"></p>
+                <h3 id="eight"></p>
+                <h3 id="nine"></p>
+            </div>
+            -->
+        </div>
     </div>
 </body>
 </html>

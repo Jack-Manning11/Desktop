@@ -9,6 +9,11 @@ const pos7 = document.querySelector('#seven');
 const pos8 = document.querySelector('#eight');
 const pos9 = document.querySelector('#nine');
 
+let topSection = document.querySelector('.first');
+let botSection = document.querySelector('.second');
+
+const pList = document.querySelector('.activePlayers');
+
 const yes = document.querySelector('#y')
 const no = document.querySelector('#n');
 
@@ -286,105 +291,11 @@ no.addEventListener('click', ()=>{
 });
 
 function show(){
-  switch(players.length){
-    case 9:
-      pos2.textContent = players[1].firstName + " " + players[1].attemptNumber;
-      pos3.textContent = players[2].firstName + " " + players[2].attemptNumber;
-      pos4.textContent = "Name: " + players[3].firstName + " " + players[3].attemptNumber;
-      pos5.textContent = "Name: " + players[4].firstName + " " + players[4].attemptNumber;
-      pos6.textContent = "Name: " + players[5].firstName + " " + players[5].attemptNumber;
-      pos7.textContent = "Name: " + players[6].firstName + " " + players[6].attemptNumber;
-      pos8.textContent = "Name: " + players[7].firstName + " " + players[7].attemptNumber;
-      pos9.textContent = "Name: " + players[8].firstName + " " + players[8].attemptNumber;
-      break;
-    case 8:
-      pos2.textContent = "Name: " + players[1].firstName + " " + players[1].attemptNumber;
-      pos3.textContent = "Name: " + players[2].firstName + " " + players[2].attemptNumber;
-      pos4.textContent = "Name: " + players[3].firstName + " " + players[3].attemptNumber;
-      pos5.textContent = "Name: " + players[4].firstName + " " + players[4].attemptNumber;
-      pos6.textContent = "Name: " + players[5].firstName + " " + players[5].attemptNumber;
-      pos7.textContent = "Name: " + players[6].firstName + " " + players[6].attemptNumber;
-      pos8.textContent = "Name: " + players[7].firstName + " " + players[7].attemptNumber;
-      pos9.textContent = "";
-      break;
-    case 7:
-      pos2.textContent = "Name: " + players[1].firstName + " " + players[1].attemptNumber;
-      pos3.textContent = "Name: " + players[2].firstName + " " + players[2].attemptNumber;
-      pos4.textContent = "Name: " + players[3].firstName + " " + players[3].attemptNumber;
-      pos5.textContent = "Name: " + players[4].firstName + " " + players[4].attemptNumber;
-      pos6.textContent = "Name: " + players[5].firstName + " " + players[5].attemptNumber;
-      pos7.textContent = "Name: " + players[6].firstName + " " + players[6].attemptNumber;
-      pos8.textContent = "";
-      pos9.textContent = "";
-      break;
-    case 6:
-      pos2.textContent = "Name: " + players[1].firstName + " " + players[1].attemptNumber;
-      pos3.textContent = "Name: " + players[2].firstName + " " + players[2].attemptNumber;
-      pos4.textContent = "Name: " + players[3].firstName + " " + players[3].attemptNumber;
-      pos5.textContent = "Name: " + players[4].firstName + " " + players[4].attemptNumber;
-      pos6.textContent = "Name: " + players[5].firstName + " " + players[5].attemptNumber;
-      pos7.textContent = "";
-      pos8.textContent = "";
-      pos9.textContent = "";
-      break;
-    case 5:
-      pos2.textContent = "Name: " + players[1].firstName + " " + players[1].attemptNumber;
-      pos3.textContent = "Name: " + players[2].firstName + " " + players[2].attemptNumber;
-      pos4.textContent = "Name: " + players[3].firstName + " " + players[3].attemptNumber;
-      pos5.textContent = "Name: " + players[4].firstName + " " + players[4].attemptNumber;
-      pos6.textContent = "";
-      pos7.textContent = "";
-      pos8.textContent = "";
-      pos9.textContent = "";
-      break;
-    case 4:
-      pos2.textContent = "Name: " + players[1].firstName + " " + players[1].attemptNumber;
-      pos3.textContent = "Name: " + players[2].firstName + " " + players[2].attemptNumber;
-      pos4.textContent = "Name: " + players[3].firstName + " " + players[3].attemptNumber;
-      pos5.textContent = "";
-      pos6.textContent = "";
-      pos7.textContent = "";
-      pos8.textContent = "";
-      pos9.textContent = "";
-      break;
-    case 3:
-      pos2.textContent = "Name: " + players[1].firstName + " " + players[1].attemptNumber;
-      pos3.textContent = "Name: " + players[2].firstName + " " + players[2].attemptNumber;
-      pos4.textContent = "";
-      pos5.textContent = "";
-      pos6.textContent = "";
-      pos7.textContent = "";
-      pos8.textContent = "";
-      pos9.textContent = "";
-      break;
-    case 2:
-      pos2.textContent = "Name: " + players[1].firstName + " " + players[1].attemptNumber;
-      pos3.textContent = "";
-      pos4.textContent = "";
-      pos5.textContent = "";
-      pos6.textContent = "";
-      pos7.textContent = "";
-      pos8.textContent = "";
-      pos9.textContent = "";
-      break;
-    case 1:
-      nameHolder.textContent = players[0].firstName
-      attemptHolder.textContent = players[0].attemptNumber
-      pos2.textContent = "";
-      pos3.textContent = "";
-      pos4.textContent = "";
-      pos5.textContent = "";
-      pos6.textContent = "";
-      pos7.textContent = "";
-      pos8.textContent = "";
-      pos9.textContent = "";
-    break;
-    case 0:
-      nameHolder.textContent = "Players are all finished!";
-      break;
-    default:
-      alert("error");
-  }
+  let temp = document.createElement('p');
+  let s = players.length + ".) " + displayName(players[players.length - 1]);
+  let node = document.createTextNode(s);
+  temp.appendChild(node);
+  pList.appendChild(temp);
 }
 
 function displayName(p){  
@@ -402,4 +313,16 @@ function displayName(p){
 
   let displayString = p.firstName + " " + p.lastName + " on " + aString;
   return displayString;
+}
+
+function fiveAlive(){
+  topSection.innerHTML = '';
+  botSection.innerHTML = '';
+
+  let name = document.createElement('h1');
+  let s = displayName(players[0])
+  let nameNode = document.createTextNode(s);
+  name.appendChild(nameNode);
+
+  topSection.appendChild(name);
 }
