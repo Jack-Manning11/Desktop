@@ -27,8 +27,18 @@
 }
 .other {
     grid-column: 2/3;
+    justify-self: center;
+    text-align: center;
 }
 .activePlayers {
     margin-left: 100px;
     text-align: left;
+}
+p {
+    margin: 10px;
+}
+.buttons {
+    justify-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }

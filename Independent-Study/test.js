@@ -33,8 +33,10 @@ function arrayBuilder(formArray){
 }
 
 yes.addEventListener('click', ()=>{
-  players.splice(0, 1);
-  fiveAlive();
+  if(players.length != 0){
+    players.splice(0, 1);
+    fiveAlive();
+  }
 });
 
 no.addEventListener('click', ()=>{
@@ -51,7 +53,7 @@ no.addEventListener('click', ()=>{
       players[4] = temp;
       fiveAlive();
     }
-  } else {
+  } else if(players.length != 0){
     if(players[0].attemptNumber == 3){
       players.splice(0,1);
       fiveAlive();
@@ -111,6 +113,11 @@ function fiveAlive(){
       pname.appendChild(pNode);
       botSection.appendChild(pname);
     }
+    let pname = document.createElement('p');
+    let p = "Next up " + displayName(players[i]);
+    let pNode = document.createTextNode(p);
+    pname.appendChild(pNode);
+    botSection.appendChild(pname);
   }
   else {
     for(let i = 1; i < players.length; i++){
