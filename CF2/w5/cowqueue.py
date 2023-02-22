@@ -10,6 +10,7 @@ for i in range(n):
 
 cows.sort()
 
+
 currTime = 0
 for c in cows:
 	# this cow was already waiting, add duration to current time.

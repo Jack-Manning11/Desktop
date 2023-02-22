@@ -1,0 +1,5 @@
+[
+    {
+        "athlete": [{"fname": "name", "lname": "name", "school": "school", "startheight": 1.0, "heights": [{"height1": [0], "height2": [1,0]}], "best": 0}]
+    }
+]

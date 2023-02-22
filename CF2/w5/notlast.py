@@ -14,17 +14,19 @@ with open('notlast.in') as read:
 		raw[name] += amt
     
 cows = [(amt, name) for name, amt in raw.items()]
+
 cows.sort()
 
 #Set index variable
 i = 0
+print(cows)
 
-if len(cows) == COW_NUM:
+if len(cows) == 7:
 	while i < len(cows) and cows[i][0] == cows[0][0]:
 		i += 1
 
-written = open('notlast.out', 'w')
+
 if (i < len(cows) and (i + 1 == len(cows) or cows[i][0] != cows[i + 1][0])):
-	print(cows[i][1], file=written)
+	print(cows[i][1])
 else:
-	print('Tie', file=written)
+	print('Tie')
