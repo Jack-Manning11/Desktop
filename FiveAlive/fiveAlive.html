@@ -12,7 +12,7 @@
     <div class="split">
         <div class="left">
             <div class="tabs">
-                <button class="tabLinks" onclick="switchTab(event, 'Info')">Enter Info</button>
+                <button id="defaultOpen" class="tabLinks" onclick="switchTab(event, 'Info')">Enter Info</button>
                 <button class="tabLinks" onclick="switchTab(event, 'Scoring')">Scoring</button>
             </div>
             <div id="Info" class="formStuff tabcontent">
@@ -35,6 +35,7 @@
                 </form>
             </div>
             <div id="Scoring" class="playerHolder tabcontent">
+                <button id="next">Next Height</button>
                 <div class="activePlayer"></div>
                 <button id="make">Make</button>
                 <button id="miss">Miss</button>
@@ -45,7 +46,7 @@
         <div class="right">
             <table id="my-table">
                 <tr>
-                    <td> </td>
+                    <td id="filler"> </td>
                 </tr>
             </table>
         </div>

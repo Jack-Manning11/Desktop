@@ -13,7 +13,6 @@
     text-align: center;
 }
 .right {
-    height: 100vh;
     grid-column: 2/3;
     background-color: darkcyan;
 }
@@ -46,6 +45,11 @@ h2 {
     border-top: none;
 }
 td {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 75px;
+    border: 1px solid black;
+    text-align: center;
+}
+#filler {
+    border:none;
 }
