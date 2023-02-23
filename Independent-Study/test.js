@@ -7,6 +7,23 @@ const yes = document.querySelector('#yes')
 const no = document.querySelector('#no');
 
 let players = [];
+let data = [];
+let activePlayers = [];
+let heightNum = 0;
+
+class Player {
+    constructor(fname, lname, school, startheight){
+        this.fname = fname;
+        this.lname = lname;
+        this.school = school;
+        this.startheight = startheight;
+        this.attemptNum = 0;
+        this.bestHeight = 0;
+        this.active = true;
+        this.heights = [];
+        this.currHeight = [];
+    }
+}
 
 const form = document.querySelector('form')
 form.addEventListener('submit', (e) => {
@@ -14,23 +31,14 @@ form.addEventListener('submit', (e) => {
   temp = [];
   const formData = new FormData(form);
   for (const pair of formData.entries()) {
-    temp.push(pair);
+    temp.push(pair[1]);
   }
-  arrayBuilder(temp)
   form.reset();
+  let player = new Player(temp[0],temp[1],temp[2],temp[3]);
+  data.push(player);
   show();
   fiveAlive();
 });
-
-function arrayBuilder(formArray){
-  player = {
-    firstName: formArray[0][1],
-    lastName: formArray[1][1],
-    school: formArray[2][1],
-    attemptNumber: 1
-  }
-  players.push(player);
-}
 
 yes.addEventListener('click', ()=>{
   if(players.length != 0){
@@ -41,11 +49,11 @@ yes.addEventListener('click', ()=>{
 
 no.addEventListener('click', ()=>{
   if(players.length > 9){
-    if(players[0].attemptNumber == 3){
+    if(players[0].attemptNum == 3){
       players.splice(0,1);
       fiveAlive();
     } else {
-      players[0].attemptNumber += 1;
+      players[0].attemptNum += 1;
       let temp = players[0];
       for(let i = 0; i < 4; i++){
         players[i] = players[i+1];
@@ -54,11 +62,11 @@ no.addEventListener('click', ()=>{
       fiveAlive();
     }
   } else if(players.length != 0){
-    if(players[0].attemptNumber == 3){
+    if(players[0].attemptNum == 3){
       players.splice(0,1);
       fiveAlive();
     } else {
-      players[0].attemptNumber += 1;
+      players[0].attemptNum += 1;
       let temp = players[0];
       for(let i = 0; i < players.length; i++){
         players[i] = players[i+1];
@@ -79,11 +87,11 @@ function show(){
 
 function displayName(p){  
   let aString = "";  
-  if(p.attemptNumber == 1){
+  if(p.attemptNum == 1){
       aString = "first";
-  } else if (p.attemptNumber == 2){
+  } else if (p.attemptNum == 2){
       aString = "second";
-  } else if (p.attemptNumber == 3){
+  } else if (p.attemptNum == 3){
       aString = "last";
   } else {
       alert("something in the attempt number broke");

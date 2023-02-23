@@ -1,5 +1,11 @@
-const form = document.querySelector('form');
 let data = [];
+let activePlayers = [];
+const form = document.querySelector('form');
+const make = document.querySelector('#make')
+const miss = document.querySelector('#miss');
+const pass = document.querySelector('#pass');
+let topSection = document.querySelector('.first');
+let botSection = document.querySelector('.second');
 
 class Player {
     constructor(fname, lname, school, startheight){
@@ -27,3 +33,14 @@ form.addEventListener('submit', (e) => {
   data.push(player);
 });
 
+make.addEventListener('click', ()=>{
+  
+});
+
+miss.addEventListener('click', ()=>{
+
+});
+
+pass.addEventListener('click', ()=>{
+
+});

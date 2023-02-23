@@ -5,28 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Field Event Tracking</title>
+    <script defer src="script.js"></script>
+    <title>Five Alive</title>
 </head>
 <body>
-    <div class="container">
-        <div class="topBar">
-            <p>Number of Players Left</p>
+    <div class="split">
+        <div class="left">
+            <div class="tabs">
+                <button class="tabLinks" onclick="switchTab(event, 'Info')">Enter Info</button>
+                <button class="tabLinks" onclick="switchTab(event, 'Scoring')">Scoring</button>
+            </div>
+            <div id="Info" class="formStuff tabcontent">
+                <h2>Enter Player Info Here</h2>
+                <form>
+                    <label for="fname">First name:</label>
+                    <input type="text" id="fname" name="fname">
+                    <br><br>
+                    <label for="lname">Last name:</label>
+                    <input type="text" id="lname" name="lname">
+                    <br><br>
+                    <label for="school">School:</label>
+                    <input type="text" id="school" name="school">
+                    <br><br>
+                    <label for="startingheight">Starting Height:</label>
+                    <input type="text" id="startingheight" name="startingheight">
+                    <br><br>
+                    <input type="submit" value="Submit">
+                    <button type="reset">Clear</button>
+                </form>
+            </div>
+            <div id="Scoring" class="playerHolder tabcontent">
+                <div class="activePlayer"></div>
+                <button id="make">Make</button>
+                <button id="miss">Miss</button>
+                <button id="pass">Pass</button>
+                <div class="otherPlayers"></div>
+            </div>
         </div>
-        <div class="roster">
-            <div class="left">
-                <p>1</p>
-                <p>2</p>
-                <p>3</p>
-                <p>4</p>
-                <p>5</p>
-            </div>
-            <div class="right">
-                <p>6</p>
-                <p>7</p>
-                <p>8</p>
-                <p>9</p>
-                <p>10</p>
-            </div>
+        <div class="right">
+            <table id="my-table">
+                <tr>
+                    <td> </td>
+                </tr>
+            </table>
         </div>
     </div>
 </body>
