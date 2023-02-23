@@ -210,6 +210,24 @@ class Player {
     }
 }
 
+function cellHandling(arr){
+    let s = "";
+    switch(arr.length){
+        case 1:
+            s = arr[0] + " | - | -";
+        break;
+        case 2:
+            s = arr[0] + " | " + arr[1] + " | -";
+        break;
+        case 3:
+            s = arr[0] + " | " + arr[1] + " | " + arr[2];
+        break;
+        default:
+            alert("Error in cellHandling");
+    }
+    return s;
+}
+
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     temp = [];
@@ -235,23 +253,86 @@ function columnCreator(){
 }
 
 make.addEventListener('click', ()=>{
+    //add the outcome to the current height array
     activePlayers[0].currHeight[activePlayers[0].attemptNum] = "O";
+    //player is finished with this height, so push current standings to the total heights array
     activePlayers[0].heights.push(activePlayers[0].currHeight);
+    //grab cell in question and replace with formatted text
+    let cell= document.getElementById("my-table").rows[activePlayers[0].id+1].cells;
+    cell[heightNum].textContent = cellHandling(activePlayers[0].currHeight);
+    //reset currHeight array
     activePlayers[0].currHeight = [];
+    for(let i = 0; i < tempPlayers.length; i++){
+        if(tempPlayers[i].id == activePlayers[0].id){
+            tempPlayers[i] = activePlayers[0];
+        }
+    }
+    //remove player from active list
     activePlayers.splice(0,1);
-    let cell= document.getElementById("my-table").rows[activePlayers[0].id].cells;
-    cell[heightNum].textContent = "O";
-    //document.getElementById("my-table").rows[1].cells.item(1).textcontent = "testing";
+    //advance to next athlete
     activeHandling();
 });
 
 miss.addEventListener('click', ()=>{
-    //activePlayers[0].currHeight[activePlayers[0].attemptNum] = "X";
-    //document.getElementById("my-table").rows[RowIndex].cells.item(CellIndex).textcontent = "X";
+    if(activePlayers.length > 9){
+        if(activePlayers[0].attemptNum == 2){
+            activePlayers[0].currHeight[activePlayers[0].attemptNum] = "X";
+            activePlayers[0].heights.push(activePlayers[0].currHeight);
+            let cell= document.getElementById("my-table").rows[activePlayers[0].id+1].cells;
+            cell[heightNum].textContent = cellHandling(activePlayers[0].currHeight);
+            activePlayers[0].currHeight = [];
+            activePlayers[0].active = false;
+            for(let i = 0; i < tempPlayers.length; i++){
+                if(tempPlayers[i].id == activePlayers[0].id){
+                    tempPlayers[i] = activePlayers[0];
+                }
+            }
+            activePlayers.splice(0,1);
+            activeHandling();
+        } else {
+            activePlayers[0].currHeight[activePlayers[0].attemptNum] = "X";
+            let cell= document.getElementById("my-table").rows[activePlayers[0].id+1].cells;
+            cell[heightNum].textContent = cellHandling(activePlayers[0].currHeight);
+            activePlayers[0].attemptNum += 1;
+            let temp = activePlayers[0];
+            for(let i = 0; i < 4; i++){
+                activePlayers[i] = activePlayers[i+1];
+            }
+            activePlayers[4] = temp;
+            activeHandling();
+        }
+    } else {
+        if(activePlayers[0].attemptNum == 2){
+            activePlayers[0].currHeight[activePlayers[0].attemptNum] = "X";
+            activePlayers[0].heights.push(activePlayers[0].currHeight);
+            let cell= document.getElementById("my-table").rows[activePlayers[0].id+1].cells;
+            cell[heightNum].textContent = cellHandling(activePlayers[0].currHeight);
+            activePlayers[0].currHeight = [];
+            activePlayers[0].active = false;
+            for(let i = 0; i < tempPlayers.length; i++){
+                if(tempPlayers[i].id == activePlayers[0].id){
+                    tempPlayers[i] = activePlayers[0];
+                }
+            }
+            activePlayers.splice(0,1);
+            activeHandling();
+        } else {
+            activePlayers[0].currHeight[activePlayers[0].attemptNum] = "X";
+            let cell= document.getElementById("my-table").rows[activePlayers[0].id+1].cells;
+            cell[heightNum].textContent = cellHandling(activePlayers[0].currHeight);
+            activePlayers[0].attemptNum += 1;
+            let temp = activePlayers[0];
+            for(let i = 0; i < activePlayers.length; i++){
+                activePlayers[i] = activePlayers[i+1];
+            }
+            activePlayers[activePlayers.length-1] = temp;
+            activeHandling();
+        }
+    }
 });
 
 pass.addEventListener('click', ()=>{
-
+    console.log(tempPlayers);
 });
 
 next.addEventListener('click', ()=>{
@@ -298,8 +379,6 @@ function appendRow(textContent) {
     }
 }
 
-//document.getElementById("my-table").rows[RowIndex].cells.item(CellIndex).textcontent = "";
-
 for(let i = 0; i < tempPlayers.length; i++){
     let s = tempPlayers[i].fname + " " + tempPlayers[i].lname;
     appendRow(s);
@@ -308,11 +387,11 @@ for(let i = 0; i < tempPlayers.length; i++){
 function displayName(p){  
     let aString = "";  
     if(p.attemptNum == 0){
-        aString = "first";
+        aString = "1st";
     } else if (p.attemptNum == 1){
-        aString = "second";
+        aString = "2nd";
     } else if (p.attemptNum == 2){
-        aString = "last";
+        aString = "3rd";
     } else {
         alert("something in the attempt number broke");
     }
