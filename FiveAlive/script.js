@@ -1,3 +1,4 @@
+let idNum = 0;
 function switchTab(evt, cityName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -12,7 +13,6 @@ function switchTab(evt, cityName) {
     evt.currentTarget.className += " active";
 }
 
-let data = [];
 let activePlayers = [];
 let heightNum = 0;
 const form = document.querySelector('form');
@@ -25,12 +25,12 @@ const activePlayer = document.querySelector('.activePlayer');
 const otherPlayers = document.querySelector('.otherPlayers');
 document.getElementById("defaultOpen").click();
 
-let tempPlayers = [
+let data = [
     {
         "fname": "Abby",
         "lname": "Powers",
         "school": "Kenyon College",
-        "startingheight": "6'2''",
+        "startingheight": "6'2",
         "attemptNum": 0,
         "bestHeight": 0,
         "active": true,
@@ -42,7 +42,7 @@ let tempPlayers = [
         "fname": "Ben",
         "lname": "Adams",
         "school": "Barnard College",
-        "startingheight": "6'0''",
+        "startingheight": "6'0",
         "attemptNum": 0,
         "bestHeight": 0,
         "active": true,
@@ -54,7 +54,7 @@ let tempPlayers = [
         "fname": "Charlie",
         "lname": "Hood",
         "school": "Colorado College",
-        "startingheight": "6'1''",
+        "startingheight": "6'1",
         "attemptNum": 0,
         "bestHeight": 0,
         "active": true,
@@ -66,7 +66,7 @@ let tempPlayers = [
         "fname": "Dan",
         "lname": "Irwin",
         "school": "Wake Forest University",
-        "startingheight": "6'2''",
+        "startingheight": "6'2",
         "attemptNum": 0,
         "bestHeight": 0,
         "active": true,
@@ -78,7 +78,7 @@ let tempPlayers = [
         "fname": "Edward",
         "lname": "Hart",
         "school": "Vassar College",
-        "startingheight": "6'0''",
+        "startingheight": "6'0",
         "attemptNum": 0,
         "bestHeight": 0,
         "active": true,
@@ -90,7 +90,7 @@ let tempPlayers = [
         "fname": "Frank",
         "lname": "Carr",
         "school": "Carnegie Mellon University",
-        "startingheight": "6'2''",
+        "startingheight": "6'2",
         "attemptNum": 0,
         "bestHeight": 0,
         "active": true,
@@ -102,7 +102,7 @@ let tempPlayers = [
         "fname": "Greg",
         "lname": "Stone",
         "school": "Centre College",
-        "startingheight": "5'4''",
+        "startingheight": "5'4",
         "attemptNum": 0,
         "bestHeight": 0,
         "active": true,
@@ -114,7 +114,7 @@ let tempPlayers = [
         "fname": "Hank",
         "lname": "Foster",
         "school": "Oberlin College",
-        "startingheight": "6'4''",
+        "startingheight": "6'4",
         "attemptNum": 0,
         "bestHeight": 0,
         "active": true,
@@ -126,7 +126,7 @@ let tempPlayers = [
         "fname": "Isaac",
         "lname": "Hudson",
         "school": "Haverford College",
-        "startingheight": "6'2''",
+        "startingheight": "6'2",
         "attemptNum": 0,
         "bestHeight": 0,
         "active": true,
@@ -138,7 +138,7 @@ let tempPlayers = [
         "fname": "James",
         "lname": "Douglas",
         "school": "Harvard College",
-        "startingheight": "6'0''",
+        "startingheight": "6'0",
         "attemptNum": 0,
         "bestHeight": 0,
         "active": true,
@@ -150,7 +150,7 @@ let tempPlayers = [
         "fname": "Kelly",
         "lname": "Anthony",
         "school": "Villanova University",
-        "startingheight": "6'2''",
+        "startingheight": "6'2",
         "attemptNum": 0,
         "bestHeight": 0,
         "active": true,
@@ -162,7 +162,7 @@ let tempPlayers = [
         "fname": "Luke",
         "lname": "Grimes",
         "school": "Columbia University",
-        "startingheight": "6'2''",
+        "startingheight": "6'2",
         "attemptNum": 0,
         "bestHeight": 0,
         "active": true,
@@ -174,7 +174,7 @@ let tempPlayers = [
         "fname": "Mark",
         "lname": "Dyer",
         "school": "Georgetown University",
-        "startingheight": "6'3''",
+        "startingheight": "6'3",
         "attemptNum": 0,
         "bestHeight": 0,
         "active": true,
@@ -186,7 +186,7 @@ let tempPlayers = [
         "fname": "Ned",
         "lname": "Shields",
         "school": "Trinity College",
-        "startingheight": "5'11''",
+        "startingheight": "5'11",
         "attemptNum": 0,
         "bestHeight": 0,
         "active": true,
@@ -207,6 +207,8 @@ class Player {
         this.active = true;
         this.heights = [];
         this.currHeight = [];
+        this.id = idNum;
+        idNum += 1;
     }
 }
 
@@ -243,9 +245,9 @@ form.addEventListener('submit', (e) => {
 });
 
 function columnCreator(){
-    for(let i = 0; i < tempPlayers.length; i++){
+    for(let i = 0; i < data.length; i++){
         let temp = document.createElement('p');
-        let s = tempPlayers[i].fname + " " + tempPlayers[i].lname;
+        let s = data[i].fname + " " + data[i].lname;
         let node = document.createTextNode(s);
         temp.appendChild(node);
         columns.appendChild(temp);
@@ -258,13 +260,14 @@ make.addEventListener('click', ()=>{
     //player is finished with this height, so push current standings to the total heights array
     activePlayers[0].heights.push(activePlayers[0].currHeight);
     //grab cell in question and replace with formatted text
-    let cell= document.getElementById("my-table").rows[activePlayers[0].id+1].cells;
+    let cell = document.getElementById("my-table").rows[activePlayers[0].id+1].cells;
     cell[heightNum].textContent = cellHandling(activePlayers[0].currHeight);
     //reset currHeight array
     activePlayers[0].currHeight = [];
-    for(let i = 0; i < tempPlayers.length; i++){
-        if(tempPlayers[i].id == activePlayers[0].id){
-            tempPlayers[i] = activePlayers[0];
+    activePlayers[0].attemptNum = 0;
+    for(let i = 0; i < data.length; i++){
+        if(data[i].id == activePlayers[0].id){
+            data[i] = activePlayers[0];
         }
     }
     //remove player from active list
@@ -282,9 +285,9 @@ miss.addEventListener('click', ()=>{
             cell[heightNum].textContent = cellHandling(activePlayers[0].currHeight);
             activePlayers[0].currHeight = [];
             activePlayers[0].active = false;
-            for(let i = 0; i < tempPlayers.length; i++){
-                if(tempPlayers[i].id == activePlayers[0].id){
-                    tempPlayers[i] = activePlayers[0];
+            for(let i = 0; i < data.length; i++){
+                if(data[i].id == activePlayers[0].id){
+                    data[i] = activePlayers[0];
                 }
             }
             activePlayers.splice(0,1);
@@ -309,9 +312,9 @@ miss.addEventListener('click', ()=>{
             cell[heightNum].textContent = cellHandling(activePlayers[0].currHeight);
             activePlayers[0].currHeight = [];
             activePlayers[0].active = false;
-            for(let i = 0; i < tempPlayers.length; i++){
-                if(tempPlayers[i].id == activePlayers[0].id){
-                    tempPlayers[i] = activePlayers[0];
+            for(let i = 0; i < data.length; i++){
+                if(data[i].id == activePlayers[0].id){
+                    data[i] = activePlayers[0];
                 }
             }
             activePlayers.splice(0,1);
@@ -332,15 +335,42 @@ miss.addEventListener('click', ()=>{
 });
 
 pass.addEventListener('click', ()=>{
-    console.log(tempPlayers);
+     //add the outcome to the current height array
+     activePlayers[0].currHeight[activePlayers[0].attemptNum] = "P";
+     activePlayers[0].attemptNum += 1;
+     //player is finished with this height, so push current standings to the total heights array
+     activePlayers[0].heights.push(activePlayers[0].currHeight);
+     //grab cell in question and replace with formatted text
+     let cell = document.getElementById("my-table").rows[activePlayers[0].id+1].cells;
+     cell[heightNum].textContent = cellHandling(activePlayers[0].currHeight);
+     //reset currHeight array
+     activePlayers[0].currHeight = [];
+     for(let i = 0; i < data.length; i++){
+         if(data[i].id == activePlayers[0].id){
+             data[i] = activePlayers[0];
+         }
+     }
+     //remove player from active list
+     activePlayers.splice(0,1);
+     //advance to next athlete
+     activeHandling();
 });
 
+
 next.addEventListener('click', ()=>{
-    let nextHeight = prompt("Please enter the next height");
+    let nextHeight = prompt("Please enter the next height in the form of feet'inches");
+    let currFeet = parseInt(nextHeight.split("'")[0]);
+    let currInches = parseInt(nextHeight.split("'")[1]);
     activePlayers = [];
-    for (let i = 0; i < tempPlayers.length; i++){
-        if(tempPlayers[i].active == true){
-            activePlayers.push(tempPlayers[i]);
+    for (let i = 0; i < data.length; i++){
+        if(data[i].active == true){
+            let feet = parseInt(data[i].startingheight.split("'")[0]);
+            let inches = parseInt(data[i].startingheight.split("'")[1]);
+            if(feet < currFeet){
+                activePlayers.push(data[i]);
+            } else if(feet == currFeet && inches <= currInches){
+                activePlayers.push(data[i]);
+            }
         }
     }
     appendColumn(nextHeight);
@@ -379,8 +409,8 @@ function appendRow(textContent) {
     }
 }
 
-for(let i = 0; i < tempPlayers.length; i++){
-    let s = tempPlayers[i].fname + " " + tempPlayers[i].lname;
+for(let i = 0; i < data.length; i++){
+    let s = data[i].fname + " " + data[i].lname;
     appendRow(s);
 }
 
@@ -432,3 +462,9 @@ function activeHandling(){
         otherPlayers.append(botDiv);
     }
 }
+
+document.addEventListener('keydown', (event) => {
+    if(event.key == 'z'){
+        console.log(data);
+    }
+  });
