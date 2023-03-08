@@ -16,6 +16,7 @@ function switchTab(evt, cityName) {
 let activePlayers = [];
 let heightNum = 0;
 const form = document.querySelector('form');
+const done = document.getElementById('finish');
 const make = document.getElementById('make');
 const miss = document.getElementById('miss');
 const pass = document.getElementById('pass');
@@ -344,7 +345,6 @@ pass.addEventListener('click', ()=>{
      let cell = document.getElementById("my-table").rows[activePlayers[0].id+1].cells;
      cell[heightNum].textContent = cellHandling(activePlayers[0].currHeight);
      //reset currHeight array
-     activePlayers[0].currHeight = [];
      for(let i = 0; i < data.length; i++){
          if(data[i].id == activePlayers[0].id){
              data[i] = activePlayers[0];
@@ -468,3 +468,7 @@ document.addEventListener('keydown', (event) => {
         console.log(data);
     }
   });
+
+done.addEventListener('click', ()=>{
+    console.log(data);
+});

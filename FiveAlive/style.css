@@ -53,3 +53,7 @@ td {
 #filler {
     border:none;
 }
+#finish {
+    position: absolute;
+    bottom: 20px;
+}
