@@ -209,6 +209,7 @@ class Player {
         this.heights = [];
         this.currHeight = [];
         this.id = idNum;
+        this.place = "";
         idNum += 1;
     }
 }
@@ -465,7 +466,7 @@ function activeHandling(){
 
 document.addEventListener('keydown', (event) => {
     if(event.key == 'z'){
-        console.log(data);
+        determineWinner(data);
     }
   });
 
