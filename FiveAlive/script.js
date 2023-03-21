@@ -196,8 +196,8 @@ next.addEventListener('click', ()=>{
     activePlayers = [];
     for (let i = 0; i < data.length; i++){
         if(data[i].active == true){
-            let feet = parseInt(data[i].startingheight.split("'")[0]);
-            let inches = parseInt(data[i].startingheight.split("'")[1]);
+            let feet = parseInt(data[i].startheight.split("'")[0]);
+            let inches = parseInt(data[i].startheight.split("'")[1]);
             if(feet < currFeet){
                 activePlayers.push(data[i]);
             } else if(feet == currFeet && inches <= currInches){
