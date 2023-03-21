@@ -26,176 +26,177 @@ const activePlayer = document.querySelector('.activePlayer');
 const otherPlayers = document.querySelector('.otherPlayers');
 document.getElementById("defaultOpen").click();
 
-let data = [
-    {
-        "fname": "Abby",
-        "lname": "Powers",
-        "school": "Kenyon College",
-        "startingheight": "6'2",
-        "attemptNum": 0,
-        "bestHeight": 0,
-        "active": true,
-        "currHeight": [],
-        "heights":[],
-        "id":0
-    },
-    {
-        "fname": "Ben",
-        "lname": "Adams",
-        "school": "Barnard College",
-        "startingheight": "6'0",
-        "attemptNum": 0,
-        "bestHeight": 0,
-        "active": true,
-        "currHeight": [],
-        "heights":[],
-        "id":1
-    },
-    {
-        "fname": "Charlie",
-        "lname": "Hood",
-        "school": "Colorado College",
-        "startingheight": "6'1",
-        "attemptNum": 0,
-        "bestHeight": 0,
-        "active": true,
-        "currHeight": [],
-        "heights":[],
-        "id":2
-    },
-    {
-        "fname": "Dan",
-        "lname": "Irwin",
-        "school": "Wake Forest University",
-        "startingheight": "6'2",
-        "attemptNum": 0,
-        "bestHeight": 0,
-        "active": true,
-        "currHeight": [],
-        "heights":[],
-        "id":3
-    },
-    {
-        "fname": "Edward",
-        "lname": "Hart",
-        "school": "Vassar College",
-        "startingheight": "6'0",
-        "attemptNum": 0,
-        "bestHeight": 0,
-        "active": true,
-        "currHeight": [],
-        "heights":[],
-        "id":4
-    },
-    {
-        "fname": "Frank",
-        "lname": "Carr",
-        "school": "Carnegie Mellon University",
-        "startingheight": "6'2",
-        "attemptNum": 0,
-        "bestHeight": 0,
-        "active": true,
-        "currHeight": [],
-        "heights":[],
-        "id":5
-    },
-    {
-        "fname": "Greg",
-        "lname": "Stone",
-        "school": "Centre College",
-        "startingheight": "5'4",
-        "attemptNum": 0,
-        "bestHeight": 0,
-        "active": true,
-        "currHeight": [],
-        "heights":[],
-        "id":6
-    },
-    {
-        "fname": "Hank",
-        "lname": "Foster",
-        "school": "Oberlin College",
-        "startingheight": "6'4",
-        "attemptNum": 0,
-        "bestHeight": 0,
-        "active": true,
-        "currHeight": [],
-        "heights":[],
-        "id":7
-    },
-    {
-        "fname": "Isaac",
-        "lname": "Hudson",
-        "school": "Haverford College",
-        "startingheight": "6'2",
-        "attemptNum": 0,
-        "bestHeight": 0,
-        "active": true,
-        "currHeight": [],
-        "heights":[],
-        "id":8
-    },
-    {
-        "fname": "James",
-        "lname": "Douglas",
-        "school": "Harvard College",
-        "startingheight": "6'0",
-        "attemptNum": 0,
-        "bestHeight": 0,
-        "active": true,
-        "currHeight": [],
-        "heights":[],
-        "id":9
-    },
-    {
-        "fname": "Kelly",
-        "lname": "Anthony",
-        "school": "Villanova University",
-        "startingheight": "6'2",
-        "attemptNum": 0,
-        "bestHeight": 0,
-        "active": true,
-        "currHeight": [],
-        "heights":[],
-        "id":10
-    },
-    {
-        "fname": "Luke",
-        "lname": "Grimes",
-        "school": "Columbia University",
-        "startingheight": "6'2",
-        "attemptNum": 0,
-        "bestHeight": 0,
-        "active": true,
-        "currHeight": [],
-        "heights":[],
-        "id":11
-    },
-    {
-        "fname": "Mark",
-        "lname": "Dyer",
-        "school": "Georgetown University",
-        "startingheight": "6'3",
-        "attemptNum": 0,
-        "bestHeight": 0,
-        "active": true,
-        "currHeight": [],
-        "heights":[],
-        "id":12
-    },
-    {
-        "fname": "Ned",
-        "lname": "Shields",
-        "school": "Trinity College",
-        "startingheight": "5'11",
-        "attemptNum": 0,
-        "bestHeight": 0,
-        "active": true,
-        "currHeight": [],
-        "heights":[],
-        "id":13
-    }
-]
+let data = [];
+// let data = [
+//     {
+//         "fname": "Abby",
+//         "lname": "Powers",
+//         "school": "Kenyon College",
+//         "startingheight": "6'2",
+//         "attemptNum": 0,
+//         "bestHeight": 0,
+//         "active": true,
+//         "currHeight": [],
+//         "heights":[],
+//         "id":0
+//     },
+//     {
+//         "fname": "Ben",
+//         "lname": "Adams",
+//         "school": "Barnard College",
+//         "startingheight": "6'0",
+//         "attemptNum": 0,
+//         "bestHeight": 0,
+//         "active": true,
+//         "currHeight": [],
+//         "heights":[],
+//         "id":1
+//     },
+//     {
+//         "fname": "Charlie",
+//         "lname": "Hood",
+//         "school": "Colorado College",
+//         "startingheight": "6'1",
+//         "attemptNum": 0,
+//         "bestHeight": 0,
+//         "active": true,
+//         "currHeight": [],
+//         "heights":[],
+//         "id":2
+//     },
+//     {
+//         "fname": "Dan",
+//         "lname": "Irwin",
+//         "school": "Wake Forest University",
+//         "startingheight": "6'2",
+//         "attemptNum": 0,
+//         "bestHeight": 0,
+//         "active": true,
+//         "currHeight": [],
+//         "heights":[],
+//         "id":3
+//     },
+//     {
+//         "fname": "Edward",
+//         "lname": "Hart",
+//         "school": "Vassar College",
+//         "startingheight": "6'0",
+//         "attemptNum": 0,
+//         "bestHeight": 0,
+//         "active": true,
+//         "currHeight": [],
+//         "heights":[],
+//         "id":4
+//     },
+//     {
+//         "fname": "Frank",
+//         "lname": "Carr",
+//         "school": "Carnegie Mellon University",
+//         "startingheight": "6'2",
+//         "attemptNum": 0,
+//         "bestHeight": 0,
+//         "active": true,
+//         "currHeight": [],
+//         "heights":[],
+//         "id":5
+//     },
+//     {
+//         "fname": "Greg",
+//         "lname": "Stone",
+//         "school": "Centre College",
+//         "startingheight": "5'4",
+//         "attemptNum": 0,
+//         "bestHeight": 0,
+//         "active": true,
+//         "currHeight": [],
+//         "heights":[],
+//         "id":6
+//     },
+//     {
+//         "fname": "Hank",
+//         "lname": "Foster",
+//         "school": "Oberlin College",
+//         "startingheight": "6'4",
+//         "attemptNum": 0,
+//         "bestHeight": 0,
+//         "active": true,
+//         "currHeight": [],
+//         "heights":[],
+//         "id":7
+//     },
+//     {
+//         "fname": "Isaac",
+//         "lname": "Hudson",
+//         "school": "Haverford College",
+//         "startingheight": "6'2",
+//         "attemptNum": 0,
+//         "bestHeight": 0,
+//         "active": true,
+//         "currHeight": [],
+//         "heights":[],
+//         "id":8
+//     },
+//     {
+//         "fname": "James",
+//         "lname": "Douglas",
+//         "school": "Harvard College",
+//         "startingheight": "6'0",
+//         "attemptNum": 0,
+//         "bestHeight": 0,
+//         "active": true,
+//         "currHeight": [],
+//         "heights":[],
+//         "id":9
+//     },
+//     {
+//         "fname": "Kelly",
+//         "lname": "Anthony",
+//         "school": "Villanova University",
+//         "startingheight": "6'2",
+//         "attemptNum": 0,
+//         "bestHeight": 0,
+//         "active": true,
+//         "currHeight": [],
+//         "heights":[],
+//         "id":10
+//     },
+//     {
+//         "fname": "Luke",
+//         "lname": "Grimes",
+//         "school": "Columbia University",
+//         "startingheight": "6'2",
+//         "attemptNum": 0,
+//         "bestHeight": 0,
+//         "active": true,
+//         "currHeight": [],
+//         "heights":[],
+//         "id":11
+//     },
+//     {
+//         "fname": "Mark",
+//         "lname": "Dyer",
+//         "school": "Georgetown University",
+//         "startingheight": "6'3",
+//         "attemptNum": 0,
+//         "bestHeight": 0,
+//         "active": true,
+//         "currHeight": [],
+//         "heights":[],
+//         "id":12
+//     },
+//     {
+//         "fname": "Ned",
+//         "lname": "Shields",
+//         "school": "Trinity College",
+//         "startingheight": "5'11",
+//         "attemptNum": 0,
+//         "bestHeight": 0,
+//         "active": true,
+//         "currHeight": [],
+//         "heights":[],
+//         "id":13
+//     }
+// ]
 
 class Player {
     constructor(fname, lname, school, startheight){
@@ -472,4 +473,4 @@ document.addEventListener('keydown', (event) => {
 
 done.addEventListener('click', ()=>{
     console.log(data);
-});
+});f
