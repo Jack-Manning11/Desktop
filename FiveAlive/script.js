@@ -20,10 +20,13 @@ const done = document.getElementById('finish');
 const make = document.getElementById('make');
 const miss = document.getElementById('miss');
 const pass = document.getElementById('pass');
+const submit = document.getElementById('sbmt');
+const remove = document.getElementById('remove');
 const columns = document.querySelector('.right');
 const next = document.getElementById('next');
 const activePlayer = document.querySelector('.activePlayer');
 const otherPlayers = document.querySelector('.otherPlayers');
+const removedPlayers = document.querySelector('.removedPlayers');
 document.getElementById("defaultOpen").click();
 
 let data = [];
@@ -36,7 +39,7 @@ class Player {
         this.startheight = startheight;
         this.attemptNum = 0;
         this.bestHeight = 0;
-        this.active = true;
+        this.active = "true";
         this.heights = [];
         this.currHeight = [];
         this.id = idNum;
@@ -117,7 +120,7 @@ miss.addEventListener('click', ()=>{
             let cell= document.getElementById("my-table").rows[activePlayers[0].id+1].cells;
             cell[heightNum].textContent = cellHandling(activePlayers[0].currHeight);
             activePlayers[0].currHeight = [];
-            activePlayers[0].active = false;
+            activePlayers[0].active = "false";
             for(let i = 0; i < data.length; i++){
                 if(data[i].id == activePlayers[0].id){
                     data[i] = activePlayers[0];
@@ -144,7 +147,7 @@ miss.addEventListener('click', ()=>{
             let cell= document.getElementById("my-table").rows[activePlayers[0].id+1].cells;
             cell[heightNum].textContent = cellHandling(activePlayers[0].currHeight);
             activePlayers[0].currHeight = [];
-            activePlayers[0].active = false;
+            activePlayers[0].active = "false";
             for(let i = 0; i < data.length; i++){
                 if(data[i].id == activePlayers[0].id){
                     data[i] = activePlayers[0];
@@ -170,7 +173,6 @@ miss.addEventListener('click', ()=>{
 pass.addEventListener('click', ()=>{
      //add the outcome to the current height array
      activePlayers[0].currHeight[activePlayers[0].attemptNum] = "P";
-     activePlayers[0].attemptNum += 1;
      //player is finished with this height, so push current standings to the total heights array
      activePlayers[0].heights.push(activePlayers[0].currHeight);
      //grab cell in question and replace with formatted text
@@ -190,12 +192,17 @@ pass.addEventListener('click', ()=>{
 
 
 next.addEventListener('click', ()=>{
+    for(let i = 0; i < activePlayers.length; i++){
+        if(activePlayers[i].active == "removed"){
+            let r = prompt("Please type " + activePlayers[i].fname + " " + activePlayers[i].lname + "'s ")
+        }
+    }
     let nextHeight = prompt("Please enter the next height in the form of feet'inches");
     let currFeet = parseInt(nextHeight.split("'")[0]);
     let currInches = parseInt(nextHeight.split("'")[1]);
     activePlayers = [];
     for (let i = 0; i < data.length; i++){
-        if(data[i].active == true){
+        if(data[i].active == "true"){
             let feet = parseInt(data[i].startheight.split("'")[0]);
             let inches = parseInt(data[i].startheight.split("'")[1]);
             if(feet < currFeet){
@@ -216,6 +223,7 @@ function appendColumn(textContent) {
         createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), textContent, 'col',i);
     }
 }
+
 function createCell(cell, text, style, position) {
     if(position != 0 && style == 'col'){
         text = " ";
@@ -239,11 +247,6 @@ function appendRow(textContent) {
     for (i = 0; i < tbl.rows[0].cells.length; i++) {
         createCell(row.insertCell(i), textContent, 'row',i);
     }
-}
-
-for(let i = 0; i < data.length; i++){
-    let s = data[i].fname + " " + data[i].lname;
-    appendRow(s);
 }
 
 function displayName(p){  
@@ -303,4 +306,19 @@ document.addEventListener('keydown', (event) => {
 
 done.addEventListener('click', ()=>{
     console.log(data);
+});
+
+remove.addEventListener('click', ()=>{
+    let cell = document.getElementById("my-table").rows[activePlayers[0].id+1].cells;
+    cell[heightNum].textContent = "Temporarily Removed";
+    activePlayers[0].active = "removed";
+
+    let p = document.createElement('p');
+    let text = activePlayers[0].fname + " " + activePlayers[0].lname + " is removed";
+    let txt = document.createTextNode(text);
+    p.appendChild(txt);
+    removedPlayers.appendChild(p);
+
+    activePlayers.splice(0,1);
+    activeHandling();
 });
