@@ -66,3 +66,12 @@ td {
     position: absolute;
     bottom: 20px;
 }
+#edit {
+    position: absolute;
+    top: 0;
+    transform: translate(15px, 15px);
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    cursor: pointer;
+}

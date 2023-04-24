@@ -21,7 +21,7 @@ const make = document.getElementById('make');
 const miss = document.getElementById('miss');
 const pass = document.getElementById('pass');
 const submit = document.getElementById('sbmt');
-const remove = document.getElementById('remove');
+const edit = document.getElementById('edit');
 const columns = document.querySelector('.right');
 const next = document.getElementById('next');
 const activePlayer = document.querySelector('.activePlayer');
@@ -321,4 +321,8 @@ remove.addEventListener('click', ()=>{
 
     activePlayers.splice(0,1);
     activeHandling();
+});
+
+edit.addEventListener('click', ()=>{
+    
 });
