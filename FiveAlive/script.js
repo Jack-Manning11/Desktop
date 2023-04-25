@@ -21,12 +21,12 @@ const make = document.getElementById('make');
 const miss = document.getElementById('miss');
 const pass = document.getElementById('pass');
 const submit = document.getElementById('sbmt');
-const edit = document.getElementById('edit');
 const columns = document.querySelector('.right');
 const next = document.getElementById('next');
 const activePlayer = document.querySelector('.activePlayer');
 const otherPlayers = document.querySelector('.otherPlayers');
 const removedPlayers = document.querySelector('.removedPlayers');
+let editBtns;
 document.getElementById("defaultOpen").click();
 
 let data = [];
@@ -194,7 +194,7 @@ pass.addEventListener('click', ()=>{
 next.addEventListener('click', ()=>{
     for(let i = 0; i < activePlayers.length; i++){
         if(activePlayers[i].active == "removed"){
-            let r = prompt("Please type " + activePlayers[i].fname + " " + activePlayers[i].lname + "'s ")
+            let r = prompt("Please type " + activePlayers[i].fname + " " + activePlayers[i].lname + "'s ");
         }
     }
     let nextHeight = prompt("Please enter the next height in the form of feet'inches");
@@ -215,6 +215,7 @@ next.addEventListener('click', ()=>{
     appendColumn(nextHeight);
     activeHandling();
     heightNum+=1;
+    editBtns = document.querySelectorAll('#innerEdit');
 });
 
 function appendColumn(textContent) {
@@ -230,6 +231,9 @@ function createCell(cell, text, style, position) {
     }
     let div = document.createElement('div');
     let txt = document.createTextNode(text);
+    let btn = document.createElement('button');
+    btn.innerText = 'Edit';
+    btn.classList.add('innerEdit');
     div.appendChild(txt);
     div.setAttribute('class', style);
     if(position == 0){
@@ -237,6 +241,7 @@ function createCell(cell, text, style, position) {
             div.className = "colHeader";
         } else if(style == 'row'){
             div.className = "rowHeader";
+            div.append(btn);
         }
     }
     cell.appendChild(div);
@@ -306,23 +311,4 @@ document.addEventListener('keydown', (event) => {
 
 done.addEventListener('click', ()=>{
     console.log(data);
-});
-
-remove.addEventListener('click', ()=>{
-    let cell = document.getElementById("my-table").rows[activePlayers[0].id+1].cells;
-    cell[heightNum].textContent = "Temporarily Removed";
-    activePlayers[0].active = "removed";
-
-    let p = document.createElement('p');
-    let text = activePlayers[0].fname + " " + activePlayers[0].lname + " is removed";
-    let txt = document.createTextNode(text);
-    p.appendChild(txt);
-    removedPlayers.appendChild(p);
-
-    activePlayers.splice(0,1);
-    activeHandling();
-});
-
-edit.addEventListener('click', ()=>{
-    
 });
