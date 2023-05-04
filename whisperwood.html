@@ -67,7 +67,7 @@ Ok I&#39;m growing tiresome of this exposition can&#39;t we skip [[ahead]]?</tw-
 (set:$key to false)
 (set:$showInventory to false)
 (set:$lights to false)
-(set:$library to false)</tw-passagedata><tw-passagedata pid="12" name="Whisperwood" tags="map" position="500,900" size="100,100">Ahhhh lovely Whisperwood Manor. Ok ok time to focus up Oliver! You&#39;re father left you this mysterious item and nothing else, luring you perfectly back to your beloved childhood home. The question now is...
+(set:$library to false)</tw-passagedata><tw-passagedata pid="12" name="Whisperwood" tags="map" position="500,900" size="100,100">Ahhhh lovely Whisperwood Manor. Ok ok time to focus up Oliver! Your father left you this mysterious item and nothing else, luring you perfectly back to your beloved childhood home. The question now is...
 
 What will Oliver do next?
 
@@ -559,11 +559,18 @@ Oliver returned to the [[library]].
 Oliver reached around to find a [[light switch]].
 ](else-if:$key is true)[
 Standing here with key in hand it dawns on Oliver what this contraption is...
-//That&#39;s the library... right where the books are// Yes Oliver!
-//And that twig is the greenhouse, barrel the workshop yes I&#39;ve got it!// He&#39;ll say triumphantly
+
+//That&#39;s the library... right where the books are// 
+
+Yes Oliver!
+
+//And that twig is the greenhouse, barrel the workshop yes I&#39;ve got it!// 
+
+He&#39;ll say triumphantly
+
 //It&#39;s a [[map]]!//
 ](else:)[
-Oliver&#39;s father decided he was few up with lack of proper lighting when he was working, and opted to install a lightbulb on every surface on the ceiling! The mosaic of antique glittering bulbs was a hassle to install but quite beautiful if you ask me.
+Oliver&#39;s father decided he was fed up with lack of proper lighting when he was working, and opted to install a lightbulb on every surface on the ceiling! The mosaic of antique glittering bulbs was a hassle to install but quite beautiful if you ask me.
 
 Oliver returned back to the [[library]].
 
@@ -671,16 +678,13 @@ It must be somewhere though...
 &quot;In the smallest of rooms lies the smallest of switches, venture back there to abolish this &#39;&#39;cloak&#39;&#39; of darkness...&quot;
 
 [[back|light switch]]</tw-passagedata><tw-passagedata pid="34" name="greenhouse" tags="map" position="900,2500" size="100,100">(if:visits is 1)[
-The greenhouse was Oliver&#39;s true favorite place in the entire estate of Whisperwood. There was something about the shelves of bushes and shrubs, planters of herbs and flowers, and rows of trees that really spoke to Oliver Artemis Kameni. 
+The greenhouse was Oliver&#39;s true favorite place in the entire estate of Whisperwood. There was something about the shelves of bushes and shrubs and rows of trees that really spoke to Oliver Artemis Kameni. 
 ](else:)[
 The lush garden environment welcomed Oliver in.
 ]
 Oliver returned to the [[trophy room]].
 (if:$acorn is true and $goggles is false)[
-Returning with acorn in hand Oliver Artemis Kameni realizes there are 3 pots with mysteriously nothing in them. Each one labeled with a type of tree.
-[[Spruce]]
-[[Oak]]
-[[Maple]]
+Returning with acorn in hand Oliver Artemis Kameni realizes one [[shelf]] in particular seems off...
 ]
 (if:$showInventory is true and $wrench is false)[
 &lt;div&gt;
@@ -709,7 +713,7 @@ Returning with acorn in hand Oliver Artemis Kameni realizes there are 3 pots wit
 ]
 </tw-passagedata><tw-passagedata pid="35" name="adjust" tags="map" position="1500,1700" size="100,100">Pulling the tool from his belt Oliver fixed the telescope, readjusting the sight to point directly at his father&#39;s favorite constellation. 
 
-Right as Oliver was leaving to continue his quest, he heard a small compartment open, it&#39;s latch unlocked now that the telescope was aligned properly. 
+Right as Oliver was leaving to continue his quest he heard a small compartment open with a pop. Spinning around he saw the paneling fall open now that the telescope was properly aligned.
 
 Inside it was a gear.
 
@@ -764,7 +768,8 @@ Oliver
 Artemis 
 Kameni
 
-With that impossible mystery ahead of him Oliver steps away from the barrel and back to the [[sitting room]].
+With that impossible mystery ahead of him Oliver steps away from the 
+barrel and back to the [[sitting room]].
 
 (if:$showInventory is true and $wrench is false)[
 &lt;div&gt;
@@ -791,13 +796,13 @@ With that impossible mystery ahead of him Oliver steps away from the barrel and 
 	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/key.png&quot;&gt;
 &lt;/div&gt;
 ]
-</tw-passagedata><tw-passagedata pid="38" name="Spruce" tags="map" position="700,2600" size="100,100">Do you really think
+</tw-passagedata><tw-passagedata pid="38" name="Spruce" tags="map" position="700,2700" size="100,100">Do you really think
 (text-style:&quot;bold&quot;,&quot;underline&quot;)[O]liver
 (text-style:&quot;bold&quot;,&quot;underline&quot;)[A]temis
 (text-style:&quot;bold&quot;,&quot;underline&quot;)[K]ameni
 would choose Maple?
 
-[[try again|greenhouse]]
+[[try again|shelf]]
 (if:$showInventory is true and $wrench is false)[
 &lt;div&gt;
 	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/empty-gui-2.png&quot;&gt;
@@ -823,7 +828,7 @@ would choose Maple?
 	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/key.png&quot;&gt;
 &lt;/div&gt;
 ]
-</tw-passagedata><tw-passagedata pid="39" name="Oak" tags="map" position="900,2700" size="100,100">Placing the acorn gently into the dirt the pot begins shaking slightly and emanating a soft green glow. Cautious, Oliver stepped just in time before a monstrous oak tree sprouts from the dirt in just moments. After the swirling branches and vines finally settle Oliver realizes there is an odd looking pair of goggles hanging from one of the branches, at the perfect height for him to take.
+</tw-passagedata><tw-passagedata pid="39" name="Oak" tags="map" position="700,2500" size="100,100">Placing the acorn gently into the dirt the pot begins shaking slightly and emanating a soft green glow. Cautious, Oliver stepped just in time before a monstrous oak tree sprouts from the dirt. After the swirling branches and vines finally settle, Oliver realizes there is an odd looking pair of goggles hanging from one of the branches, at the perfect height for him to take.
 
 Dusting himself off Oliver moves on to the rest of the [[greenhouse]] .
 (set:$goggles to true)
@@ -852,13 +857,13 @@ Dusting himself off Oliver moves on to the rest of the [[greenhouse]] .
 	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/key.png&quot;&gt;
 &lt;/div&gt;
 ]
-</tw-passagedata><tw-passagedata pid="40" name="Maple" tags="map" position="700,2400" size="100,100">Do you really think
+</tw-passagedata><tw-passagedata pid="40" name="Maple" tags="map" position="700,2300" size="100,100">Do you really think
 (text-style:&quot;bold&quot;,&quot;underline&quot;)[O]liver
 (text-style:&quot;bold&quot;,&quot;underline&quot;)[A]temis
 (text-style:&quot;bold&quot;,&quot;underline&quot;)[K]ameni
 would choose Maple?
 
-[[try again|greenhouse]]
+[[try again|shelf]]
 (if:$showInventory is true and $wrench is false)[
 &lt;div&gt;
 	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/empty-gui-2.png&quot;&gt;
@@ -886,7 +891,7 @@ would choose Maple?
 ]
 </tw-passagedata><tw-passagedata pid="41" name="odd" tags="map" position="1100,1900" size="100,100">Why yes Oliver it&#39;s a key! Painted to blend into the complex portrait Oliver pulls it gently from the canvas, brushing it off to reveal a golden key.
 
-What an intruiging [[mystery|hallway]]...
+What an intruiging [[mystery|hallway]]... but what does it have to do with this device?
 (set:$key to true)
 (if:$showInventory is true and $wrench is false)[
 &lt;div&gt;
@@ -913,19 +918,109 @@ What an intruiging [[mystery|hallway]]...
 	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/key.png&quot;&gt;
 &lt;/div&gt;
 ]
-</tw-passagedata><tw-passagedata pid="42" name="map" tags="empty" position="1100,2400" size="100,100">//So that means...// Reaching up Oliver will slip the key into the padlock on the device, unlocking it&#39;s power, and bestowing the magic of Whisperwood upon him.
+</tw-passagedata><tw-passagedata pid="42" name="map" tags="empty" position="1100,2400" size="100,100">//So that means...// 
 
-It&#39;ll work... I know it&#39;ll work
+Reaching up Oliver will slip the key into the padlock on the device, completing this final step to convince them all...
 
-I need your help Oliver.
+You can do it Oliver...
 
-You need to [[understand]].</tw-passagedata><tw-passagedata pid="43" name="Start" tags="empty" position="100,100" size="100,100">Welcome to the Roots of Whisperwood
+You need to [[understand]].
 
-This is a mystery / exploration game I made as a TwineJam around the concept of a gear and a scroll. I hope you enjoy! All of the story and pixelart is made by me :)
+(if:$showInventory is true and $wrench is false)[
+&lt;div&gt;
+	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/empty-gui-2.png&quot;&gt;
+&lt;/div&gt;
+](else-if:$wrench is true and $gear is false)[
+&lt;div&gt;
+	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/wrench.png&quot;&gt;
+&lt;/div&gt;
+](else-if:$gear is true and $acorn is false)[
+&lt;div&gt;
+	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/gear.png&quot;&gt;
+&lt;/div&gt;
+](else-if:$acorn is true and $goggles is false)[
+&lt;div&gt;
+	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/acorn.png&quot;&gt;
+&lt;/div&gt;
+](else-if:$goggles is true and $key is false)[
+&lt;div&gt;
+	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/goggles.png&quot;&gt;
+&lt;/div&gt;
+](else-if:$key is true)[
+&lt;div&gt;
+	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/key.png&quot;&gt;
+&lt;/div&gt;
+]</tw-passagedata><tw-passagedata pid="43" name="Start" tags="map" position="100,100" size="100,100">Welcome to the Roots of Whisperwood
 
-[[start|setup info]]</tw-passagedata><tw-passagedata pid="44" name="understand" tags="empty" position="1300,2400" size="100,100">Game End! 
+This is a fantasy interactive fiction game in which you set out to solve the mysteries of Whisperwood and track down your eccentric father! Can you find your way to the center of it all? Can you discover what the device is? Find out all this and more in a 5-10 minute gameplay experience!
 
-I hope you liked the game :)</tw-passagedata></tw-storydata>
+[[start|setup info]]
+
+&lt;div&gt;
+	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/empty-gui-2.png&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="44" name="understand" tags="empty" position="1300,2400" size="100,100">&quot;The pursuit of technology is changing the world for the worst&quot; I had said to the others, making my pitch against this new form of innovation. 
+
+&quot;If we don&#39;t do something to contain it we could lose magic forever! I know you&#39;ve all felt it fading but are too scared to admit it...&quot;
+
+//I can almost still hear the deafening silence of that room, haunting me...//
+
+They needed to [[understand|next]]</tw-passagedata><tw-passagedata pid="45" name="shelf" tags="map" position="525,2475" size="100,100">Staring at the 3 identical pots Oliver Artemis Kameni was faced with a harrowing choice...
+
+[[Maple]]
+[[Spruce]]
+[[Oak]]
+
+(if:$showInventory is true and $wrench is false)[
+&lt;div&gt;
+	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/empty-gui-2.png&quot;&gt;
+&lt;/div&gt;
+](else-if:$wrench is true and $gear is false)[
+&lt;div&gt;
+	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/wrench.png&quot;&gt;
+&lt;/div&gt;
+](else-if:$gear is true and $acorn is false)[
+&lt;div&gt;
+	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/gear.png&quot;&gt;
+&lt;/div&gt;
+](else-if:$acorn is true and $goggles is false)[
+&lt;div&gt;
+	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/acorn.png&quot;&gt;
+&lt;/div&gt;
+](else-if:$goggles is true and $key is false)[
+&lt;div&gt;
+	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/goggles.png&quot;&gt;
+&lt;/div&gt;
+](else-if:$key is true)[
+&lt;div&gt;
+	&lt;img src=&quot;https://jack-manning11.github.io/img/twineJam/key.png&quot;&gt;
+&lt;/div&gt;
+]</tw-passagedata><tw-passagedata pid="46" name="next" tags="empty" position="1300,2600" size="100,100">And so we set out to come up with a solution, spending years collecting and cultivating a community of old magic followers. A group of magic-wielders that grew so large we quickly realized the problem wasn&#39;t just about getting out of the way of steamrolling technology...
+
+It was about creating a world where we could [[thrive]]!</tw-passagedata><tw-passagedata pid="47" name="thrive" tags="empty" position="1500,2600" size="100,100">And almost as soon as the idea formed it was done... at least that&#39;s how it felt.
+
+A collection of isolated cities where technology was allowed to blossom and grow, a playground for the gifted minds not blessed by magic. Not blessed with the understanding that our future does not lie in what&#39;s ahead but in reconnecting with what we left [[behind]]...</tw-passagedata><tw-passagedata pid="48" name="behind" tags="empty" position="1500,2800" size="100,100">I was too caught up in the excitement of freedom to realize I had left out one critical flaw... 
+
+Oliver
+
+He hadn&#39;t shown any gifts of magic, and was consumed by the allure of technology but I knew... 
+
+They never believed but I told them he just needed time and he would show the world. But time wasn&#39;t on my [[side]]...</tw-passagedata><tw-passagedata pid="49" name="side" tags="empty" position="1500,2925" size="100,100">So I was forced to leave him in a world of his own, letting him think I was just a crazy old man.
+
+But being one of the world&#39;s greatest artificers does allow you some... creative freedom. So I&#39;ve been sitting here, working on a plan to get him out, leading him to the backdoor I made, leading him to [[freedom]]...</tw-passagedata><tw-passagedata pid="50" name="freedom" tags="empty" position="1500,3050" size="100,100">But I only have one chance at this Socket! 
+
+//Dr. Kameni&#39;s eyes unglaze from his latest run through of the Whisperwood simulation, Oliver&#39;s success rate now finally at an acceptable level//
+
+I have to make it count... my Oliver Artemis Kameni is strong.
+
+//Thaddeus looks at his robot companion with misty eyes as he toys with the contraption in his hands//
+
+There is a world of magic out there... if only you can remember to go [[looking]]</tw-passagedata><tw-passagedata pid="51" name="looking" tags="empty" position="1500,3200" size="100,100">Story Complete!
+
+I hope you enjoyed walking through the world of Roots of Whisperwood. This story was inspired by an idea I had involving a DnD campaign imagining a world where the need for something new had replaced all of the goodness and purity of magic and the simple things. Roots of Whisperwood is the Artificer experience...
+
+Let me know your thoughts or reach out at jama0209@colorado.edu
+
+Or check out my website at jack-manning11.github.io</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
