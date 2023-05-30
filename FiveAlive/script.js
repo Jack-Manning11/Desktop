@@ -26,8 +26,8 @@ const next = document.getElementById('next');
 const activePlayer = document.querySelector('.activePlayer');
 const otherPlayers = document.querySelector('.otherPlayers');
 const removedPlayers = document.querySelector('.removedPlayers');
-let editBtns;
 document.getElementById("defaultOpen").click();
+
 
 let data = [];
 
@@ -39,7 +39,7 @@ class Player {
         this.startheight = startheight;
         this.attemptNum = 0;
         this.bestHeight = 0;
-        this.active = "true";
+        this.active = "active";
         this.heights = [];
         this.currHeight = [];
         this.id = idNum;
@@ -47,6 +47,8 @@ class Player {
         idNum += 1;
     }
 }
+
+
 
 function cellHandling(arr){
     let s = "";
@@ -120,7 +122,7 @@ miss.addEventListener('click', ()=>{
             let cell= document.getElementById("my-table").rows[activePlayers[0].id+1].cells;
             cell[heightNum].textContent = cellHandling(activePlayers[0].currHeight);
             activePlayers[0].currHeight = [];
-            activePlayers[0].active = "false";
+            activePlayers[0].active = "inactive";
             for(let i = 0; i < data.length; i++){
                 if(data[i].id == activePlayers[0].id){
                     data[i] = activePlayers[0];
@@ -147,7 +149,7 @@ miss.addEventListener('click', ()=>{
             let cell= document.getElementById("my-table").rows[activePlayers[0].id+1].cells;
             cell[heightNum].textContent = cellHandling(activePlayers[0].currHeight);
             activePlayers[0].currHeight = [];
-            activePlayers[0].active = "false";
+            activePlayers[0].active = "inactive";
             for(let i = 0; i < data.length; i++){
                 if(data[i].id == activePlayers[0].id){
                     data[i] = activePlayers[0];
@@ -190,8 +192,13 @@ pass.addEventListener('click', ()=>{
      activeHandling();
 });
 
-
+let btnCheck = false;
+let btns;
 next.addEventListener('click', ()=>{
+    if(btnCheck == false){
+        btnCheck = true;
+        buildBtns();
+    }
     for(let i = 0; i < activePlayers.length; i++){
         if(activePlayers[i].active == "removed"){
             let r = prompt("Please type " + activePlayers[i].fname + " " + activePlayers[i].lname + "'s ");
@@ -202,7 +209,7 @@ next.addEventListener('click', ()=>{
     let currInches = parseInt(nextHeight.split("'")[1]);
     activePlayers = [];
     for (let i = 0; i < data.length; i++){
-        if(data[i].active == "true"){
+        if(data[i].active == "active"){
             let feet = parseInt(data[i].startheight.split("'")[0]);
             let inches = parseInt(data[i].startheight.split("'")[1]);
             if(feet < currFeet){
@@ -215,8 +222,21 @@ next.addEventListener('click', ()=>{
     appendColumn(nextHeight);
     activeHandling();
     heightNum+=1;
-    editBtns = document.querySelectorAll('#innerEdit');
 });
+
+function buildBtns(){
+    btns = document.getElementsByClassName("rowHeader");
+    for(let i = 0; i < btns.length; i++){
+        btns[i].addEventListener('click', (e)=>{
+            console.log(e.target.id);
+            for(let j = 0; j < activePlayers.length; j++){
+                if(activePlayers[j].id == e.target.id){
+                    activePlayers[j].active = "removed";
+                }
+            }
+        });
+    }
+}
 
 function appendColumn(textContent) {
     let tbl = document.getElementById('my-table'), i;
@@ -231,9 +251,6 @@ function createCell(cell, text, style, position) {
     }
     let div = document.createElement('div');
     let txt = document.createTextNode(text);
-    let btn = document.createElement('button');
-    btn.innerText = 'Edit';
-    btn.classList.add('innerEdit');
     div.appendChild(txt);
     div.setAttribute('class', style);
     if(position == 0){
@@ -241,7 +258,7 @@ function createCell(cell, text, style, position) {
             div.className = "colHeader";
         } else if(style == 'row'){
             div.className = "rowHeader";
-            div.append(btn);
+            div.id = idNum-1;
         }
     }
     cell.appendChild(div);
