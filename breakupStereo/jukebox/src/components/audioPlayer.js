@@ -56,6 +56,7 @@ export default function AudioPlayer({currentTrack, currentIndex, setCurrentIndex
     useEffect(() => {
         audioRef.current.pause();
         audioRef.current = new Audio(audioSrc);
+        console.log('audio source: ' + audioSrc);
 
         setTrackProgress(audioRef.current.currentTime);
 

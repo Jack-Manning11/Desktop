@@ -1,65 +1,76 @@
-window.onSpotifyWebPlaybackSDKReady = () => {
-  const token = 'BQAaQaVZJJySMCRPnjWNAq5wznc1lOZ3QPlCqyL3Zw4BMQT0BAPd-ISMOO26k6a_aK0ayZ41Z0LAX3fUfe_ELL9X5wQHnztSpK6kc11pvOlBBfVYWmsUpNwgDj17AiBL5AL2NLQoIOIuPKEmP3VowRDufz83_ft72jmfllya49UzjbhAK0S_Y0jJpY4oyrJ8WeaE9fYaqG4xdvA65eNF0tKbTLjZ';
-  const player = new Spotify.Player({
-      name: 'Web Playback SDK Quick Start Player',
-      getOAuthToken: cb => { cb(token); },
-      volume: 0.5
-  });
+const clientId = "2af3bf6f27c24ae0ab04aa65afe9958b"; // Replace with your client ID
+const params = new URLSearchParams(window.location.search);
+const code = params.get("code");
 
-  function labelHandling() {
-    player.getCurrentState().then(state => {
-      if(!state){
-        return;
-      }
-        document.getElementById('album-img').src = state.track_window.current_track.album.images[2].url;
-        document.getElementById('song-name').textContent = state.track_window.current_track.name;
-        document.getElementById('album-name').textContent = state.track_window.current_track.album.name;
-        document.getElementById('artist-name').textContent = state.track_window.current_track.artists[0].name;
-        document.getElementById('duration').textContent = state.track_window.current_track.duration_ms;
-    });
+if (!code) {
+    redirectToAuthCodeFlow(clientId);
+} else {
+    const accessToken = await getAccessToken(clientId, code);
+    const profile = await fetchProfile(accessToken);
+    console.log(profile);
+}
+
+export async function redirectToAuthCodeFlow(clientId) {
+  const verifier = generateCodeVerifier(128);
+  const challenge = await generateCodeChallenge(verifier);
+
+  localStorage.setItem("verifier", verifier);
+
+  const params = new URLSearchParams();
+  params.append("client_id", clientId);
+  params.append("response_type", "code");
+  params.append("redirect_uri", "http://localhost:5173/callback");
+  params.append("scope", "user-read-private user-read-email, user-read-playback-state, user-modify-playback-state");
+  params.append("code_challenge_method", "S256");
+  params.append("code_challenge", challenge);
+
+  document.location = `https://accounts.spotify.com/authorize?${params.toString()}`;
+}
+
+function generateCodeVerifier(length) {
+  let text = '';
+  let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+  for (let i = 0; i < length; i++) {
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
   }
+  return text;
+}
 
-  // Ready
-  player.addListener('ready', ({ device_id }) => {
-      console.log('Ready with Device ID', device_id);
+async function generateCodeChallenge(codeVerifier) {
+  const data = new TextEncoder().encode(codeVerifier);
+  const digest = await window.crypto.subtle.digest('SHA-256', data);
+  return btoa(String.fromCharCode.apply(null, [...new Uint8Array(digest)]))
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/, '');
+}
+
+
+export async function getAccessToken(clientId, code) {
+  const verifier = localStorage.getItem("verifier");
+
+  const params = new URLSearchParams();
+  params.append("client_id", clientId);
+  params.append("grant_type", "authorization_code");
+  params.append("code", code);
+  params.append("redirect_uri", "http://localhost:5173/callback");
+  params.append("code_verifier", verifier);
+
+  const result = await fetch("https://accounts.spotify.com/api/token", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: params
   });
 
-  // Not Ready
-  player.addListener('not_ready', ({ device_id }) => {
-      console.log('Device ID has gone offline', device_id);
+  const { access_token } = await result.json();
+  return access_token;
+}
+
+async function fetchProfile(token) {
+  const result = await fetch("https://api.spotify.com/v1/me", {
+      method: "GET", headers: { Authorization: `Bearer ${token}` }
   });
-
-  player.addListener('initialization_error', ({ message }) => {
-      console.error(message);
-  });
-
-  player.addListener('authentication_error', ({ message }) => {
-      console.error(message);
-  });
-
-  player.addListener('account_error', ({ message }) => {
-      console.error(message);
-  });  
-
-  document.getElementById('togglePlay').onclick = function() {
-    player.togglePlay();
-  };
-
-  document.getElementById('prev').onclick = function() {
-    player.previousTrack();
-    labelHandling();
-  };
-
-  document.getElementById('next').onclick = function() {
-    player.nextTrack();
-    labelHandling();
-  };
-
-  document.getElementById('test').onclick = function() {
-    player.getCurrentState().then(state => {
-      console.log(state);
-    })
-  }
-
-  player.connect();
+  console.log(result);
+  return await result.json();
 }
