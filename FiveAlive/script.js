@@ -15,6 +15,7 @@ function switchTab(evt, cityName) {
 
 let activePlayers = [];
 let heightNum = 0;
+let currHeight;
 const form = document.querySelector('form');
 const done = document.getElementById('finish');
 const make = document.getElementById('make');
@@ -25,7 +26,7 @@ const columns = document.querySelector('.right');
 const next = document.getElementById('next');
 const activePlayer = document.querySelector('.activePlayer');
 const otherPlayers = document.querySelector('.otherPlayers');
-const removedPlayers = document.querySelector('.removedPlayers');
+let removedPlayers = document.querySelector('.removedPlayers');
 document.getElementById("defaultOpen").click();
 
 
@@ -39,10 +40,11 @@ class Player {
         this.startheight = startheight;
         this.attemptNum = 0;
         this.bestHeight = 0;
-        this.active = "active";
+        this.active = "dormant";
         this.heights = [];
         this.currHeight = [];
         this.id = idNum;
+        this.order = [];
         this.place = "";
         idNum += 1;
     }
@@ -199,23 +201,26 @@ next.addEventListener('click', ()=>{
         btnCheck = true;
         buildBtns();
     }
-    for(let i = 0; i < activePlayers.length; i++){
-        if(activePlayers[i].active == "removed"){
-            let r = prompt("Please type " + activePlayers[i].fname + " " + activePlayers[i].lname + "'s ");
+    for(let i = 0; i < data.length; i++){
+        if(data[i].active == "removed"){
+            let r = prompt("Please type " + data[i].fname + " " + data[i].lname + "'s jumps ");
         }
     }
     let nextHeight = prompt("Please enter the next height in the form of feet'inches");
     let currFeet = parseInt(nextHeight.split("'")[0]);
     let currInches = parseInt(nextHeight.split("'")[1]);
+    currHeight = [currFeet, currInches];
     activePlayers = [];
     for (let i = 0; i < data.length; i++){
-        if(data[i].active == "active"){
+        if(data[i].active == "dormant" || data[i].active == "active"){
             let feet = parseInt(data[i].startheight.split("'")[0]);
             let inches = parseInt(data[i].startheight.split("'")[1]);
             if(feet < currFeet){
                 activePlayers.push(data[i]);
+                data[i].active = "active";
             } else if(feet == currFeet && inches <= currInches){
                 activePlayers.push(data[i]);
+                data[i].active = "active";
             }
         }
     }
@@ -224,16 +229,93 @@ next.addEventListener('click', ()=>{
     heightNum+=1;
 });
 
+function removeHandling(target){
+    let order = [];
+    let spliceIndex;
+    for(let i = 0; i < data.length; i++){
+        if(data[i].id == target.id){
+            if(data[i].active == 'active'){
+                for(let j = 0; j < activePlayers.length; j++){
+                    if(data[i].id == activePlayers[j].id){
+                        spliceIndex = j;
+                        for(let k = j; k < activePlayers.length; k++){
+                            order.push(activePlayers[k].id);
+                        }
+                    }
+                }
+                data[i].order = order;
+                activePlayers.splice(spliceIndex, 1);
+            }
+            let div = document.createElement('div');
+            let txt = document.createTextNode(data[i].fname + ' ' + data[i].lname + ' is removed');
+            div.appendChild(txt);
+            div.classList.add('removed-player');
+            div.id = data[i].id;
+            div.addEventListener('click', (e) => {
+                insertHandling(e.target);
+            });
+            data[i].active = 'removed';
+            target.classList.add('removed');
+            let removedArray = removedPlayers.childNodes;
+            let check = false;
+            for(let m = 1; m < removedArray.length; m++) {
+                if(data[i].id == removedArray[m].id) {
+                    check = true;
+                }
+            }
+            if(check == false) {
+                removedPlayers.appendChild(div);
+            }
+        }
+    }
+    activeHandling();
+}
+
+function insertHandling(target){
+    let check = false;
+    for(let i = 0; i < data.length; i++){
+        if(target.id == data[i].id){
+            let currFeet = parseInt(currHeight[0]);
+            let currInches = parseInt(currHeight[1]);
+            let playerFeet = parseInt(data[i].startheight.split("'")[0]);
+            let playerInches = parseInt(data[i].startheight.split("'")[1]);
+            if((playerFeet < currFeet) || (playerFeet == currFeet && playerInches >= currInches)){
+                data[i].active = 'active';
+                for(let j = 0; j < activePlayers.length; j++){
+                    for(let k = 0; k < data[i].order.length; k++){
+                        if(activePlayers[j].id == data[i].order[k] && check == false){
+                            check = true;
+                            activePlayers.splice(j,0,data[i]);
+                        }
+                    }
+                }
+                if(check == false){
+                    activePlayers.splice(activePlayers.length-1,0,data[i]);
+                }
+            } else {
+                data[i].active = 'dormant';
+            }
+        }
+    }
+    for(let i = 1; i < removedPlayers.childNodes.length; i++){
+        if(removedPlayers.childNodes[i].attributes[0].value == target.attributes[0].value){
+            target.remove();
+        }
+    }
+    let headers = document.querySelectorAll('.rowHeader');
+    for(let i = 0; i < headers.length; i++){
+        if(target.id == headers[i].id){
+            headers[i].classList.remove('removed');
+        }
+    }
+    activeHandling();
+}
+
 function buildBtns(){
     btns = document.getElementsByClassName("rowHeader");
     for(let i = 0; i < btns.length; i++){
         btns[i].addEventListener('click', (e)=>{
-            console.log(e.target.id);
-            for(let j = 0; j < activePlayers.length; j++){
-                if(activePlayers[j].id == e.target.id){
-                    activePlayers[j].active = "removed";
-                }
-            }
+            removeHandling(e.target);
         });
     }
 }
@@ -291,7 +373,10 @@ function displayName(p){
 function activeHandling(){
     activePlayer.innerHTML = "";
     let div = document.createElement('div');
-    let text = displayName(activePlayers[0]);
+    let text;
+    if(activePlayers[0]){
+        text = displayName(activePlayers[0]);
+    }
     let txt = document.createTextNode(text);
     div.appendChild(txt);
     activePlayer.appendChild(div);
@@ -327,5 +412,5 @@ document.addEventListener('keydown', (event) => {
   });
 
 done.addEventListener('click', ()=>{
-    console.log(data);
+    console.log(activePlayers);
 });

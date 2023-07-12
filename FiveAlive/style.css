@@ -66,3 +66,13 @@ td {
     position: absolute;
     bottom: 20px;
 }
+.rowHeader {
+    cursor: pointer;
+}
+.removed {
+    background-color: gray;
+    z-index: 1000;
+}
+.removed-player {
+    cursor: pointer;
+}
