@@ -31,4 +31,14 @@ OAUTH and authorization
 - install axios to help with app post request
 - handled refresh token reauthorization
 
+React app
+- create react app using npx command
+- place it in a client folder
+- launch app with npm start
+- add spotify login routing to App.js
+- run locally using split terminal, one running the react app cd'd into client, the other cd'd into the root folder running node / express server
+- edit callback in index.js to redirect to react app
+- passed the acccess token and refresh token back to react through url params
+- set up a proxy in react's package.json to prevent CORS error
+- install concurrently to help dev environment
 
