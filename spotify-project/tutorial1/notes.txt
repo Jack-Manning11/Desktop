@@ -1,0 +1,34 @@
+DEV ENVIRONMENT
+- make sure nvm, npm, and node are all installed
+- nvmrc file ensures that anyone who wishes to clone the project will have the proper version of node installed
+- create a gitignore to handle pushing unneccessary files to public repositories
+
+APIS
+- Application Programming Interface
+- REST API - Representational State Transfer
+- Restful requests (endpoint, HTTP method, HTTP headers, body data)
+
+HTTP Status codes:
+- 100+ informational response
+- 200+ request has succeeded
+- 300+ request has redirected to another URL
+- 400+ Client side error
+- 500+ Server side error
+
+Express app created
+- launch the local server with node index.js
+- Control + C closes out the app
+- uses the format app.METHOD(PATH, HANDLER)
+
+OAUTH and authorization
+- (Should check out playback apps on the discover page)
+- Add nodemon as a dependecy to help with node server workflow (automated update when changes are made)
+- OAUTH - Open authorization
+- use .env file for safety and keeping things private
+- make example env file to allow others to see what the format should look like
+- install npm package dotenv to handle .env files
+- add in redirect url into the .env file
+- install axios to help with app post request
+- handled refresh token reauthorization
+
+
