@@ -41,4 +41,9 @@ React app
 - passed the acccess token and refresh token back to react through url params
 - set up a proxy in react's package.json to prevent CORS error
 - install concurrently to help dev environment
+- move queryparams logic to it's own .js file for proper file management
+- change the access token from being saved in query params into being saved in local storage
+- added logout functionality and handled backend refreshing in spotify.js
+- download react router dom in client folder (using the old version as upgrading Switches to Routes seemed like a hassle as the upside isn't applicable to this project)
+- 
 
