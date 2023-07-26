@@ -45,5 +45,6 @@ React app
 - change the access token from being saved in query params into being saved in local storage
 - added logout functionality and handled backend refreshing in spotify.js
 - download react router dom in client folder (using the old version as upgrading Switches to Routes seemed like a hassle as the upside isn't applicable to this project)
-- 
+- uses a library called styled-components to better mesh CSS with out react app
+- install the styled components babel plugin for some nice minification
 
