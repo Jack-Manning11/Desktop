@@ -6,16 +6,7 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-import styled from 'styled-components/macro';
-
-const StyledLoginButton = styled.a`
-  background-color: green;
-  color: white;
-  padding: 10px 20px;
-  margin: 20px auto;
-  border-radius: 30px;
-  display: inline-block;
-`
+import './App.css';
 
 function App() {
 
@@ -39,9 +30,9 @@ function App() {
     <div className="App">
       <header className="App-header">
       {!token ? (
-          <StyledLoginButton href="http://localhost:8888/login">
+          <a className="App-link" href="http://localhost:8888/login">
             Log in to Spotify
-          </StyledLoginButton>
+          </a>
         ) : (
           <Router>
             <Switch>
