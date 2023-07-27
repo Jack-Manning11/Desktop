@@ -48,3 +48,4 @@ React app
 - use styled-components for better CSS integration
 - createGlobalStyle allows us to utilize global styles and react styled-components without getting bogged down in additional tags
 
+- move the login button to a pages directory and makes it it's own js file, this allows the imports to be tidy and all relevant html/css to be in one place
