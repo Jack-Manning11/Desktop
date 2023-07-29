@@ -50,3 +50,8 @@ React app
 
 - move the login button to a pages directory and makes it it's own js file, this allows the imports to be tidy and all relevant html/css to be in one place
 - added the top artists section, components folder, and a new API call
+- implemented toptracks with a similar workflow
+1. add the call into spotify.js
+2. import the call and add the useState hook and the useEffect hook with an await function
+3. add the appropriate styles, components, and utils when necessary
+4. import the components to Profile.js and add them to the turnary
