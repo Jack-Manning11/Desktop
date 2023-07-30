@@ -5,9 +5,10 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  useLocation,
 } from 'react-router-dom';
 import { GlobalStyle } from './styles';
-import { Login, Profile } from './pages';
+import { Login, Profile, TopArtists } from './pages';
 import styled from 'styled-components/macro';
 
 const StyledLogoutButton = styled.button`
@@ -25,6 +26,15 @@ const StyledLogoutButton = styled.button`
     right: var(--spacing-lg);
   }
 `;
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
 
@@ -54,20 +64,21 @@ function App() {
             <StyledLogoutButton onClick={logout}>Log Out</StyledLogoutButton>
 
             <Router>
+              <ScrollToTop />
               <Switch>
-                <Route path="/top-artists">
-                  <h1>Top Artists</h1>
+                <Route path="/top-artists" exact>
+                  <TopArtists />
                 </Route>
-                <Route path="/top-tracks">
+                <Route path="/top-tracks" exact>
                   <h1>Top Tracks</h1>
                 </Route>
-                <Route path="/playlists/:id">
+                <Route path="/playlists/:id" exact>
                   <h1>Playlist</h1>
                 </Route>
-                <Route path="/playlists">
+                <Route path="/playlists" exact>
                   <h1>Playlists</h1>
                 </Route>
-                <Route path="/">
+                <Route path="/" exact>
                   <Profile />
                 </Route>
               </Switch>
