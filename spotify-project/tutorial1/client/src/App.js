@@ -3,7 +3,7 @@ import { accessToken, logout, getCurrentUserProfile } from './spotify';
 import { catchErrors } from './utils';
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
   useLocation,
 } from 'react-router-dom';
@@ -63,26 +63,23 @@ function App() {
           <>
             <StyledLogoutButton onClick={logout}>Log Out</StyledLogoutButton>
 
-            <Router>
-              <ScrollToTop />
-              <Switch>
-                <Route path="/top-artists" exact>
-                  <TopArtists />
+              <Routes>
+                <Route path="/top-artists" element={ <TopArtists /> }>
+                  
                 </Route>
-                <Route path="/top-tracks" exact>
-                  <h1>Top Tracks</h1>
+                <Route path="/top-tracks" element={ <h1>Top Tracks</h1> }>
+                  
                 </Route>
-                <Route path="/playlists/:id" exact>
-                  <h1>Playlist</h1>
+                <Route path="/playlists/:id" element={ <h1>Playlist</h1> }>
+                  
                 </Route>
-                <Route path="/playlists" exact>
-                  <h1>Playlists</h1>
+                <Route path="/playlists" element={ <h1>Playlists</h1> }>
+                  
                 </Route>
-                <Route path="/" exact>
-                  <Profile />
+                <Route path="/" element={ <Profile /> }>
+                  
                 </Route>
-              </Switch>
-            </Router>
+              </Routes>
           </>
         )}
       </header>
