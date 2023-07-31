@@ -55,3 +55,6 @@ React app
 2. import the call and add the useState hook and the useEffect hook with an await function
 3. add the appropriate styles, components, and utils when necessary
 4. import the components to Profile.js and add them to the turnary
+
+added the topTracks and topArtists pages in similar fashion
+look at second useEffect hook in Playlists.js for going over calling the next url for multiple calls (needed for getting all the tracks for the jukebox)
