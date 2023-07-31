@@ -58,3 +58,5 @@ React app
 
 added the topTracks and topArtists pages in similar fashion
 look at second useEffect hook in Playlists.js for going over calling the next url for multiple calls (needed for getting all the tracks for the jukebox)
+(paging object)^
+mod5 lesson5 has info about sorting tracks by audio features in case it's needed

@@ -6,7 +6,7 @@ import {
   Route,
 } from 'react-router-dom';
 import { GlobalStyle } from './styles';
-import { Login, Profile, TopArtists, TopTracks, Playlists } from './pages';
+import { Login, Profile, TopArtists, TopTracks, Playlists, Playlist } from './pages';
 import styled from 'styled-components/macro';
 
 const StyledLogoutButton = styled.button`
@@ -61,7 +61,7 @@ function App() {
                 <Route path="/top-tracks" element={ <TopTracks /> }>
                   
                 </Route>
-                <Route path="/playlists/:id" element={ <Playlists /> }>
+                <Route path="/playlists/:id" element={ <Playlist /> }>
                   
                 </Route>
                 <Route path="/playlists" element={ <Playlists /> }>
