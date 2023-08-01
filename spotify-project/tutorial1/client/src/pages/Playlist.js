@@ -76,8 +76,10 @@ const Playlist = () => {
 
           <main>
             <SectionWrapper title="Playlist" breadcrumb={true}>
-              {tracksForTracklist && (
+              {tracksForTracklist ? (
                 <TrackList tracks={tracksForTracklist} />
+              ) : (
+                <Loader />
               )}
             </SectionWrapper>
           </main>
