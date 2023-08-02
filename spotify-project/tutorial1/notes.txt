@@ -60,3 +60,13 @@ added the topTracks and topArtists pages in similar fashion
 look at second useEffect hook in Playlists.js for going over calling the next url for multiple calls (needed for getting all the tracks for the jukebox)
 (paging object)^
 mod5 lesson5 has info about sorting tracks by audio features in case it's needed
+- implemented a custom loading animation by changing the turnaries from && to ? and setting the else to the animation
+
+
+Launch Prep:
+- update title
+- main color theme
+- description
+- update favicon (mod6 lesson1)
+- OG image 1200x630 (for sharing with others)
+
