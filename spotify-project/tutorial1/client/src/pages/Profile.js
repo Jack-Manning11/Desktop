@@ -2,13 +2,15 @@ import { useState, useEffect } from 'react';
 import { catchErrors } from '../utils';
 import { getCurrentUserProfile, getTopArtists, getTopTracks, getCurrentUserPlaylists } from '../spotify';
 import { StyledHeader } from '../styles';
-import { SectionWrapper, ArtistsGrid, TrackList, PlaylistsGrid, Loader } from '../components';
+import { SectionWrapper, ArtistsGrid, TrackList, PlaylistsGrid, Loader, Player } from '../components';
 
 const Profile = () => {
   const [profile, setProfile] = useState(null);
   const [topArtists, setTopArtists] = useState(null);
   const [topTracks, setTopTracks] = useState(null);
   const [playlists, setTopPlaylists] = useState(null);
+  const accessToken = localStorage.spotify_access_token;
+  const testTrack = topTracks?.items[0]?.uri;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -63,6 +65,8 @@ const Profile = () => {
           <SectionWrapper title="Playlists" seeAllLink="/playlists">
             <PlaylistsGrid playlists={playlists.items.slice(0, 10)} />
           </SectionWrapper>
+
+          <Player accessToken={accessToken} trackUri={testTrack}/>
         </main>
       ) : (
         <Loader />
