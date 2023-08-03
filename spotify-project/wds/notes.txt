@@ -9,3 +9,7 @@ install axios (npm i axios) on the client side for easier fetch requests
 (npm i body-parser) to handle 500 error
 window.history.pushState({},null,'/') to remove code from URL
 add the spotify web api node to the client folder as well
+
+PLAYBACK:
+on client side download (npm i react-spotify-web-playback)
+on server side add (npm i lyrics-finder)
