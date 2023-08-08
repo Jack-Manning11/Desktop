@@ -55,21 +55,11 @@ function App() {
             <StyledLogoutButton onClick={logout}>Log Out</StyledLogoutButton>
 
               <Routes>
-                <Route path="/top-artists" element={ <TopArtists /> }>
-                  
-                </Route>
-                <Route path="/top-tracks" element={ <TopTracks /> }>
-                  
-                </Route>
-                <Route path="/playlists/:id" element={ <Playlist /> }>
-                  
-                </Route>
-                <Route path="/playlists" element={ <Playlists /> }>
-                  
-                </Route>
-                <Route path="/" element={ <Profile /> }>
-                  
-                </Route>
+                  <Route path="/top-artists" element={ <TopArtists /> }></Route>
+                  <Route path="/top-tracks" element={ <TopTracks /> }></Route>
+                  <Route path="/playlists/:id" element={ <Playlist /> }></Route>
+                  <Route path="/playlists" element={ <Playlists /> }></Route>
+                  <Route path="/" element={ <Profile /> }></Route>
               </Routes>
           </>
         )}

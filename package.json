@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "concurrently": "^8.2.0",
+    "styled-components": "^6.0.7"
+  }
+}
