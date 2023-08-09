@@ -1,35 +1,30 @@
-import styled from 'styled-components/macro';
+import React from 'react';
+const querystring = require('querystring');
 
-const StyledLoginContainer = styled.main`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-`;
+export default function Login() {
+    const scope = [
+        'user-read-private',
+        'user-read-email',
+        'user-top-read',
+        'streaming',
+        'user-read-playback-state',
+        'user-modify-playback-state'
+    ].join(' ');
 
-const StyledLoginButton = styled.a`
-  display: inline-block;
-  background-color: var(--green);
-  color: var(--white);
-  border-radius: var(--border-radius-pill);
-  font-weight: 700;
-  font-size: var(--fz-lg);
-  padding: var(--spacing-sm) var(--spacing-xl);
+    const queryParams = querystring.stringify({
+        client_id: 'fd6e3871692a443aad1e62f79254f5d1',
+        response_type: 'code',
+        redirect_uri: 'http://localhost:3000',
+        scope: scope,
+    });
 
-  &:hover,
-  &:focus {
-    text-decoration: none;
-    filter: brightness(1.1);
-  }
-`;
+    const AUTH_URL = `https://accounts.spotify.com/authorize?${queryParams}`;
 
-const Login = () => (
-  <StyledLoginContainer>
-    <StyledLoginButton href="http://localhost:8888/login">
-      Log in to Spotify
-    </StyledLoginButton>
-  </StyledLoginContainer>
-);
-
-export default Login;
+    return (
+        <div>
+            <a href={AUTH_URL}>
+                Login With Spotify
+            </a>
+        </div>
+    )
+}

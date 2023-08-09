@@ -1,0 +1,7 @@
+create react template with (npx create-react-app)
+create server folder and download express and spotify-web-api-node
+set up .env file to keep client id, client secret, and redirect uri private
+create .env example file for anyone who wants to fork
+***gitignore***
+
+set up server using express, using spotify-web-api-node for both the refresh and the initial authorization
