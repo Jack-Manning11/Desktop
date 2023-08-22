@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components/macro';
 
 const StyledLoginContainer = styled.main`
@@ -24,12 +25,12 @@ const StyledLoginButton = styled.a`
   }
 `;
 
-const Login = () => (
-  <StyledLoginContainer>
+export default function Login() {
+  return (
+    <StyledLoginContainer>
     <StyledLoginButton href="http://localhost:8888/login">
       Log in to Spotify
     </StyledLoginButton>
-  </StyledLoginContainer>
-);
-
-export default Login;
+    </StyledLoginContainer>
+  )
+}

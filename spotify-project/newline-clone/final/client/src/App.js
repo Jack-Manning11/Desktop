@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
-import { accessToken, logout, getCurrentUserProfile } from './spotify';
-import { catchErrors } from './utils';
+import { accessToken, logout } from './spotify';
 import {
   Routes,
   Route,
 } from 'react-router-dom';
 import { GlobalStyle } from './styles';
-import { Login, Profile, TopArtists, TopTracks, Playlists, Playlist } from './pages';
+import Login from './Login';
+import Home from './Home';
+import Song from './Song';
 import styled from 'styled-components/macro';
 
 const StyledLogoutButton = styled.button`
@@ -28,21 +29,11 @@ const StyledLogoutButton = styled.button`
 function App() {
 
   const [token, setToken] = useState(null);
-  const [profile, setProfile] = useState(null);
 
   useEffect(() => {
     setToken(accessToken);
-
-    const fetchData = async () => {
-      const { data } = await getCurrentUserProfile();
-      setProfile(data);
-    }
-
-    catchErrors(fetchData());
   }, []);
   
-  console.log(profile);
-
   return (
     <div className="App">
       <GlobalStyle />
@@ -53,13 +44,9 @@ function App() {
         ) : (
           <>
             <StyledLogoutButton onClick={logout}>Log Out</StyledLogoutButton>
-
               <Routes>
-                  <Route path="/top-artists" element={ <TopArtists /> }></Route>
-                  <Route path="/top-tracks" element={ <TopTracks /> }></Route>
-                  <Route path="/playlists/:id" element={ <Playlist /> }></Route>
-                  <Route path="/playlists" element={ <Playlists /> }></Route>
-                  <Route path="/" element={ <Profile /> }></Route>
+                  <Route path="/:id" element={ <Song /> }></Route>
+                  <Route path="/" element={ <Home /> }></Route>
               </Routes>
           </>
         )}
