@@ -46,7 +46,7 @@ export default function Home() {
       {tracks && (
         <>
           <p>Tracks</p>
-          <div style={ {} }>
+          <div>
             <HorizontalScroll tracks={tracks}/>
           </div>
         </>

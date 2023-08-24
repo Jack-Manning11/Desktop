@@ -45,7 +45,7 @@ function App() {
           <>
             <StyledLogoutButton onClick={logout}>Log Out</StyledLogoutButton>
               <Routes>
-                  <Route path="/:id" element={ <Song /> }></Route>
+                  <Route path="/song" element={ <Song /> }></Route>
                   <Route path="/" element={ <Home /> }></Route>
               </Routes>
           </>
