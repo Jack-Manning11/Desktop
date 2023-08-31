@@ -3,6 +3,7 @@ import useAuth from './useAuth';
 import { Container, Form } from 'react-bootstrap';
 import SpotifyWebApi from 'spotify-web-api-node';
 import Player from './Player';
+import TrackSearchResult from './TrackSearchResult';
 import axios from 'axios';
 
 const spotifyApi = new SpotifyWebApi({
