@@ -33,7 +33,10 @@ app.get('/login', (req, res) => {
       'user-modify-playback-state',
       'user-read-currently-playing',
       'app-remote-control',
-      'streaming'
+      'streaming',
+      'user-read-private',
+      'user-library-read',
+      'user-library-modify'
     ].join(' ');
 
     const queryParams = querystring.stringify({

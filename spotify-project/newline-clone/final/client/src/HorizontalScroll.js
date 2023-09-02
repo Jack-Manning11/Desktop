@@ -7,6 +7,8 @@ export default function HorizontalScroll({ tracks }) {
     window.location.href = '/song';
   }
 
+  console.log(tracks);
+
   return (
     <div style={{ overflowX: 'scroll', whiteSpace: 'nowrap' }}>
       {tracks.map((song, index) => (
