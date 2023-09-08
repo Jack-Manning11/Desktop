@@ -19,6 +19,7 @@
     "react-h5-audio-player": "^3.8.6",
     "react-router-dom": "^6.15.0",
     "react-spotify-web-playback": "^0.14.0",
+    "react-spotify-web-playback-sdk": "^3.0.2",
     "react-spotify-web-playback-sdk-headless": "^1.4.2"
   },
   "devDependencies": {

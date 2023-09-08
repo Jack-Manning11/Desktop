@@ -1,13 +1,11 @@
 import React from 'react';
+import SpotifyPlayer from './SpotifyPlayer';
 
 export default function HorizontalScroll({ tracks }) {
-
   const handleClick = (song) => {
     localStorage.setItem('currentSong', JSON.stringify(song));
     window.location.href = '/song';
   }
-
-  console.log(tracks);
 
   return (
     <div style={{ overflowX: 'scroll', whiteSpace: 'nowrap' }}>
@@ -17,6 +15,7 @@ export default function HorizontalScroll({ tracks }) {
           <p>{song.track.name}</p>
         </div>
       ))}
+      <SpotifyPlayer accessToken={localStorage.getItem('spotify_access_token')} trackUri={tracks[8].track.uri} />
     </div>
   );
 };

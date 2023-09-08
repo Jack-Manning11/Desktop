@@ -1,5 +1,5 @@
 import React from 'react';
-import Player from './Player';
+import Player from './Player2';
 import { useState, useEffect } from 'react';
 
 export default function Song() {
@@ -12,7 +12,7 @@ export default function Song() {
             setSong(JSON.parse(storedSong));
         }
       }, []);
-
+      
       const handleBack = () => {
         localStorage.removeItem('currentSong'); // Clear the stored item
         window.location.href = '/'; // Redirect to the root URL (item list)
