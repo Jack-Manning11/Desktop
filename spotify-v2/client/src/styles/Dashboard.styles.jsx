@@ -25,13 +25,6 @@ export const ResultsContainer = styled.div`
     overflow-x: auto;
 `
 
-export const LyricsContainer = styled.div`
-    height: 65px;
-    text-align: center;
-    color: #fff;
-    white-space: pre;
-`
-
 export const PlayerContainer = styled.div`
     width: 100%;
     position: fixed;
