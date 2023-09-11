@@ -44,4 +44,13 @@ export const Album = styled.div`
     scroll-snap-align: center;
     flex-shrink: 0; /* Prevent images from shrinking when the container is small */
     margin-right: 10px;
+    cursor: pointer;
+`
+
+export const TextContainer = styled.div`
+    width: 300px;
+    text-align: left;
+    background-color: #6B815F;
+    position: absolute;
+    
 `

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import useAuth from './hooks/useAuth';
 import Player from './Player';
-import AlbumCovers from './AlbumCovers';
+import TextBox from './TextBox';
+import { AlbumContainer, Album, TextContainer } from './styles/Dashboard.styles';
 import SpotifyWebApi from 'spotify-web-api-node';
 import {
     DashBoardContainer,
@@ -19,8 +20,9 @@ const Dashboard = ({ code }) => {
 
     const playlistId = "5zTUX59PIGj24TuLWBxnQC";
 
-    function chooseTrack(track) {
-        setPlayingTrack(track);
+    function chooseTrack(e) {
+        console.log(songs[e.target.id]);
+        setPlayingTrack(songs[e.target.id].track);
     }
 
     useEffect(() => {
@@ -62,7 +64,20 @@ const Dashboard = ({ code }) => {
 
     return (
         <DashBoardContainer>
-            <AlbumCovers songs={songs}/>
+            {songs && (
+                <>
+                    <AlbumContainer>
+                    {songs.map((song, index) => (
+                        <Album key={index} onClick={chooseTrack}>
+                            <img src={song.track?.album?.images[1].url} alt={song.track?.album?.name} id={index}/>
+                        </Album>
+                    ))}
+                    </AlbumContainer>
+                    <TextContainer>
+                        
+                    </TextContainer>
+                </>
+            )}
             <PlayerContainer>
                 <Player accessToken={accessToken} trackUri={playingTrack?.uri}/>
             </PlayerContainer>
