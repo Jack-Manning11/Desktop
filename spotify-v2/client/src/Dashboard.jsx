@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import useAuth from './hooks/useAuth';
 import Player from './Player';
-import TextBox from './TextBox';
+import Details from './Details';
 import { AlbumContainer, Album, TextContainer } from './styles/Dashboard.styles';
 import SpotifyWebApi from 'spotify-web-api-node';
 import {
     DashBoardContainer,
     PlayerContainer,
+    BackButton,
 } from './styles/Dashboard.styles';
 
 const spotifyApi = new SpotifyWebApi({
@@ -17,12 +18,19 @@ const Dashboard = ({ code }) => {
     const accessToken = useAuth(code);
     const [playingTrack, setPlayingTrack] = useState();
     const [songs, setSongs] = useState([]);
+    const [centeredIndex, setCenteredIndex] = useState(0); // Track the centered image index
+    const albumContainerRef = useRef(null);
+    const [show, setShow] = useState(false);
 
-    const playlistId = "5zTUX59PIGj24TuLWBxnQC";
+    const playlistId = "5zTUX59PIGj24TuLWBxnQC";  
 
     function chooseTrack(e) {
-        console.log(songs[e.target.id]);
         setPlayingTrack(songs[e.target.id].track);
+        setShow(true);
+    }
+
+    function onBackButtonClick(){
+        setShow(false);
     }
 
     useEffect(() => {
@@ -61,12 +69,43 @@ const Dashboard = ({ code }) => {
         return () => (cancel = true);
     }, [playlistId, accessToken]);
 
+    useEffect(() => {
+        // Add a scroll event listener to track the centered image index
+        const handleScroll = () => {
+          if (!albumContainerRef.current) return;
+          const container = albumContainerRef.current;
+          const containerWidth = container.clientWidth;
+          const scrollLeft = container.scrollLeft;
+          const albumWidth = 310;
+    
+          // Calculate the centered index based on the scroll position
+          const index = Math.floor((scrollLeft+(containerWidth/2))/albumWidth);
+          setCenteredIndex(index);
+        };
+    
+        const container = albumContainerRef.current;
+        if (container) {
+          container.addEventListener("scroll", handleScroll);
+        }
+    
+        return () => {
+          if (container) {
+            container.removeEventListener("scroll", handleScroll);
+          }
+        };
+      }, [songs, show]);
+
 
     return (
         <DashBoardContainer>
-            {songs && (
+            {show ? (
                 <>
-                    <AlbumContainer>
+                    <BackButton onClick={onBackButtonClick}><span>&#8592;</span></BackButton>
+                    <Details track={songs[centeredIndex]} />
+                </>
+            ) : (
+                <>
+                    <AlbumContainer ref={albumContainerRef}>
                     {songs.map((song, index) => (
                         <Album key={index} onClick={chooseTrack}>
                             <img src={song.track?.album?.images[1].url} alt={song.track?.album?.name} id={index}/>
@@ -74,7 +113,12 @@ const Dashboard = ({ code }) => {
                     ))}
                     </AlbumContainer>
                     <TextContainer>
-                        
+                    {songs[centeredIndex] && (
+                        <>
+                            <p>Song: {songs[centeredIndex].track?.name}</p>
+                            <p>Artists: {songs[centeredIndex].track?.artists.map((artist) => artist.name).join(", ")}</p>
+                        </>
+                    )}
                     </TextContainer>
                 </>
             )}
