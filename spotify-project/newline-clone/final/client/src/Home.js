@@ -15,7 +15,7 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await getPlaylistById(id);
-      setTracksData(data.tracks);
+      setTracksData(data);
     }
     catchErrors(fetchData());
   },[id])

@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
-
 import useAuth from './hooks/useAuth';
 import Player from './Player';
-import TrackSearchResult from './TrackSearchResult';
+import AlbumCovers from './AlbumCovers';
 import SpotifyWebApi from 'spotify-web-api-node';
 import {
     DashBoardContainer,
-    SearchInput,
-    ResultsContainer,
     PlayerContainer,
 } from './styles/Dashboard.styles';
 
@@ -17,13 +14,13 @@ const spotifyApi = new SpotifyWebApi({
 
 const Dashboard = ({ code }) => {
     const accessToken = useAuth(code);
-    const [search, setSearch] = useState('');
-    const [searchResults, setSearchResults] = useState([]);
     const [playingTrack, setPlayingTrack] = useState();
+    const [songs, setSongs] = useState([]);
+
+    const playlistId = "5zTUX59PIGj24TuLWBxnQC";
 
     function chooseTrack(track) {
         setPlayingTrack(track);
-        setSearch('');
     }
 
     useEffect(() => {
@@ -32,53 +29,40 @@ const Dashboard = ({ code }) => {
     }, [accessToken]);
 
     useEffect(() => {
-        if(!search) return setSearchResults([]);
         if(!accessToken) return;
 
         let cancel = false;
-        (async () => {
-            const { body } = await spotifyApi.searchTracks(search);
-            if (cancel) return;
-            setSearchResults(
-                body.tracks.items.map((track) => {
-                    const smallestAlbumImage = track.album.images.reduce(
-                        (smallest, image) => {
-                            if (image.height < smallest.height) return image;
-                            return smallest;
-                        },
-                        track.album.images[0]
-                    );
+        let offset = 0;
+        const allTracks = [];
 
-                    return {
-                        artist: track.artists[0].name,
-                        title: track.name,
-                        uri: track.uri,
-                        albumUrl: smallestAlbumImage.url,
-                    };
-                })
-            );
-        })();
-        
+        const fetchPlaylistTracks = async () => {
+            try {
+                const { body } = await spotifyApi.getPlaylistTracks(playlistId, { offset: offset });
+                if (cancel) return;
+
+                allTracks.push(...body.items);
+
+                if(allTracks.length < body.total){
+                    offset += 100;
+                    await fetchPlaylistTracks();
+                } else {
+                    console.log(allTracks);
+                    setSongs(allTracks);
+                }
+            } catch (err) {
+                console.log("Error fetching tracks: ", err);
+            }
+        };
+
+        fetchPlaylistTracks();
+
         return () => (cancel = true);
-    }, [search, accessToken]);
+    }, [playlistId, accessToken]);
+
 
     return (
         <DashBoardContainer>
-            <SearchInput 
-                type="search"
-                placeholder="Search Songs/Artists"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-            />
-            <ResultsContainer>
-                {searchResults.map((track) => (
-                    <TrackSearchResult 
-                        track={track}
-                        key={track.uri}
-                        chooseTrack={chooseTrack}
-                    />
-                ))}
-            </ResultsContainer>
+            <AlbumCovers songs={songs}/>
             <PlayerContainer>
                 <Player accessToken={accessToken} trackUri={playingTrack?.uri}/>
             </PlayerContainer>

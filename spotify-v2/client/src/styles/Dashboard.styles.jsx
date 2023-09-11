@@ -31,3 +31,17 @@ export const PlayerContainer = styled.div`
     bottom: 0;
     left: 0;
 `
+
+export const AlbumContainer = styled.div`
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+`
+
+export const Album = styled.div`
+    scroll-snap-align: center;
+    flex-shrink: 0; /* Prevent images from shrinking when the container is small */
+    margin-right: 10px;
+`
