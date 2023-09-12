@@ -13,9 +13,9 @@ const Player = ({ accessToken, trackUri }) => {
     return (
         <SpotifyPlayer 
             token={accessToken}
-            showSaveIcon
             callback={state => !state.isPlaying && setPlay(false)}
             play={play}
+            hideAttribution={true}
             uris={trackUri ? trackUri : []}
             styles={{
                 activeColor: "#fff",

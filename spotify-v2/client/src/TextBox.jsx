@@ -15,7 +15,6 @@ const TextBox = ({ songs }) => {
         const song = songs[songIndex];
   
         setCurrentSong(song);
-        console.log(song);
       };
   
       const container = containerRef.current;

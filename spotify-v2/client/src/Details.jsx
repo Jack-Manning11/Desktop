@@ -2,7 +2,6 @@ import React from 'react';
 import { DetailsContainer } from './styles/Dashboard.styles';
 
 const Details = ({ track }) => {
-    console.log(track);
     return (
         <DetailsContainer>
             <img src={track.track?.album.images[1].url} alt={track.track?.name}/>

@@ -28,7 +28,7 @@ const Dashboard = ({ code }) => {
     const playlistId = "5zTUX59PIGj24TuLWBxnQC";  
 
     function chooseTrack(e) {
-        setPlayingTrack(songs[e.target.id].track);
+        setPlayingTrack(songs[e.target.id]);
         setShow(true);
     }
 
@@ -59,7 +59,6 @@ const Dashboard = ({ code }) => {
                     offset += 100;
                     await fetchPlaylistTracks();
                 } else {
-                    console.log(allTracks);
                     setSongs(allTracks);
                 }
             } catch (err) {
@@ -104,7 +103,7 @@ const Dashboard = ({ code }) => {
             {show ? (
                 <>
                     <BackButton onClick={onBackButtonClick}><span>&#8592;</span></BackButton>
-                    <Details track={songs[centeredIndex]} />
+                    <Details track={playingTrack} />
                 </>
             ) : (
                 <>
@@ -130,7 +129,7 @@ const Dashboard = ({ code }) => {
                 </>
             )}
             <PlayerContainer>
-                <Player accessToken={accessToken} trackUri={playingTrack?.uri}/>
+                <Player accessToken={accessToken} trackUri={playingTrack?.track?.uri}/>
             </PlayerContainer>
         </DashBoardContainer>
     );
