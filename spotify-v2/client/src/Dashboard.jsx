@@ -29,6 +29,7 @@ const Dashboard = ({ code }) => {
 
     function chooseTrack(e) {
         setPlayingTrack(songs[e.target.id]);
+        console.log(songs[e.target.id]);
         setShow(true);
     }
 
