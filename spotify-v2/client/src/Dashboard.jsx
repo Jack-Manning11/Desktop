@@ -2,12 +2,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import useAuth from './hooks/useAuth';
 import Player from './Player';
 import Details from './Details';
-import { AlbumContainer, Album, TextContainer } from './styles/Dashboard.styles';
 import SpotifyWebApi from 'spotify-web-api-node';
 import {
     DashBoardContainer,
     PlayerContainer,
     BackButton,
+    AlbumContainer, 
+    Album, 
+    TextContainer,
+    Buffer,
 } from './styles/Dashboard.styles';
 
 const spotifyApi = new SpotifyWebApi({
@@ -79,7 +82,7 @@ const Dashboard = ({ code }) => {
           const albumWidth = 310;
     
           // Calculate the centered index based on the scroll position
-          const index = Math.floor((scrollLeft+(containerWidth/2))/albumWidth);
+          const index = Math.floor((scrollLeft-620+(containerWidth/2))/albumWidth); //-620 is here for the left buffer (Album Width + Margin) * 2
           setCenteredIndex(index);
         };
     
@@ -106,11 +109,15 @@ const Dashboard = ({ code }) => {
             ) : (
                 <>
                     <AlbumContainer ref={albumContainerRef}>
-                    {songs.map((song, index) => (
-                        <Album key={index} onClick={chooseTrack}>
-                            <img src={song.track?.album?.images[1].url} alt={song.track?.album?.name} id={index}/>
-                        </Album>
-                    ))}
+                        <Buffer></Buffer>
+                        <Buffer></Buffer>
+                        {songs.map((song, index) => (
+                            <Album key={index} onClick={chooseTrack}>
+                                <img src={song.track?.album?.images[1].url} alt={song.track?.album?.name} id={index}/>
+                            </Album>
+                        ))}
+                        <Buffer></Buffer>
+                        <Buffer></Buffer>
                     </AlbumContainer>
                     <TextContainer>
                     {songs[centeredIndex] && (

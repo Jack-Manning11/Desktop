@@ -61,3 +61,9 @@ export const BackButton = styled.button`
     right: 0;
     top: 0;
 `
+
+export const Buffer = styled.div`
+    min-width: 300px;
+    min-height: 300px;
+    margin-right: 10px;
+`
