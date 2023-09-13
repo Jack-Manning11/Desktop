@@ -58,8 +58,14 @@ export const DetailsContainer = styled.div`
 
 export const BackButton = styled.button`
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 25px;
+    top: 25px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color: #1cb954;
+    color: #333;
+    border: none;
 `
 
 export const Buffer = styled.div`
