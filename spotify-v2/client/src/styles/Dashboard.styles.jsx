@@ -15,6 +15,7 @@ export const PlayerContainer = styled.div`
 
 export const AlbumContainer = styled.div`
     display: flex;
+    padding-top: 4%;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
@@ -39,11 +40,12 @@ export const Album = styled.div`
 export const TextContainer = styled.div`
     width: 300px;
     text-align: left;
-    background-color: #6B815F;
+    background-color: #EFDFDF;
     position: absolute;
     left: 0;
     right: 0;
     margin: auto;
+    transform: translate(0, 5vh);
 `
 
 export const DetailsContainer = styled.div`
@@ -63,13 +65,18 @@ export const BackButton = styled.button`
     width: 35px;
     height: 35px;
     cursor: pointer;
-    background-color: #1cb954;
-    color: #333;
+    background-color: #EFDFDF;
+    color: #800000;
     border: none;
+    line-height: 5px;
 `
 
 export const Buffer = styled.div`
     min-width: 300px;
     min-height: 300px;
     margin-right: 10px;
+`
+export const Info = styled.p`
+    padding-left: 7px;
+    color: #800000;
 `

@@ -18,13 +18,13 @@ const Player = ({ accessToken, trackUri }) => {
             hideAttribution={true}
             uris={trackUri ? trackUri : []}
             styles={{
-                activeColor: "#fff",
+                activeColor: "#EFDFDF",
                 bgColor: "#333",
-                color: "#fff",
-                loaderColor: "#fff",
-                sliderColor: "#1cb954",
-                trackArtistColor: "#fff",
-                trackNameColor: "#fff",
+                color: "#EFDFDF",
+                loaderColor: "#EFDFDF",
+                sliderColor: "#800000",
+                trackArtistColor: "#EFDFDF",
+                trackNameColor: "#EFDFDF",
                 height: "55px",
             }}
         />

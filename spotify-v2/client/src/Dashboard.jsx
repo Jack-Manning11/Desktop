@@ -11,6 +11,7 @@ import {
     Album, 
     TextContainer,
     Buffer,
+    Info,
 } from './styles/Dashboard.styles';
 
 const spotifyApi = new SpotifyWebApi({
@@ -24,18 +25,27 @@ const Dashboard = ({ code }) => {
     const [centeredIndex, setCenteredIndex] = useState(0); // Track the centered image index
     const albumContainerRef = useRef(null);
     const [show, setShow] = useState(false);
+    const [scrollPos, setScrollPos] = useState(0);
 
     const playlistId = "5zTUX59PIGj24TuLWBxnQC";  
 
     function chooseTrack(e) {
         setPlayingTrack(songs[e.target.id]);
-        console.log(e.target.id);
+        let fixedPos = parseInt(e.target.id) + 1;
+        setScrollPos(fixedPos);
         setShow(true);
     }
 
-    function onBackButtonClick(){
+    const onBackButtonClick = () => {
         setShow(false);
-    }
+        console.log(playingTrack);
+        setTimeout(() => {
+            const element = document.getElementById(scrollPos);
+            if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 500);
+    };
 
     useEffect(() => {
         if(!accessToken) return;
@@ -68,7 +78,6 @@ const Dashboard = ({ code }) => {
         };
 
         fetchPlaylistTracks();
-
         return () => (cancel = true);
     }, [playlistId, accessToken]);
 
@@ -103,7 +112,9 @@ const Dashboard = ({ code }) => {
         <DashBoardContainer>
             {show ? (
                 <>
-                    <BackButton onClick={onBackButtonClick}><span>&#8592;</span></BackButton>
+                    <BackButton onClick={onBackButtonClick}>
+                        <p>&#8592;</p>
+                    </BackButton>
                     <Details track={playingTrack} />
                 </>
             ) : (
@@ -122,8 +133,8 @@ const Dashboard = ({ code }) => {
                     <TextContainer>
                     {songs[centeredIndex] && (
                         <>
-                            <p>Song: {songs[centeredIndex].track?.name}</p>
-                            <p>Artists: {songs[centeredIndex].track?.artists.map((artist) => artist.name).join(", ")}</p>
+                            <Info>{songs[centeredIndex].track?.name}</Info>
+                            <Info>{songs[centeredIndex].track?.artists.map((artist) => artist.name).join(", ")}</Info>
                         </>
                     )}
                     </TextContainer>

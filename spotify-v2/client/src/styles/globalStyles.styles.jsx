@@ -5,9 +5,14 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
+
+@font-face {
+ font-family: "Gotham";
+ src: local("Gotham"),
+  url("./fonts/Gotham.ttf") format("truetype");
+}
+
 
 a {
   color: inherit;
