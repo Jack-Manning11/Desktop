@@ -21,6 +21,7 @@ const spotifyApi = new SpotifyWebApi({
 const Dashboard = ({ code }) => {
     const accessToken = useAuth(code);
     const [playingTrack, setPlayingTrack] = useState();
+    const [trackList, setTrackList] = useState([]);
     const [songs, setSongs] = useState([]);
     const [centeredIndex, setCenteredIndex] = useState(0); // Track the centered image index
     const albumContainerRef = useRef(null);
@@ -30,21 +31,23 @@ const Dashboard = ({ code }) => {
     const playlistId = "5zTUX59PIGj24TuLWBxnQC";  
 
     function chooseTrack(e) {
+        let idNum = parseInt(e.target.id);
+        //add handling for grabbing songs at the end of the array        
         setPlayingTrack(songs[e.target.id]);
-        let fixedPos = parseInt(e.target.id) + 1;
+        setTrackList([songs[idNum]?.track?.uri, songs[idNum+1]?.track?.uri, songs[idNum+2]?.track?.uri, songs[idNum+3]?.track?.uri, songs[idNum+4]?.track?.uri]);
+        let fixedPos = idNum + 2;
         setScrollPos(fixedPos);
         setShow(true);
     }
 
     const onBackButtonClick = () => {
         setShow(false);
-        console.log(playingTrack);
         setTimeout(() => {
             const element = document.getElementById(scrollPos);
             if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
             }
-        }, 500);
+        }, 250);
     };
 
     useEffect(() => {
@@ -141,7 +144,7 @@ const Dashboard = ({ code }) => {
                 </>
             )}
             <PlayerContainer>
-                <Player accessToken={accessToken} trackUri={playingTrack?.track?.uri}/>
+                <Player accessToken={accessToken} trackList={trackList}/>
             </PlayerContainer>
         </DashBoardContainer>
     );

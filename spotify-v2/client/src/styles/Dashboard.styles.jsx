@@ -46,21 +46,39 @@ export const TextContainer = styled.div`
     right: 0;
     margin: auto;
     transform: translate(0, 5vh);
+    border-radius: 8px;
 `
 
 export const DetailsContainer = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: row;
+    color: #EFDFDF;
+`
+
+export const SongInfoCard = styled.div`
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    width: 67%;
+`
+
+export const SongImage = styled.img`
+    max-width: 45%;
+`
+
+export const MemoryInfoCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `
 
 export const BackButton = styled.button`
     position: absolute;
-    right: 25px;
+    left: 25px;
     top: 25px;
     width: 35px;
     height: 35px;
@@ -69,6 +87,7 @@ export const BackButton = styled.button`
     color: #800000;
     border: none;
     line-height: 5px;
+    border-radius: 8px;
 `
 
 export const Buffer = styled.div`

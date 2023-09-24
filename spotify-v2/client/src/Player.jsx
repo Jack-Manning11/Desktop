@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import SpotifyPlayer from "react-spotify-web-playback";
 
-const Player = ({ accessToken, trackUri }) => {
+const Player = ({ accessToken, trackList }) => {
     const [play, setPlay] = useState(false);
 
     useEffect(() => {
         setPlay(true);
-    }, [trackUri]);
+    }, [trackList]);
 
     if(!accessToken) return null;
 
@@ -16,7 +16,7 @@ const Player = ({ accessToken, trackUri }) => {
             callback={state => !state.isPlaying && setPlay(false)}
             play={play}
             hideAttribution={true}
-            uris={trackUri ? trackUri : []}
+            uris={trackList}
             styles={{
                 activeColor: "#EFDFDF",
                 bgColor: "#333",
