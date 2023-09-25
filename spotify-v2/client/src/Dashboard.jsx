@@ -23,7 +23,7 @@ const Dashboard = ({ code }) => {
     const [playingTrack, setPlayingTrack] = useState();
     const [trackList, setTrackList] = useState([]);
     const [songs, setSongs] = useState([]);
-    const [centeredIndex, setCenteredIndex] = useState(0); // Track the centered image index
+    const [centeredIndex, setCenteredIndex] = useState(0);
     const albumContainerRef = useRef(null);
     const [show, setShow] = useState(false);
     const [scrollPos, setScrollPos] = useState(0);
@@ -34,10 +34,22 @@ const Dashboard = ({ code }) => {
         let idNum = parseInt(e.target.id);
         //add handling for grabbing songs at the end of the array        
         setPlayingTrack(songs[e.target.id]);
-        setTrackList([songs[idNum]?.track?.uri, songs[idNum+1]?.track?.uri, songs[idNum+2]?.track?.uri, songs[idNum+3]?.track?.uri, songs[idNum+4]?.track?.uri]);
-        let fixedPos = idNum + 2;
+        fillTrackList(idNum);
+        let fixedPos = idNum + 2; //fixes screen issue of autoscroll index being off by 2
         setScrollPos(fixedPos);
         setShow(true);
+    }
+
+    function fillTrackList(id){
+        if(id <= songs.length-4){
+            setTrackList([songs[id].track.uri, songs[id+1].track.uri, songs[id+2].track.uri, songs[id+3].track.uri, songs[0].track.uri])
+        } else if(id <= songs.length-3){
+            setTrackList([songs[id].track.uri, songs[id+1].track.uri, songs[id+2].track.uri, songs[0].track.uri, songs[1].track.uri])
+        } else if(id <= songs.length-2){
+            setTrackList([songs[id].track.uri, songs[id+1].track.uri, songs[0].track.uri, songs[1].track.uri, songs[2].track.uri])
+        } else if(id <= songs.length-1){
+            setTrackList([songs[id].track.uri, songs[0].track.uri, songs[1].track.uri, songs[2].track.uri, songs[3].track.uri])
+        }
     }
 
     const onBackButtonClick = () => {
@@ -130,8 +142,8 @@ const Dashboard = ({ code }) => {
                                 <img src={song.track?.album?.images[1].url} alt={song.track?.album?.name} id={index}/>
                             </Album>
                         ))}
-                        <Buffer></Buffer>
-                        <Buffer></Buffer>
+                        <Buffer id={songs.length}></Buffer>
+                        <Buffer id={songs.length+1}></Buffer>
                     </AlbumContainer>
                     <TextContainer>
                     {songs[centeredIndex] && (
