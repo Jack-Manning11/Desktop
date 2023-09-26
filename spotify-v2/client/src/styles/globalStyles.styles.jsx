@@ -7,13 +7,6 @@ body {
   margin: 0;
 }
 
-@font-face {
- font-family: "Gotham";
- src: local("Gotham"),
-  url("./fonts/Gotham.ttf") format("truetype");
-}
-
-
 a {
   color: inherit;
   text-decoration: none;

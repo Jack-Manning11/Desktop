@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "GothamBold";
+    src: local("GothamBold"),
+        url("../fonts/GothamBold.ttf") format("truetype");
+
+    font-family: "GothamLight";
+    src: local("GotahmLight"),
+        url("../fonts/GothamLight.ttf") format("truetype");
+
+    font-family: "GothamMedium";
+    src: local("GothamMedium"),
+        url("../fonts/GothamMedium.ttf");
+}

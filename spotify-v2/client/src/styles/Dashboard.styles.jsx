@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import './font.css';
 
 export const DashBoardContainer = styled.div`
     padding: 2rem;
@@ -39,7 +40,7 @@ export const Album = styled.div`
 
 export const TextContainer = styled.div`
     width: 300px;
-    text-align: left;
+    text-align: center;
     background-color: #EFDFDF;
     position: absolute;
     left: 0;
@@ -47,6 +48,7 @@ export const TextContainer = styled.div`
     margin: auto;
     transform: translate(0, 5vh);
     border-radius: 8px;
+    font-family: "GothamMedium";
 `
 
 export const DetailsContainer = styled.div`
@@ -95,7 +97,13 @@ export const Buffer = styled.div`
     min-height: 300px;
     margin-right: 10px;
 `
-export const Info = styled.p`
-    padding-left: 7px;
+export const ArtistInfo = styled.p`
     color: #800000;
+    font-family: "GothamLight";
+`
+
+export const TrackInfo = styled.p`
+    color: #800000;
+    font-family: "GothamMedium";
+    padding-top: 10px;
 `

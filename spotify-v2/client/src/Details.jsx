@@ -8,9 +8,9 @@ const Details = ({ track }) => {
         <DetailsContainer>
             <SongInfoCard>
                 <SongImage src={track.track?.album.images[0].url} alt={track.track?.name}/>
-                <p>Song: {track.track?.name}</p>
-                <p>Album: {track.track?.album.name}</p>
-                <p>Artists: {track.track?.artists.map((artist) => artist.name).join(", ")}</p>
+                <p>{track.track?.name}</p>
+                <p>{track.track?.artists.map((artist) => artist.name).join(", ")}</p>
+                <p>{track.track?.album.name}</p>
             </SongInfoCard>
             <Memory></Memory>
         </DetailsContainer>
