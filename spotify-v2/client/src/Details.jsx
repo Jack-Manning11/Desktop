@@ -1,5 +1,12 @@
 import React from 'react';
-import { DetailsContainer, SongInfoCard, SongImage } from './styles/Dashboard.styles';
+import { 
+    DetailsContainer, 
+    SongInfoCard, 
+    SongImage,
+    TrackName,
+    ArtistName,
+    AlbumName,
+} from './styles/Dashboard.styles';
 import Memory from './Memory';
 
 const Details = ({ track }) => {
@@ -8,9 +15,9 @@ const Details = ({ track }) => {
         <DetailsContainer>
             <SongInfoCard>
                 <SongImage src={track.track?.album.images[0].url} alt={track.track?.name}/>
-                <p>{track.track?.name}</p>
-                <p>{track.track?.artists.map((artist) => artist.name).join(", ")}</p>
-                <p>{track.track?.album.name}</p>
+                <TrackName className='trackName'>{track.track?.name}</TrackName>
+                <ArtistName>{track.track?.artists.map((artist) => artist.name).join(", ")}</ArtistName>
+                <AlbumName>{track.track?.album.name}</AlbumName>
             </SongInfoCard>
             <Memory></Memory>
         </DetailsContainer>

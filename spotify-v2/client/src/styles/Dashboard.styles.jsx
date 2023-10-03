@@ -65,10 +65,11 @@ export const SongInfoCard = styled.div`
     align-items: center;
     justify-content: center;
     width: 67%;
+    text-align: center;
 `
 
 export const SongImage = styled.img`
-    max-width: 45%;
+    max-width: 35%;
 `
 
 export const MemoryInfoCard = styled.div`
@@ -106,4 +107,25 @@ export const TrackInfo = styled.p`
     color: #800000;
     font-family: "GothamMedium";
     padding-top: 10px;
+`
+
+export const TrackName = styled.p`
+    font-family: "GothamBold";
+    font-size: 35px;
+    height: 35px;
+    padding-top: 40px;
+`
+
+export const ArtistName = styled.p`
+    font-family: "GothamMedium";
+    font-size: 18px;
+    height: 18px;
+    padding-top: 28px;
+`
+
+export const AlbumName = styled.p`
+    font-family: "GothamLight";
+    font-size: 12px;
+    height: 12px;
+    padding-top: 22px;
 `
