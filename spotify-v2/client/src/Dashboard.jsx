@@ -11,8 +11,8 @@ import {
     Album, 
     TextContainer,
     Buffer,
-    TrackInfo,
-    ArtistInfo,
+    Track,
+    Artist,
 } from './styles/Dashboard.styles';
 
 const spotifyApi = new SpotifyWebApi({
@@ -146,14 +146,14 @@ const Dashboard = ({ code }) => {
                         <Buffer id={songs.length}></Buffer>
                         <Buffer id={songs.length+1}></Buffer>
                     </AlbumContainer>
-                    <TextContainer>
-                    {songs[centeredIndex] && (
-                        <>
-                            <TrackInfo>{songs[centeredIndex].track?.name}</TrackInfo>
-                            <ArtistInfo>{songs[centeredIndex].track?.artists.map((artist) => artist.name).join(", ")}</ArtistInfo>
-                        </>
-                    )}
-                    </TextContainer>
+                    <div>
+                        {songs[centeredIndex] && (
+                            <TextContainer>
+                                <Track>{songs[centeredIndex].track?.name}</Track>
+                                <Artist>{songs[centeredIndex].track?.artists.map((artist) => artist.name).join(", ")}</Artist>
+                            </TextContainer>
+                        )}
+                    </div>
                 </>
             )}
             <PlayerContainer>

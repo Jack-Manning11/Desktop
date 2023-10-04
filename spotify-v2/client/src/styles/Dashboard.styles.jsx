@@ -36,19 +36,7 @@ export const Album = styled.div`
     flex-shrink: 0; /* Prevent images from shrinking when the container is small */
     margin-right: 10px;
     cursor: pointer;
-`
-
-export const TextContainer = styled.div`
-    width: 300px;
-    text-align: center;
-    background-color: #EFDFDF;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    transform: translate(0, 5vh);
-    border-radius: 8px;
-    font-family: "GothamMedium";
+    z-index: 1000;
 `
 
 export const DetailsContainer = styled.div`
@@ -98,16 +86,6 @@ export const Buffer = styled.div`
     min-height: 300px;
     margin-right: 10px;
 `
-export const ArtistInfo = styled.p`
-    color: #800000;
-    font-family: "GothamLight";
-`
-
-export const TrackInfo = styled.p`
-    color: #800000;
-    font-family: "GothamMedium";
-    padding-top: 10px;
-`
 
 export const TrackName = styled.p`
     font-family: "GothamBold";
@@ -128,4 +106,28 @@ export const AlbumName = styled.p`
     font-size: 12px;
     height: 12px;
     padding-top: 22px;
+`
+
+export const TextContainer = styled.div`
+    width: 300px;
+    color: #800000;
+    background-color: #EFDFDF;
+    border-radius: 8px;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: auto;
+`
+
+export const Track = styled.p`
+    font-size: 25px;
+    font-family: "AvenirBold";
+    padding: 6px;
+`
+
+export const Artist = styled.p`
+    font-size: 16px;
+    font-family: "Avenir";
+    padding: 6px;
 `

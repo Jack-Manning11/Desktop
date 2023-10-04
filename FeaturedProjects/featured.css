@@ -88,3 +88,102 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+
+h1, h2 {
+    text-align: center;
+    padding: 10px;
+}
+
+h1 {
+    font-size: 50px;
+    padding-top: 25px;
+    color: #27353F;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+    font-size: 30px;
+    padding-bottom: 25px;
+    color: #364958;
+    font-family: 'Unna', serif;
+}
+
+p {
+    font-family: 'Hind Madurai', sans-serif;
+}
+
+.holder {
+    background-color: #C5D3CA;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.holder2 {
+    background-color: #C5D3CA;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.description {
+    padding: 15px;
+    width: 750px;
+    font-size: 20px;
+    background-color: #364958;
+    border-radius: 8px;
+    color: #C5D3CA;
+}
+
+.description2 {
+    padding: 15px;
+    width: 550px;
+    font-size: 20px;
+    background-color: #364958;
+    border-radius: 8px;
+    color: #C5D3CA;
+}
+
+.link {
+    background-color: #376859;
+    color: #C5D3CA;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.hero {
+    width: 450px;
+    padding: 10px;
+}
+
+.hero2 {
+    width: 600px;
+    padding: 10px;
+}
+
+.backButton {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background-color: #27353F;
+    color: #C5D3CA;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.backButton p {
+    font-size: 30px;
+}
