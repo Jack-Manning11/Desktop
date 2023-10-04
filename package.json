@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "apiseeds-lyrics": "^2.0.0"
+    "apiseeds-lyrics": "^2.0.0",
+    "node": "^20.7.0"
   }
 }
