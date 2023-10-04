@@ -13,6 +13,7 @@ import {
     Buffer,
     Track,
     Artist,
+    SoftBox,
 } from './styles/Dashboard.styles';
 
 const spotifyApi = new SpotifyWebApi({
@@ -146,14 +147,14 @@ const Dashboard = ({ code }) => {
                         <Buffer id={songs.length}></Buffer>
                         <Buffer id={songs.length+1}></Buffer>
                     </AlbumContainer>
-                    <div>
+                    <SoftBox>
                         {songs[centeredIndex] && (
                             <TextContainer>
                                 <Track>{songs[centeredIndex].track?.name}</Track>
                                 <Artist>{songs[centeredIndex].track?.artists.map((artist) => artist.name).join(", ")}</Artist>
                             </TextContainer>
                         )}
-                    </div>
+                    </SoftBox>
                 </>
             )}
             <PlayerContainer>

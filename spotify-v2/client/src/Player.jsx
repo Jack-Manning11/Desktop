@@ -19,7 +19,7 @@ const Player = ({ accessToken, trackList }) => {
             uris={trackList}
             styles={{
                 activeColor: "#EFDFDF",
-                bgColor: "#333",
+                bgColor: "#191414",
                 color: "#EFDFDF",
                 loaderColor: "#EFDFDF",
                 sliderColor: "#800000",

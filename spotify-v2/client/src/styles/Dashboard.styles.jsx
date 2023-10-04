@@ -77,8 +77,10 @@ export const BackButton = styled.button`
     background-color: #EFDFDF;
     color: #800000;
     border: none;
-    line-height: 5px;
     border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 export const Buffer = styled.div`
@@ -88,24 +90,21 @@ export const Buffer = styled.div`
 `
 
 export const TrackName = styled.p`
-    font-family: "GothamBold";
-    font-size: 35px;
-    height: 35px;
-    padding-top: 40px;
+    font-family: "AvenirBlack";
+    font-size: 40px;
+    padding: 15px;
 `
 
 export const ArtistName = styled.p`
-    font-family: "GothamMedium";
-    font-size: 18px;
-    height: 18px;
-    padding-top: 28px;
+    font-family: "AvenirBold";
+    font-size: 24px;
+    padding: 15px;
 `
 
 export const AlbumName = styled.p`
-    font-family: "GothamLight";
-    font-size: 12px;
-    height: 12px;
-    padding-top: 22px;
+    font-family: "Avenir";
+    font-size: 16px;
+    padding: 15px;
 `
 
 export const TextContainer = styled.div`
@@ -117,17 +116,30 @@ export const TextContainer = styled.div`
     position: absolute;
     right: 0;
     left: 0;
+    top: 65%;
     margin: auto;
 `
 
 export const Track = styled.p`
-    font-size: 25px;
-    font-family: "AvenirBold";
-    padding: 6px;
+    font-size: 28px;
+    font-family: "AvenirBlack";
+    padding: 10px;
 `
 
 export const Artist = styled.p`
-    font-size: 16px;
-    font-family: "Avenir";
-    padding: 6px;
+    font-size: 18px;
+    font-family: "AvenirBold";
+    padding: 10px;
+`
+
+export const SoftBox = styled.div`
+    background-color: #EFDFDF;
+    position: absolute;
+    border-radius: 8px;
+    right: 0;
+    left: 0;
+    top: 0;
+    margin: auto;
+    width: 340px;
+    height: 90%;
 `
