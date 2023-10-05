@@ -1,0 +1,8 @@
+.holder {
+    width: 100vw;
+    height: 100vh;
+}
+
+.holder img {
+    min-width: 100%;
+}
