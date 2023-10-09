@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import useAuth from './hooks/useAuth';
 import Player from './Player';
 import Details from './Details';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShuffle } from '@fortawesome/free-solid-svg-icons';
 import SpotifyWebApi from 'spotify-web-api-node';
 import {
     DashBoardContainer,
@@ -14,6 +16,7 @@ import {
     Track,
     Artist,
     SoftBox,
+    Shuffle,
 } from './styles/Dashboard.styles';
 
 const spotifyApi = new SpotifyWebApi({
@@ -29,6 +32,7 @@ const Dashboard = ({ code }) => {
     const albumContainerRef = useRef(null);
     const [show, setShow] = useState(false);
     const [scrollPos, setScrollPos] = useState(0);
+    const [shuffle, setShuffle] = useState(false);
 
     const playlistId = "5zTUX59PIGj24TuLWBxnQC";  
 
@@ -43,6 +47,9 @@ const Dashboard = ({ code }) => {
     }
 
     function fillTrackList(id){
+        if(shuffle){
+            shuffleSongs();
+        }
         if(id <= songs.length-4){
             setTrackList([songs[id].track.uri, songs[id+1].track.uri, songs[id+2].track.uri, songs[id+3].track.uri, songs[0].track.uri])
         } else if(id <= songs.length-3){
@@ -52,6 +59,17 @@ const Dashboard = ({ code }) => {
         } else if(id <= songs.length-1){
             setTrackList([songs[id].track.uri, songs[0].track.uri, songs[1].track.uri, songs[2].track.uri, songs[3].track.uri])
         }
+    }
+
+    function shuffleSongs(){
+        const shuffledSongs = [];
+        while (shuffledSongs.length < 4) {
+            const randomIndex = Math.floor(Math.random() * songs.length-1);
+            if (!shuffledSongs.includes(randomIndex)) {
+                shuffledSongs.push(songs[randomIndex].track.uri);
+            }
+        }
+        setTrackList(shuffledSongs);
     }
 
     const onBackButtonClick = () => {
@@ -158,6 +176,7 @@ const Dashboard = ({ code }) => {
                 </>
             )}
             <PlayerContainer>
+                <FontAwesomeIcon icon={faShuffle} style={{color: "#efdfdf",}} />
                 <Player accessToken={accessToken} trackList={trackList}/>
             </PlayerContainer>
         </DashBoardContainer>

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import './font.css';
 
 export const DashBoardContainer = styled.div`
-    padding: 2rem;
     min-height: 100vh;
     width: 100%;
 `
@@ -16,7 +15,7 @@ export const PlayerContainer = styled.div`
 
 export const AlbumContainer = styled.div`
     display: flex;
-    padding-top: 4%;
+    padding-top: 7%;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
@@ -40,11 +39,13 @@ export const Album = styled.div`
 `
 
 export const DetailsContainer = styled.div`
-    width: 100%;
+    width: 100vw;
     height: 100%;
     display: flex;
     flex-direction: row;
     color: #EFDFDF;
+    padding: 10px;
+    justify-content: space-between;
 `
 
 export const SongInfoCard = styled.div`
@@ -52,8 +53,12 @@ export const SongInfoCard = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 67%;
+    width: 65%;
+    height: calc(100vh - 90px);
+    border-radius: 8px;
     text-align: center;
+    background-color: #282A2A;
+    padding: 10px;
 `
 
 export const SongImage = styled.img`
@@ -65,6 +70,9 @@ export const MemoryInfoCard = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #282A2A;
+    width: 34.5%;
+    border-radius: 8px;
 `
 
 export const BackButton = styled.button`
@@ -116,14 +124,19 @@ export const TextContainer = styled.div`
     position: absolute;
     right: 0;
     left: 0;
-    top: 65%;
+    top: 68.5%;
     margin: auto;
 `
 
 export const Track = styled.p`
     font-size: 28px;
     font-family: "AvenirBlack";
-    padding: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* This limits the paragraph to one line */
+    -webkit-box-orient: vertical;
+    padding-top: 10px;
 `
 
 export const Artist = styled.p`
@@ -141,5 +154,10 @@ export const SoftBox = styled.div`
     top: 0;
     margin: auto;
     width: 340px;
-    height: 90%;
+    height: calc(100vh - 90px);
+`
+
+export const Shuffle = styled.button`
+    position: absolute;
+    transform: translate(55vw, 2.5vh);
 `

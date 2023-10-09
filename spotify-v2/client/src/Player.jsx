@@ -16,6 +16,7 @@ const Player = ({ accessToken, trackList }) => {
             callback={state => !state.isPlaying && setPlay(false)}
             play={play}
             hideAttribution={true}
+            name='Breakup Stereo'
             uris={trackList}
             styles={{
                 activeColor: "#EFDFDF",
@@ -25,7 +26,7 @@ const Player = ({ accessToken, trackList }) => {
                 sliderColor: "#800000",
                 trackArtistColor: "#EFDFDF",
                 trackNameColor: "#EFDFDF",
-                height: "55px",
+                height: "80px",
             }}
         />
     );
