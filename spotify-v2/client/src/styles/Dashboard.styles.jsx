@@ -157,7 +157,35 @@ export const SoftBox = styled.div`
     height: calc(100vh - 90px);
 `
 
-export const Shuffle = styled.button`
+export const Shuffle = styled.div`
     position: absolute;
-    transform: translate(55vw, 2.5vh);
+    right: 44vw;
+    bottom: 5.4vh;
+    color: #efdfdf;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background-color: #282a2a;
+    cursor: pointer;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+`
+
+export const Info = styled.div`
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color: #EFDFDF;
+    color: #800000;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `

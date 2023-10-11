@@ -10,10 +10,18 @@ const Player = ({ accessToken, trackList }) => {
 
     if(!accessToken) return null;
 
+    const handleStateChange = (state) => {
+        !state.isPlaying && setPlay(false);
+
+        if(state && state.position === 0) {
+            console.log('User skipped to the next track');
+        }
+    }
+
     return (
         <SpotifyPlayer 
             token={accessToken}
-            callback={state => !state.isPlaying && setPlay(false)}
+            callback={handleStateChange}
             play={play}
             hideAttribution={true}
             name='Breakup Stereo'

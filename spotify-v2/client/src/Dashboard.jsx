@@ -17,6 +17,7 @@ import {
     Artist,
     SoftBox,
     Shuffle,
+    Info
 } from './styles/Dashboard.styles';
 
 const spotifyApi = new SpotifyWebApi({
@@ -33,12 +34,24 @@ const Dashboard = ({ code }) => {
     const [show, setShow] = useState(false);
     const [scrollPos, setScrollPos] = useState(0);
     const [shuffle, setShuffle] = useState(false);
-
+    const [inactivityTimer, setInactivityTimer] = useState(5000);
     const playlistId = "5zTUX59PIGj24TuLWBxnQC";  
+
+    useEffect(() => {
+        let timer;
+        if (show) {
+            timer = setTimeout(() => {
+                setShow(false);
+            }, inactivityTimer);
+        }
+    
+        return () => {
+            clearTimeout(timer);
+        };
+    }, [show, inactivityTimer]);
 
     function chooseTrack(e) {
         let idNum = parseInt(e.target.id);
-        //add handling for grabbing songs at the end of the array        
         setPlayingTrack(songs[e.target.id]);
         fillTrackList(idNum);
         let fixedPos = idNum + 2; //fixes screen issue of autoscroll index being off by 2
@@ -47,29 +60,42 @@ const Dashboard = ({ code }) => {
     }
 
     function fillTrackList(id){
+        let indexes = [];
         if(shuffle){
-            shuffleSongs();
-        }
-        if(id <= songs.length-4){
-            setTrackList([songs[id].track.uri, songs[id+1].track.uri, songs[id+2].track.uri, songs[id+3].track.uri, songs[0].track.uri])
-        } else if(id <= songs.length-3){
-            setTrackList([songs[id].track.uri, songs[id+1].track.uri, songs[id+2].track.uri, songs[0].track.uri, songs[1].track.uri])
-        } else if(id <= songs.length-2){
-            setTrackList([songs[id].track.uri, songs[id+1].track.uri, songs[0].track.uri, songs[1].track.uri, songs[2].track.uri])
-        } else if(id <= songs.length-1){
-            setTrackList([songs[id].track.uri, songs[0].track.uri, songs[1].track.uri, songs[2].track.uri, songs[3].track.uri])
-        }
-    }
-
-    function shuffleSongs(){
-        const shuffledSongs = [];
-        while (shuffledSongs.length < 4) {
-            const randomIndex = Math.floor(Math.random() * songs.length-1);
-            if (!shuffledSongs.includes(randomIndex)) {
-                shuffledSongs.push(songs[randomIndex].track.uri);
+            while (indexes.length < 5) {
+                const i = Math.floor(Math.random() * (songs.length-1));
+                if(!indexes.includes(i)){
+                    indexes.push(i);
+                }
+                setTrackList([songs[id].track?.uri, songs[indexes[1]]?.track?.uri, songs[indexes[2]]?.track?.uri, songs[indexes[3]]?.track?.uri]);
+            }
+        } else {
+            if(id <= songs.length-4){
+                setTrackList([songs[id].track.uri, songs[id+1].track.uri, songs[id+2].track.uri, songs[id+3].track.uri, songs[0].track.uri]);
+                indexes = [id, id+1, id+2, id+3, 0];
+            } else if(id <= songs.length-3){
+                setTrackList([songs[id].track.uri, songs[id+1].track.uri, songs[id+2].track.uri, songs[0].track.uri, songs[1].track.uri]);
+                indexes = [id, id+1, id+2, 0, 1];
+            } else if(id <= songs.length-2){
+                setTrackList([songs[id].track.uri, songs[id+1].track.uri, songs[0].track.uri, songs[1].track.uri, songs[2].track.uri]);
+                indexes = [id, id+1, 0, 1, 2];
+            } else if(id <= songs.length-1){
+                setTrackList([songs[id].track.uri, songs[0].track.uri, songs[1].track.uri, songs[2].track.uri, songs[3].track.uri]);
+                indexes = [id, 0, 1, 2, 3];
+            } else {
+                setTrackList([songs[id].track.uri, songs[id+1].track.uri, songs[id+2].track.uri, songs[id+3].track.uri, songs[id+4].track.uri]);
+                indexes = [id, id+1, id+2, id+3, id+4];
             }
         }
-        setTrackList(shuffledSongs);
+        countDuration(indexes);
+    }
+
+    function countDuration(indexes){
+        let totalCount = 0;
+        for(let i = 0; i < indexes.length; i++){
+            totalCount += songs[indexes[i]].track.duration_ms;
+        }
+        setInactivityTimer(totalCount);
     }
 
     const onBackButtonClick = () => {
@@ -145,6 +171,9 @@ const Dashboard = ({ code }) => {
 
     return (
         <DashBoardContainer>
+            <Info>
+                <a href={process.env.REACT_APP_REDIRECT_URI}>?</a>
+            </Info>
             {show ? (
                 <>
                     <BackButton onClick={onBackButtonClick}>
@@ -176,7 +205,16 @@ const Dashboard = ({ code }) => {
                 </>
             )}
             <PlayerContainer>
-                <FontAwesomeIcon icon={faShuffle} style={{color: "#efdfdf",}} />
+                <Shuffle id='shuffle'>
+                    <FontAwesomeIcon icon={faShuffle} onClick={() => {
+                        setShuffle(!shuffle);
+                        if(shuffle){
+                            document.getElementById('shuffle').style.color = "#efdfdf";
+                        } else {
+                            document.getElementById('shuffle').style.color = "#800000";
+                        }
+                    }}/>
+                </Shuffle>
                 <Player accessToken={accessToken} trackList={trackList}/>
             </PlayerContainer>
         </DashBoardContainer>
