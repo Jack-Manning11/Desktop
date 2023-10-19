@@ -16,6 +16,7 @@ const Player = ({ accessToken, trackList }) => {
         if(state && state.position === 0) {
             console.log('User skipped to the next track');
         }
+        console.log(trackList);
     }
 
     return (
