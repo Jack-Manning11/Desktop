@@ -6,11 +6,15 @@ import SpotifyWebApi from "spotify-web-api-node";
 const app = express();
 dotenv.config();
 
+import path from 'path';
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.resolve(__dirname, './client/build')));
 
-const PORT = 3001;
+//heroku app error prevention
+const PORT = process.env.PORT || 3001;
 
 app.post("/login", async (req, res) => {
     const { code } = req.body;
@@ -50,6 +54,10 @@ app.post("/refresh", async (req, res) => {
         console.log(err);
         res.sendStatus(400);
     }
+});
+
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__direname, '../client/build', 'index.html'));
 });
 
 app.listen(PORT, err => {
