@@ -17,7 +17,8 @@ import {
     Artist,
     SoftBox,
     Shuffle,
-    Info
+    Info,
+    DetailsBox
 } from './styles/Dashboard.styles';
 
 const spotifyApi = new SpotifyWebApi({
@@ -107,7 +108,7 @@ const Dashboard = ({ code }) => {
             if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
             }
-        }, 250);
+            }, 250);
     };
 
     useEffect(() => {
@@ -173,39 +174,25 @@ const Dashboard = ({ code }) => {
 
     return (
         <DashBoardContainer>
-            <Info>
-                <a href={process.env.REACT_APP_REDIRECT_URI}>?</a>
-            </Info>
-            {show ? (
-                <>
-                    <BackButton onClick={onBackButtonClick}>
-                        <p>&#8592;</p>
-                    </BackButton>
-                    <Details track={playingTrack} id={id}/>
-                </>
-            ) : (
-                <>
-                    <AlbumContainer ref={albumContainerRef}>
-                        <Buffer></Buffer>
-                        <Buffer></Buffer>
-                        {songs.map((song, index) => (
-                            <Album key={index} onClick={chooseTrack}>
-                                <img src={song.track?.album?.images[1].url} alt={song.track?.album?.name} id={index}/>
-                            </Album>
-                        ))}
-                        <Buffer id={songs.length}></Buffer>
-                        <Buffer id={songs.length+1}></Buffer>
-                    </AlbumContainer>
-                    <SoftBox>
-                        {songs[centeredIndex] && (
-                            <TextContainer>
-                                <Track>{songs[centeredIndex].track?.name}</Track>
-                                <Artist>{songs[centeredIndex].track?.artists.map((artist) => artist.name).join(", ")}</Artist>
-                            </TextContainer>
-                        )}
-                    </SoftBox>
-                </>
-            )}
+                <AlbumContainer ref={albumContainerRef}>
+                    <Buffer></Buffer>
+                    <Buffer></Buffer>
+                    {songs.map((song, index) => (
+                        <Album key={index} onClick={chooseTrack}>
+                            <img src={song.track?.album?.images[1].url} alt={song.track?.album?.name} id={index}/>
+                        </Album>
+                    ))}
+                    <Buffer id={songs.length}></Buffer>
+                    <Buffer id={songs.length+1}></Buffer>
+                </AlbumContainer>
+                <SoftBox>
+                    {songs[centeredIndex] && (
+                        <TextContainer>
+                            <Track>{songs[centeredIndex].track?.name}</Track>
+                            <Artist>{songs[centeredIndex].track?.artists.map((artist) => artist.name).join(", ")}</Artist>
+                        </TextContainer>
+                    )}
+                </SoftBox>
             <PlayerContainer>
                 <Shuffle id='shuffle'>
                     <FontAwesomeIcon icon={faShuffle} onClick={() => {
@@ -219,6 +206,17 @@ const Dashboard = ({ code }) => {
                 </Shuffle>
                 <Player accessToken={accessToken} trackList={trackList}/>
             </PlayerContainer>
+            {show ? (
+                <DetailsBox>
+                    <BackButton onClick={onBackButtonClick}>
+                        <p>&#8592;</p>
+                    </BackButton>
+                    <Details track={playingTrack} id={id}/>
+                </DetailsBox>
+            ): null}
+            <Info>
+                <a href={process.env.REACT_APP_REDIRECT_URI}>?</a>
+            </Info>
         </DashBoardContainer>
     );
 };

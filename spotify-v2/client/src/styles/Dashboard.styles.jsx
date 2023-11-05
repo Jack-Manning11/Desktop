@@ -53,7 +53,7 @@ export const SongInfoCard = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 65%;
+    width: 35%;
     height: calc(100vh - 90px);
     border-radius: 8px;
     text-align: center;
@@ -62,7 +62,7 @@ export const SongInfoCard = styled.div`
 `
 
 export const SongImage = styled.img`
-    max-width: 35%;
+    max-width: 75%;
 `
 
 export const MemoryInfoCard = styled.div`
@@ -71,7 +71,8 @@ export const MemoryInfoCard = styled.div`
     align-items: center;
     justify-content: center;
     background-color: #282A2A;
-    width: 34.5%;
+    width: 64%;
+    height: calc(100vh - 90px);
     border-radius: 8px;
 `
 
@@ -100,13 +101,14 @@ export const Buffer = styled.div`
 export const TrackName = styled.p`
     font-family: "AvenirBlack";
     font-size: 40px;
-    padding: 15px;
+    padding: 10px;
+    padding-top: 15px;
 `
 
 export const ArtistName = styled.p`
     font-family: "AvenirBold";
     font-size: 24px;
-    padding: 15px;
+    padding: 12px;
 `
 
 export const AlbumName = styled.p`
@@ -136,7 +138,7 @@ export const Track = styled.p`
     display: -webkit-box;
     -webkit-line-clamp: 2; /* This limits the paragraph to one line */
     -webkit-box-orient: vertical;
-    padding-top: 10px;
+    padding-top: 30px;
 `
 
 export const Artist = styled.p`
@@ -153,7 +155,7 @@ export const SoftBox = styled.div`
     left: 0;
     top: 0;
     margin: auto;
-    width: 340px;
+    width: 320px;
     height: calc(100vh - 90px);
 `
 
@@ -188,4 +190,21 @@ export const Info = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 5000;
+`
+
+export const DetailsBox = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 90px);
+    background-color: #191414;
+    z-index: 1000;
+`
+
+export const MemoryText = styled.p`
+    font-family: "AvenirBold";
+    font-size: 24px;
+    padding: 15px;
 `

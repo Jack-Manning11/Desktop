@@ -10,8 +10,6 @@ import {
 import Memory from './Memory';
 
 const Details = ({ track, id }) => {
-    //Change album image picker to largest code for potential error handling
-    console.log(track);
     return (
         <DetailsContainer>
             <SongInfoCard>
