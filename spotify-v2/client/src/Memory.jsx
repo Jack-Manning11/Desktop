@@ -1,11 +1,11 @@
 import React from 'react';
+import data from './data/data.json';
 import { MemoryInfoCard } from './styles/Dashboard.styles';
 
-const Memory = () => {
-
+const Memory = ({ id }) => {
     return(
         <MemoryInfoCard>
-            <p>Memories will go here</p>
+            <p>{data[id].memory}</p>
         </MemoryInfoCard>
     )
 }

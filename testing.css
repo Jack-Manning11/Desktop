@@ -1,10 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    width: 100vw;
-    height: 100vh;
-    background-color: #E4E3D3;
+.hiddenThing {
+    display: none;
+    cursor: pointer;
 }

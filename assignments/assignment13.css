@@ -1,26 +1,37 @@
 * {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
+
 body {
-  background-color: #B2D9DA;
+  background-color: #F5E4D7;
+  color: #242F36;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  width: 100vw;
+  height: 100vh;
 }
-.wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 650px;
-  background-color: #6DA0A3;
+
+.randomize {
+  cursor: pointer;
 }
-.nameBox {
-  padding-left: 5%;
+
+.name {
+  width: 50%;
+  height: 60px;
+  text-align: center;
 }
-.radios {
-  padding-left: 5%;
+
+.name label {
+  padding-top: 10px;
+  line-height: 48px;
 }
-.btn {
-  padding-left: 5%;
-}
-.story {
-  margin: 15px;
+
+div {
+  background-color: #73877B;
+  border-radius: 8px;
 }

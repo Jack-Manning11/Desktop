@@ -9,8 +9,9 @@ import {
 } from './styles/Dashboard.styles';
 import Memory from './Memory';
 
-const Details = ({ track }) => {
+const Details = ({ track, id }) => {
     //Change album image picker to largest code for potential error handling
+    console.log(track);
     return (
         <DetailsContainer>
             <SongInfoCard>
@@ -19,7 +20,7 @@ const Details = ({ track }) => {
                 <ArtistName>{track.track?.artists.map((artist) => artist.name).join(", ")}</ArtistName>
                 <AlbumName>{track.track?.album.name}</AlbumName>
             </SongInfoCard>
-            <Memory></Memory>
+            <Memory id={id}></Memory>
         </DetailsContainer>
     )
 }

@@ -28,6 +28,7 @@ const Dashboard = ({ code }) => {
     const accessToken = useAuth(code);
     const [playingTrack, setPlayingTrack] = useState();
     const [trackList, setTrackList] = useState([]);
+    const [id, setId] = useState(0);
     const [songs, setSongs] = useState([]);
     const [centeredIndex, setCenteredIndex] = useState(0);
     const albumContainerRef = useRef(null);
@@ -52,6 +53,7 @@ const Dashboard = ({ code }) => {
 
     function chooseTrack(e) {
         let idNum = parseInt(e.target.id);
+        setId(idNum);
         setPlayingTrack(songs[e.target.id]);
         fillTrackList(idNum);
         let fixedPos = idNum + 2; //fixes screen issue of autoscroll index being off by 2
@@ -179,7 +181,7 @@ const Dashboard = ({ code }) => {
                     <BackButton onClick={onBackButtonClick}>
                         <p>&#8592;</p>
                     </BackButton>
-                    <Details track={playingTrack} />
+                    <Details track={playingTrack} id={id}/>
                 </>
             ) : (
                 <>

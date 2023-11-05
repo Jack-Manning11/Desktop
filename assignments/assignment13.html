@@ -2,20 +2,14 @@
 <html lang="en-us">
   <head>
     <meta charset="utf-8">    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="../../style.css">
-    <script defer src="../test.js"></script> 
+    <link rel="stylesheet" href="assignment13.css">
+    <script defer src="assignment13.js"></script> 
     <title>Silly story generator</title>
-
-
-  
   </head>
-
-
-
   <body>
-    <div>
-      <label for="customname">Enter custom name:</label>
-      <input id="customname" type="text" placeholder="">
+    <div class="name">
+      <label for="customname">What's Your Name? </label>
+      <input id="customname" type="text" placeholder="Mine's Jack">
     </div>
     <div>
       <label for="us">US</label><input id="us" type="radio" name="ukus" value="us" checked>
@@ -24,8 +18,6 @@
     <div>
       <button class="randomize">Generate random story</button>
     </div>
-    <!-- Thanks a lot to Willy Aguirre for his help with the code for this assessment -->
     <p class="story"></p>
-
   </body> 
 </html>
