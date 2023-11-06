@@ -2,16 +2,22 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import SpotifyWebApi from "spotify-web-api-node";
+import * as path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
 const app = express();
 dotenv.config();
 
-import path from 'path';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// Now you can use __dirname as before
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.resolve(__dirname, './client/build')));
+app.use(express.static(path.join(__dirname, 'public')))
 
 //heroku app error prevention
 const PORT = process.env.PORT || 3001;
@@ -57,7 +63,7 @@ app.post("/refresh", async (req, res) => {
 });
 
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__direname, '../client/build', 'index.html'));
+    res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
 });
 
 app.listen(PORT, err => {
