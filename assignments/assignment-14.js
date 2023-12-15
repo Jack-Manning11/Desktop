@@ -9,6 +9,37 @@
  * Print JSON(s) to console.
  **/
 
+
+const test = {
+  'listName' : [
+    {
+      'string' : 'firstName',
+      'num': 0,
+      'bool': false
+    },
+    {
+      'string' : 'firstName',
+      'num': 0,
+      'bool': false
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  let company1 = {
    "employeeList": [
      {
@@ -33,6 +64,8 @@
      "raiseEligible": false
    }]
  }
+
+console.log("Question 1:");
 console.log(company1);
 
 /**
@@ -70,6 +103,7 @@ console.log(company1);
      "raiseEligible": false
    }]
  }
+ console.log("Question 2");
 console.log(company2);
 
 /**
@@ -109,7 +143,6 @@ console.log(company2);
      "raiseEligible": false
    }]
  }
- console.log(company3);
 
  function addEmployee(obj, name, dep, des, sal, raise) {
   let employee = {
@@ -123,6 +156,8 @@ console.log(company2);
 }
 addEmployee(company3, "Anna", "Tech", "Executive", 25600, false);
 
+console.log(company3);
+
 /**
  * Problem 4.
  *
@@ -134,9 +169,37 @@ addEmployee(company3, "Anna", "Tech", "Executive", 25600, false);
 let salaryTotal = 0;
 for(let i = 0; i < company3.employeeList.length; i++){
   salaryTotal += company3.employeeList[i]['salary'];
+  //check raiseEligible
+  //if(true) salary += salary*.1
 }
 
 console.log(salaryTotal);
+
+
+
+for(let i = 0; i < company3.employeeList.length; i++){
+  if(company3.employeeList[i]['raiseEligible']){
+    company3.employeeList[i]['salary'] += company3.employeeList[i]['salary'] * .1;
+    company3.employeeList[i]['raiseEligible'] = false;
+  }
+}
+
+console.log("Question 5");
+console.log(company3);
+
+
+
+let arr = ['Anna', 'Sam'];
+for(let i = 0; i < company3.employeeList.length; i++){
+  for(let j = 0; j <arr.length; j++){
+    if(company3.employeeList[i]['firstName'] == arr[j]){
+      company3.employeeList[i]['wfh'] = true;
+    } else {
+      company3.employeeList[i]['wfh'] = false;
+    }
+  }
+}
+
 /**
  * Problem 5.
  *
