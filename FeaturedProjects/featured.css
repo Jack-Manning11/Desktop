@@ -191,3 +191,8 @@ p {
 #webDev:hover {
     background-color: red;
 }
+
+#title {
+    width: 550px;
+    text-align: center;
+}
