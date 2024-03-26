@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    background-color: #e6ceac;
+}
+
+.mapholder {
+    width: 70vw;
+    height: 100vh;
+    position: relative;
+}
+
+.map {
+    max-width: 100%;
+    padding-top: 2.5%;
+    height: auto;
+}
+
+.city {
+    cursor: pointer;
+    position: absolute;
+}
+
+.city:hover {
+    border: 4px solid #2a1d0d;
+    opacity: 50%;
+}
+
+#verdantSpire {
+    width: 13vw;
+    height: 3vw;
+    left: 26.5vw;
+    top: 24vw;
+}
+
+#sundrenchedCitadel {
+    width: 19vw;
+    height: 3vw;
+    left: 3vw;
+    top: 11.7vw;
+}
+
+#isleOfWhispers {
+    width: 15vw;
+    height: 3vw;
+    left: 25.5vw;
+    top: 3.5vw;
+}
+
+#serenityGlade {
+    width: 15.5vw;
+    height: 3vw;
+    left: 1vw;
+    top: 29vw;
+}
+
+#crescentwoodThicket {
+    width: 20vw;
+    height: 3vw;
+    left: 43vw;
+    top: 9.2vw;
+}
+
+#mossheartGrotto {
+    width: 17.5vw;
+    height: 3vw;
+    left: 48vw;
+    top: 23.5vw;
+}
+
+#stoneblossomHollow {
+    width: 19.5vw;
+    height: 3vw;
+    left: 14vw;
+    top: 37.2vw;
+}
+
+#riversongSanctuary {
+    width: 19vw;
+    height: 3vw;
+    left: 48.2vw;
+    top: 37vw;
+}
+
+.sidebar {
+    position: absolute;
+    width: 30vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #bda583;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heroHolder {
+    width: 30vw;
+}
+
+.hero {
+    max-width: 100%;
+}
+
+.title {
+    color: #292418;
+    padding: 10px;
+}
+
+.description {
+    padding: 10px;
+}
