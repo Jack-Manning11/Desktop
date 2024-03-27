@@ -106,7 +106,7 @@ const creaturesData =
         {
             "name": "Thornback Drake",
             "type": "companion",
-            "description": "Charming ducks with feathers that shimmer like rippling water, graceful yet clumsy at the same time. As it quacks, magical droplets form in the air around it, manifesting water-themed abilities that allow it to manipulate aquatic forces and create mesmerizing displays of liquid magic in its wake.",
+            "description": "Small, lizard-like creatures covered in thorny protrusions. They possess the ability to curl into a protective ball, resembling a spiky seed pod. Thornback Drakes are known for their playful nature and are often kept as companions by the inhabitants of the world",
             "location": ["Serenity's Glade", "Mossheart Grotto", "Crescentwood Thicket"],
             "img": "Images/creatures/thornback.jpg",
             "powers": [

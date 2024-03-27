@@ -310,6 +310,7 @@ function createMenu(data) {
     const title = document.createElement('h4');
     title.classList.add('title');
     title.textContent = data.name;
+    console.log(data.name);
     title.style.textAlign = 'center';
     title.style.fontSize = '24px';
     contentDiv.appendChild(title);
@@ -330,6 +331,10 @@ function createMenu(data) {
             img.src = item.img;
             objectDiv.appendChild(img);
         }
+
+        const itemName = document.createElement('p');
+        itemName.textContent = item.name;
+        objectDiv.appendChild(itemName);
 
         const itemDescription = document.createElement('p');
         itemDescription.textContent = item.description;
