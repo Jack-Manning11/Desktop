@@ -1,3 +1,37 @@
+
+const books = ['dune', 'game of thrones', 'mistborn', 'wizard of earthsea']
+
+const book = randomValueFromArray(books);
+const endpoint = "theendpoitn" + book;
+
+
+
+
+
+
+
+//reference lines
+const pTag = document.querySelector('.className');
+const body = document.querySelector('body');
+
+body.appendChild(cardBody);
+
+//to show text
+pTag.textContent = json[something];
+
+
+const imgTag = document.querySelector('.className');
+imgTag.src = json[something];
+
+
+
+
+
+
+
+
+
+
 const customName = document.getElementById('customname');
 const randomize = document.querySelector('.randomize');
 const story = document.querySelector('.story');

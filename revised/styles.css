@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffecd6;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.monitor {
+    background-color: #203c56;
+    border-color: #0A0A0A;
+    border-width: 2%;
+    width: 60%;
+    height: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.folder {
+    width: 10vw;
+    height: 10vw;
+    margin: 10px;
+    background-color: #d08159;
+}
+
+.desk {
+    background-color: #7A6D52;
+    width: 75%;
+    height: 20%;
+}
