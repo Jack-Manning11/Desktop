@@ -1,0 +1,262 @@
+:root {
+    --background-color: #FFF8E7; /* Cosmic Latte */
+    --box-color: #184D47; /* Brunswick Green */
+    --text-color: #141414; /* Night */ 
+    --accent-color: #C16033; /* Tawny */
+    font-size: 10px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.montserrat {
+    font-family: "Montserrat", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.lora {
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    justify-content: space-around;
+    align-content: space-around;
+    grid-gap: 5px;
+    padding: 5px;
+}
+
+.bento {
+    background-color: var(--box-color);
+    border-radius: 10px;
+}
+
+.imgContainer {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.imgContainer img {
+    max-width: 100%;
+}
+
+.navbar {
+    grid-column: 1/11;
+}
+
+.tagline {
+    grid-row: 2/7;
+    grid-column: 1/5;
+}
+
+.hero {
+    grid-row: 2/7;
+    grid-column: 5/8;
+}
+
+.project {
+    grid-row: 2/10;
+    grid-column: 8/11;
+}
+
+.socials {
+    grid-row: 10/11;
+    grid-column: 8/11;
+}
+
+.cv {
+    grid-row: 7/11;
+    grid-column: 1/4;
+}
+
+.contact {
+    grid-row: 7/11;
+    grid-column: 4/8;
+}
+
+.navbar nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    color: var(--background-color);
+}
+
+.logo h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: var(--background-color);
+    font-size: 1.6rem;
+    transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: var(--accent-color);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: var(--text-color);
+    color: var(--background-color);
+    text-decoration: none;
+    font-size: 24px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.icon.linkedin:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+
+.icon.instagram:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+
+.icon.email:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}
+
+#highlight {
+    color: var(--accent-color);
+}
+
+.tagline p {
+    font-size: 3.2em;
+    padding-left: 5%;
+    padding-top: 5%;
+}
+
+.title {
+    padding: 3%;
+    font-size: 3rem;
+    color: var(--accent-color);
+}
+
+.pieceHolder {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 3%;
+}
+
+.piece {
+    width: 95%;
+    background-color: var(--background-color);
+    border-radius: 10px;
+}
+
+.name {
+    padding: 3%;
+    font-size: 2rem;
+}
+
+.description {
+    padding-left: 3%;
+    padding-bottom: 3%;
+    font-size: 1.4rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 95%;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--text-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    border-radius: 5px;
+    resize: none;
+}
+
+.contact-form input[type="email"] {
+    height: 24px;
+}
+
+.contact-form textarea {
+    height: 70%;
+}
+
+.contact-form button {
+    align-self: flex-end;
+    padding: 10px 20px;
+    background-color: var(--text-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--text-color);
+    opacity: 0.7;
+    font-style: italic;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <title>Portfolio - Jack Manning</title>
+</head>
+<body>
+    <div class="container montserrat">
+        <div class="bento navbar">
+            <nav>
+                <div class="logo">
+                    <h1>Jack Manning</h1>
+                </div>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="bento tagline">
+            <p>A <em id="highlight">jack of all trades</em> developing playful digital experiences with a purpose</p>
+        </div>
+        <div class="bento hero">
+            <div class="imgContainer">
+                <img src="images/Jack-Hero.JPG" alt="Handsome guy named Jack">
+            </div>
+        </div>
+        <div class="bento contact">
+            <h2 class="title">Contact Me</h2>
+            <form
+                action="https://formspree.io/f/mkgwaqgg"
+                method="POST"
+                class="contact-form"
+            >
+                <label class="montserrat">
+                    Your email:
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                </label>
+                <label class="montserrat">
+                    Your message:
+                    <textarea name="message" placeholder="Write your message" required></textarea>
+                </label>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        <div class="bento project">
+            <h2 class="title">Projects</h2>
+            <div class="pieceHolder">
+                <div class="piece">
+                    <div class="name">CVPID</div>
+                    <div class="description lora">An interactive experience designed to convey the flaws and concerns of computer vision in the realm of human classification through the lens of modern dating. </div>
+                </div>
+            </div>
+            <div class="pieceHolder">
+                <div class="piece">
+                    <div class="name">Breakup Jukebox</div>
+                    <div class="description lora">Certain Songs are Cursed is a creative art and scholarly research project exploring people's memories of their past relationships and the songs that surface those memories.</div>
+                </div>
+            </div>
+            <div class="pieceHolder">
+                <div class="piece">
+                    <div class="name">The ATLAS Arcana</div>
+                    <div class="description lora">The ATLAS Arcana is a playful orientation of the CTD program and the ATLAS building as an isometric video game that utilizes mixed interface puzzles to create a sense of community for students.</div>
+                </div>
+            </div>
+        </div>
+        <div class="bento cv">
+            <h2 class="title">CV</h2>
+        </div>
+        <div class="bento socials">
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/jack-manning-858500168/" class="icon linkedin" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/jack_manning_11/?next=%2F" class="icon instagram" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:jack.manning@colorado.edu" class="icon email" target="_blank">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>            
+        </div>
+    </div>
+</body>
+</html>
